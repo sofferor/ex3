@@ -30,7 +30,7 @@ namespace SearchAlgorithmsLib
         }
 
         protected void PushPQueue(State<T> s) {
-            pQueue.Enqueue(s, s.Cost);
+            pQueue.Enqueue(s, );
         }
 
         public abstract Solution Search(ISearchable<T> searchable);

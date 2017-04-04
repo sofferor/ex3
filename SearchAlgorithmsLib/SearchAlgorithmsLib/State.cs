@@ -6,6 +6,12 @@
 
         public float Cost {
             get => cost;
+            set => cost = value;
+        }
+
+        public State<T> CameFrom {
+            get => cameFrom;
+            set => cameFrom = value;
         }
 
         public State(T state) {
