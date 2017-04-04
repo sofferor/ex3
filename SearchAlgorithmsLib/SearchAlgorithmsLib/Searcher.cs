@@ -33,7 +33,7 @@ namespace SearchAlgorithmsLib
             pQueue.Enqueue(s, s.Cost);
         }
 
-        public abstract Solution Search(ISearchable<T> searchable);
+        public abstract Solution<T> Search(ISearchable<T> searchable);
 
         public int GetNumberOfNodesEvaluated() {
             return evaluateNodes;
