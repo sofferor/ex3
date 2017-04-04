@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib
 {
-    public class Class1
-    {
+    public abstract class Searcher : ISearcher {
     }
 }
