@@ -14,8 +14,9 @@
             set => cameFrom = value;
         }
 
-        public State(T state) {
-            this.state = state;
+        public State(T s) {
+            state = s;
+            cameFrom = null;
         }
 
         public bool Equals(State<T> s) {
