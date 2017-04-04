@@ -38,5 +38,13 @@ namespace SearchAlgorithmsLib
         public int GetNumberOfNodesEvaluated() {
             return evaluateNodes;
         }
+
+        public bool PQcontain(State<T> s) {
+            return pQueue.Contains(s);
+        }
+
+        public void UpdatePriority(State<T> s) {
+            pQueue.UpdatePriority(s, s.Cost);
+        }
     }
 }

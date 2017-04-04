@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace SearchAlgorithmsLib {
     public abstract class Searchable<T> : ISearchable<T> {
-
         private State<T> initialState;
         private State<T> goalState;
 
-        public Searchable(State<T> initial, State<T> goal) {
-            initialState = initial;
-            goalState = goal;
+        protected Searchable(State<T> initialState, State<T> goalState) {
+            this.initialState = initialState;
+            this.goalState = goalState;
         }
 
         public State<T> getInitialState() {
