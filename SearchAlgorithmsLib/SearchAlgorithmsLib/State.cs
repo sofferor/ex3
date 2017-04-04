@@ -1,8 +1,12 @@
 ﻿namespace SearchAlgorithmsLib {
     public class State<T> {
         private T state;
-        private double cost;
+        private float cost;
         private State<T> cameFrom;
+
+        public float Cost {
+            get => cost;
+        }
 
         public State(T state) {
             this.state = state;

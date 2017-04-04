@@ -29,9 +29,11 @@ namespace SearchAlgorithmsLib
             return pQueue.Dequeue();
         }
 
-        Solution Search(ISearchable<T> searchable) {
-            return new Solution();
+        protected void PushPQueue(State<T> s) {
+            pQueue.Enqueue(s, s.Cost);
         }
+
+        public abstract Solution Search(ISearchable<T> searchable);
 
         public int GetNumberOfNodesEvaluated() {
             return evaluateNodes;
