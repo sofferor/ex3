@@ -9,7 +9,7 @@ namespace SearchAlgorithmsLib
 {
     public abstract class Searcher<T> : ISearcher<T> {
 
-        private SimplePriorityQueue<State<T>> pQueue;
+        protected SimplePriorityQueue<State<T>> pQueue;
         private int evaluateNodes;
 
         //property size of queue.
