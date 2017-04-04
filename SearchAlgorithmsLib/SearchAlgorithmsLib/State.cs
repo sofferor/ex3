@@ -12,6 +12,5 @@
             return state.Equals(s.state);
         }
 
-
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 
 namespace SearchAlgorithmsLib {
-    public interface ISearchable {
-        State<T> GetInitialState<T>();
-        State<T> GetGoalState<T>();
-        List<State<T>> GetAllPossibleStates<T>(State<T> s);
+    public interface ISearchable<T> {
+        State<T> getInitialState();
 
+        State<T> getGoalState();
+
+        List<State<T>> getAllPossibleStates(State<T> s);
     }
 }
