@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SearchAlgorithmsLib
-{
-    public abstract class Searcher : ISearcher {
+namespace SearchAlgorithmsLib {
+    public class Solution {
 
     }
 }
