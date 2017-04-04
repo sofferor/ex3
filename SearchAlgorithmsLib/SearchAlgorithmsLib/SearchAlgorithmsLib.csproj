@@ -34,10 +34,10 @@
       <HintPath>..\packages\C5.2.4.5947.17249\lib\net45\C5.dll</HintPath>
     </Reference>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\..\..\Documents\AP2\ex\ex1\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\..\..\Documents\AP2\ex\ex1\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
