@@ -9,7 +9,7 @@ namespace SearchAlgorithmsLib
 {
     public abstract class Searcher<T> : ISearcher<T> {
 
-        private SimplePriorityQueue<State<T>> pQueue;
+        protected SimplePriorityQueue<State<T>> pQueue;
         private int evaluateNodes;
 
         //property size of queue.
@@ -33,10 +33,18 @@ namespace SearchAlgorithmsLib
             pQueue.Enqueue(s, s.Cost);
         }
 
-        public abstract Solution Search(ISearchable<T> searchable);
+        public abstract Solution<T> Search(ISearchable<T> searchable);
 
         public int GetNumberOfNodesEvaluated() {
             return evaluateNodes;
+        }
+
+        public bool PQcontain(State<T> s) {
+            return pQueue.Contains(s);
+        }
+
+        public void UpdatePriority(State<T> s) {
+            pQueue.UpdatePriority(s, s.Cost);
         }
     }
 }
