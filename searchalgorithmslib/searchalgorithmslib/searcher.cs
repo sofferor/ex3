@@ -46,5 +46,16 @@ namespace SearchAlgorithmsLib
         public void UpdatePriority(State<T> s) {
             pQueue.UpdatePriority(s, s.Cost);
         }
+
+        protected Solution<T> BackTrace(State<T> s) {
+            List<State<T>> path = new List<State<T>>();
+            do {
+                path.Add(s);
+                s = s.CameFrom;
+            } while (s != null);
+            path.Reverse();
+
+            return new Solution<T>(path);
+        }
     }
 }
