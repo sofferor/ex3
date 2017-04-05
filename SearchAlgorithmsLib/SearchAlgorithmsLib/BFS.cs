@@ -2,6 +2,9 @@
 
 namespace SearchAlgorithmsLib {
     public class BFS<T> : Searcher<T> {
+
+        public BFS() { }
+
         public override Solution<T> Search(ISearchable<T> searchable) {
             PushPQueue(searchable.getInitialState());
             HashSet<State<T>> closed = new HashSet<State<T>>();
@@ -33,17 +36,6 @@ namespace SearchAlgorithmsLib {
                 }
             }
             return null;
-        }
-
-        private Solution<T> BackTrace(State<T> s) {
-            List<State<T>> path = new List<State<T>>();
-            do {
-                path.Add(s);
-                s = s.CameFrom;
-            } while (s != null);
-            path.Reverse();
-
-            return new Solution<T>(path);
         }
     }
 }

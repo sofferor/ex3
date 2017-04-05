@@ -1,6 +1,8 @@
-﻿namespace SearchAlgorithmsLib {
+﻿using System;
+
+namespace SearchAlgorithmsLib {
     public class State<T> {
-        private T state;
+        private T s;
         private float cost;
         private State<T> cameFrom;
 
@@ -15,12 +17,16 @@
         }
 
         public State(T s) {
-            state = s;
+            this.s = s;
             cameFrom = null;
         }
 
-        public bool Equals(State<T> s) {
-            return state.Equals(s.state);
+        public bool Equals(State<T> other) {
+            return String.Intern(other.ToString()) == String.Intern(ToString());
+        }
+
+        public override string ToString() {
+            return s.ToString();
         }
 
     }
