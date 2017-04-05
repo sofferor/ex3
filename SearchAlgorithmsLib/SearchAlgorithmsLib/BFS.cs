@@ -2,7 +2,6 @@
 
 namespace SearchAlgorithmsLib {
     public class BFS<T> : Searcher<T> {
-
         public BFS() { }
 
         public override Solution<T> Search(ISearchable<T> searchable) {

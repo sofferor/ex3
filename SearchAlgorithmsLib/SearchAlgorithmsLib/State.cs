@@ -22,12 +22,11 @@ namespace SearchAlgorithmsLib {
         }
 
         public bool Equals(State<T> other) {
-            return String.Intern(other.ToString()) == String.Intern(ToString());
+            return String.Intern(ToString()) == String.Intern(other.ToString());
         }
 
         public override string ToString() {
             return s.ToString();
         }
-
     }
 }
