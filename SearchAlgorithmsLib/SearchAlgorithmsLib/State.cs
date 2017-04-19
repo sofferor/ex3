@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SearchAlgorithmsLib {
     public class State<T> {
@@ -27,6 +28,14 @@ namespace SearchAlgorithmsLib {
 
         public override string ToString() {
             return s.ToString();
+        }
+
+        public override int GetHashCode() {
+            return ToString().GetHashCode();
+        }
+
+        public static class StatePool {
+            p HashSet<State<T>> sp;
         }
     }
 }

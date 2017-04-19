@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace SearchAlgorithmsLib {
-    public class BFS<T> : Searcher<T> {
+    public class BFS<T> : SearcherByPriorityQueue<T> {
         public BFS() { }
 
         public override Solution<T> Search(ISearchable<T> searchable) {
@@ -15,7 +15,7 @@ namespace SearchAlgorithmsLib {
                 if (n.Equals(searchable.getGoalState())) {
                     return BackTrace(searchable.getGoalState());
                 }
-
+                
                 List<State<T>> succerssors = searchable.getAllPossibleStates(n);
                 foreach (State<T> s in succerssors) {
                     if (closed.Contains(s)) {
