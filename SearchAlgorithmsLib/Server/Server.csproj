@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +56,7 @@
     <Compile Include="Commands\PlayCommand.cs" />
     <Compile Include="Commands\SolveCommand.cs" />
     <Compile Include="Commands\StartCommand.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IView.cs" />
