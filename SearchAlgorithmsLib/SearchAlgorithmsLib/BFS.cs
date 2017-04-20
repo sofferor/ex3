@@ -5,7 +5,6 @@ namespace SearchAlgorithmsLib {
         public BFS() { }
 
         public override Solution<T> Search(ISearchable<T> searchable) {
-
             PushPQueue(searchable.getInitialState());
             HashSet<State<T>> closed = new HashSet<State<T>>();
             int moveCost = 1;

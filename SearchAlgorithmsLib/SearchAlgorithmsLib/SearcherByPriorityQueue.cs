@@ -39,9 +39,6 @@ namespace SearchAlgorithmsLib
             pQueue.UpdatePriority(s, s.Cost);
         }
 
-        public override void clean() {
-            base.clean();
-            pQueue.Clear();
-        }
+        
     }
 }

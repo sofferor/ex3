@@ -7,28 +7,18 @@ using System.Threading.Tasks;
 namespace SearchAlgorithmsLib {
     public abstract class SearcherByStack<T> : Searcher<T> {
 
-        //members
         protected Stack<State<T>> stack;
 
-        //properties
+        //property size of queue.
         public int StackSize {
             get {
                 return stack.Count;
             }
         }
 
-        public SearcherByStack() {
-            stack = new Stack<State<T>>();
-        }
-
         protected State<T> PopStack() {
             evaluateNodes++;
             return stack.Pop();
-        }
-
-        public override void clean() {
-            base.clean();
-            stack.Clear();
         }
     }
 }
