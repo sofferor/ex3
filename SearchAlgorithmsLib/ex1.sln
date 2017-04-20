@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithmsLib", "SearchAlgorithmsLib\SearchAlgorithmsLib.csproj", "{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectAdapter", "ObjectAdapter\ObjectAdapter.csproj", "{9943455B-DE70-4379-A2C0-091EBAC673D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6DDE55D0-0158-4B6A-AB95-B6F61A8FE916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9943455B-DE70-4379-A2C0-091EBAC673D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9943455B-DE70-4379-A2C0-091EBAC673D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9943455B-DE70-4379-A2C0-091EBAC673D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9943455B-DE70-4379-A2C0-091EBAC673D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDE55D0-0158-4B6A-AB95-B6F61A8FE916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDE55D0-0158-4B6A-AB95-B6F61A8FE916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDE55D0-0158-4B6A-AB95-B6F61A8FE916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDE55D0-0158-4B6A-AB95-B6F61A8FE916}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

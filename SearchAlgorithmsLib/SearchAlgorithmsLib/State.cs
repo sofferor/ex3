@@ -1,30 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.AccessControl;
 
 namespace SearchAlgorithmsLib {
     public class State<T> {
+
+        //members
         private T s;
         private float cost;
         private State<T> cameFrom;
 
+
+        //properties
+        public T S {
+            get => s;
+        }
         public float Cost {
             get => cost;
             set => cost = value;
         }
-
         public State<T> CameFrom {
             get => cameFrom;
             set => cameFrom = value;
         }
 
-        public State(T s) {
+        //constructor.
+        private State(T s) {
             this.s = s;
             cameFrom = null;
+            cost = 0;
         }
 
         public bool Equals(State<T> other) {
-            return String.Intern(ToString()) == String.Intern(other.ToString());
+            return s.Equals(other.s);
         }
 
         public override string ToString() {
@@ -35,16 +42,25 @@ namespace SearchAlgorithmsLib {
             return ToString().GetHashCode();
         }
 
+        public void clean() {
+            cameFrom = null;
+            cost = 0;
+        }
+
         public static class StatePool {
-            private HashSet<State<T>> sp = new HashSet<State<T>>();
 
-            public State<T> GetState(State<T> s) {
-                if (sp.Contains(s)) {
-                    
+            static Dictionary<T, State<T>> sp = new Dictionary<T, State<T>>();
+
+            public static State<T> GetState(T t) {
+
+                if (sp.ContainsKey(t)) {//to varify if needed function equal to Position(expect of Object)
+                    return sp[t];
                 }
-                return null;
-            }
 
+                State<T> s = new State<T>(t);
+                sp.Add(t, s);
+                return s;
+            }
         }
     }
 }
