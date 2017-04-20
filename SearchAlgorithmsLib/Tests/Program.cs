@@ -35,6 +35,6 @@ namespace Tests {
             //printing the solutions.
             Console.WriteLine(BFSSolution.EvaluatedNodes);
             Console.WriteLine(DFSSolution.EvaluatedNodes);
-        }//
+        }
     }
 }
