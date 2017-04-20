@@ -42,7 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CloseCommand.cs" />
+    <Compile Include="Commands\GenerateCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\JoinCommand.cs" />
+    <Compile Include="Commands\ListCommand.cs" />
+    <Compile Include="Commands\PlayCommand.cs" />
+    <Compile Include="Commands\SolveCommand.cs" />
+    <Compile Include="Commands\StartCommand.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="IModel.cs" />
     <Compile Include="IView.cs" />
