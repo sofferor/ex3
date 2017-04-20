@@ -7,7 +7,7 @@ namespace SearchAlgorithmsLib {
         public override Solution<T> Search(ISearchable<T> searchable) {
             stack.Push(searchable.getInitialState());
             HashSet<State<T>> visited = new HashSet<State<T>>();
-            int moveCost = -1;
+            int moveCost = 1;
 
             while (StackSize > 0) {
                 State<T> n = PopStack();
@@ -17,6 +17,7 @@ namespace SearchAlgorithmsLib {
                 }
 
                 if (visited.Contains(n)) {
+                    ///to decrease evluatednodes???
                     continue;
                 }
                 visited.Add(n);

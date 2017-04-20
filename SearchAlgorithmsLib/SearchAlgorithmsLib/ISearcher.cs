@@ -6,5 +6,7 @@
 
         // get how many nodes were evaluated by the algorithm
         int GetNumberOfNodesEvaluated();
+
+        void clean();
     }
 }

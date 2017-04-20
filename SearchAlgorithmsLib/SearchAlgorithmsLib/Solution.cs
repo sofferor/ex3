@@ -2,10 +2,20 @@
 
 namespace SearchAlgorithmsLib {
     public class Solution<T> {
-        private List<State<T>> path;
 
-        public Solution(List<State<T>> p) {
+        //members
+        private List<State<T>> path;
+        private int evaluatedNodes;
+
+        //property
+        public int EvaluatedNodes {
+            get => evaluatedNodes;
+        }
+
+        //constructor
+        public Solution(List<State<T>> p, int evaluate) {
             path = p;
+            evaluatedNodes = evaluate;
         }
     }
 }
