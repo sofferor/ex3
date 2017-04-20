@@ -27,11 +27,7 @@ namespace SearchAlgorithmsLib {
             } while (s != null);
             path.Reverse();
 
-            return new Solution<T>(path, evaluateNodes);
-        }
-
-        virtual public void clean() {
-            evaluateNodes = 0;
+            return new Solution<T>(path);
         }
     }
 }
