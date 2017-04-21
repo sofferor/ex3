@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tests {
-    class SearchableMazeAdapter : Searchable<Position> {
+    public class SearchableMazeAdapter : Searchable<Position> {
 
         //members
         private Maze maze;

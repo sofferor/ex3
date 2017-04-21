@@ -26,11 +26,13 @@ namespace Tests {
             //solving by BFS.
             ISearcher<Position> searcher = new BFS<Position>();
             BFSSolution = searcher.Search(searchableMaze);
+            BFSSolution.Name = searchableMaze.MyMaze.Name;
             searchableMaze.Clean();
 
             //solving by DFS.
             searcher = new DFS<Position>();
             DFSSolution = searcher.Search(searchableMaze);
+            DFSSolution.Name = searchableMaze.MyMaze.Name;
 
             //printing the solutions.
             Console.WriteLine(BFSSolution.EvaluatedNodes);

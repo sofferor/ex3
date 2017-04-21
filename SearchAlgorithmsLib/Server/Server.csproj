@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -69,6 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SearchAlgorithmsLib\SearchAlgorithmsLib.csproj">
+      <Project>{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}</Project>
+      <Name>SearchAlgorithmsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tests\Tests.csproj">
+      <Project>{6dde55d0-0158-4b6a-ab95-b6f61a8fe916}</Project>
+      <Name>Tests</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
