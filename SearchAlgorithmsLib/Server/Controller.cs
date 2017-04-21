@@ -10,12 +10,14 @@ namespace Server {
         private Dictionary<string, ICommand> commands;
         private IModel model;
         private IView view;
-
+        
         public Controller(IModel model, IView view) {
+
             if (model == null) throw new ArgumentNullException(nameof(model));
             if (view == null) throw new ArgumentNullException(nameof(view));
             this.model = model;
             this.view = view;
+
             commands = new Dictionary<string, ICommand>();
             commands.Add("generate", new GenerateCommand(model));
             commands.Add("close", new CloseCommand(model));
@@ -28,6 +30,7 @@ namespace Server {
         }
 
         public string ExecuteCommand(string commandLine, TcpClient client) {
+
             string[] arr = commandLine.Split(' ');
             string commandKey = arr[0];
             if (!commands.ContainsKey(commandKey)) {

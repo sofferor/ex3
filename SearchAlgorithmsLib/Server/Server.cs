@@ -9,7 +9,7 @@ namespace Server {
         private TcpListener listener;
         private IClientHandler ch;
 
-        public server(int port, IClientHandler ch) {
+        public Server(int port, IClientHandler ch) {
             this.port = port;
             this.ch = ch;
         }
