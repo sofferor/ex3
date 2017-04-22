@@ -17,6 +17,7 @@ namespace Server {
         public void start() {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
             listener = new TcpListener(ep);
+            listener.Start();
             Console.WriteLine("waiting for connections...");
 
             Task task = new Task(() => {
