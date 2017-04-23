@@ -12,6 +12,8 @@ namespace Client {
         static void Main(string[] args) {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);
             TcpClient client = new TcpClient();
+            
+
 
 
 
@@ -45,7 +47,7 @@ namespace Client {
 
                     //wait to connect
                     while (!client.Connected) {
-                        System.Threading.Thread.Sleep(5000);
+                        System.Threading.Thread.Sleep(10);
                     }
 
                     NetworkStream stream = client.GetStream();
@@ -53,7 +55,7 @@ namespace Client {
 
                     // Get result from server
                     string result = reader.ReadString();
-                    Console.WriteLine("Result = {0}", result);
+                    Console.Write("Result = {0}", result);
                 }
             });
             receive.Start();
