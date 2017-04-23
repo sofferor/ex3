@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace Server {
             ch.SetController(controller);
             model.SetController(controller);
 
-            Server server = new Server(5555, ch);
+            Server server = new Server(int.Parse(ConfigurationManager.AppSettings["PortNum"]), ch);
             server.start();
             while (true) { }
         }

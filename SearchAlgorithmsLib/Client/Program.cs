@@ -6,11 +6,12 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Client {
     class Program {
         static void Main(string[] args) {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);            
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(ConfigurationManager.AppSettings["PortNum"]));            
             
             while (true) {
                 TcpClient client = new TcpClient();
@@ -23,17 +24,26 @@ namespace Client {
                 string commandLine = Console.ReadLine();
 
                 do {
-                    try {
-                        writer.Write(commandLine);
-                        writer.Flush();
-                    }
-                    catch (Exception e) {
-                        client.Connect(ep);
-                    }
+                    
+                    writer.Write(commandLine);
+                    writer.Flush();
+                
+                    new Task(() => {
+                        while (true) {
+                            try {
+                                string result = reader.ReadString();
+                                Console.WriteLine("Result = {0}", result);
+                            } catch (Exception e) {
+                                client = new TcpClient();
+                                client.Connect(ep);
+                                stream = client.GetStream();
+                                writer = new BinaryWriter(stream);
+                                reader = new BinaryReader(stream);
+                            }
+                        }
+                    }).Start();
 
-                    string result = reader.ReadString();
-
-                    Console.WriteLine("Result = {0}", result);
+                    
                 } while (commandLine.Equals("start") || commandLine.Equals("join") || commandLine.Equals("play"));
 
             }
