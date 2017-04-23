@@ -55,7 +55,7 @@ namespace Client {
 
                     // Get result from server
                     string result = reader.ReadString();
-                    Console.Write("Result = {0}", result);
+                    Console.WriteLine("Result = {0}", result);
                 }
             });
             receive.Start();
