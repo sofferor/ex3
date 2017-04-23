@@ -49,11 +49,11 @@ namespace Client {
                                     break;
                                 }
                             } catch (Exception e) {
-                                client = new TcpClient();
-                                client.Connect(ep);
-                                stream = client.GetStream();
-                                writer = new BinaryWriter(stream);
-                                reader = new BinaryReader(stream);
+                                //client = new TcpClient();
+                                //client.Connect(ep);
+                                //stream = client.GetStream();
+                                //writer = new BinaryWriter(stream);
+                                //reader = new BinaryReader(stream);
                             }
                         }
                     }).Start();
@@ -68,11 +68,11 @@ namespace Client {
                                     break;
                                 }
                             } catch (Exception e) {
-                                client = new TcpClient();
-                                client.Connect(ep);
-                                stream = client.GetStream();
-                                writer = new BinaryWriter(stream);
-                                reader = new BinaryReader(stream);
+                                //client = new TcpClient();
+                                //client.Connect(ep);
+                                //stream = client.GetStream();
+                                //writer = new BinaryWriter(stream);
+                                //reader = new BinaryReader(stream);
                             }
                         }
                     }).Start();
