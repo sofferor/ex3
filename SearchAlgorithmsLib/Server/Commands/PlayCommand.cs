@@ -14,6 +14,7 @@ namespace Server {
         }
 
         public string Execute(string[] args, TcpClient client = null) {
+            model.
             return model.GamesList();
         }
     }

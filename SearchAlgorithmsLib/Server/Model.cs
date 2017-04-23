@@ -113,7 +113,9 @@ namespace Server {
         public string GamesList() {
             JObject listOfGames = new JObject();
             foreach (string str in games.Keys) {
-                listOfGames[""] = str;
+                if(games[str].Joinable) { 
+                    listOfGames[""] = str;
+                }
             }
             return listOfGames.ToString();
         }

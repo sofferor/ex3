@@ -22,17 +22,19 @@ namespace Client {
                 Console.WriteLine("Please enter a command: ");
                 string commandLine = Console.ReadLine();
 
+                do {
+                    try {
+                        writer.Write(commandLine);
+                        writer.Flush();
+                    }
+                    catch (Exception e) {
+                        client.Connect(ep);
+                    }
 
-                try {
-                    writer.Write(commandLine);
-                    writer.Flush();
-                }
-                catch (Exception e) {
-                    client.Connect(ep);
-                }
+                    string result = reader.ReadString();
 
-                string result = reader.ReadString();
-                Console.WriteLine("Result = {0}", result);
+                    Console.WriteLine("Result = {0}", result);
+                } while (commandLine.Equals("start") || commandLine.Equals("join") || commandLine.Equals("play"));
 
             }
         }
