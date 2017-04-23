@@ -38,13 +38,11 @@ namespace Server {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
             listener = new TcpListener(ep);
             listener.Start();
-            Console.WriteLine("waiting for connections...");
 
             Task task = new Task(() => {
                 while (true) {
                     try {
                         TcpClient client = listener.AcceptTcpClient();
-                        Console.WriteLine("got new connection");
                         ch.HandleClient(client);
                     } catch (SocketException) {
                         break;

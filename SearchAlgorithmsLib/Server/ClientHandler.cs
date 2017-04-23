@@ -37,7 +37,7 @@ namespace Server {
                 string commandLine;
                 do {
                     commandLine = reader.ReadString();
-                    Console.WriteLine("got command: {0}", commandLine);
+                    //Console.WriteLine("got command: {0}", commandLine);
                     string result = controller.ExecuteCommand(commandLine, client);
                     writer.Write(result);
                     writer.Flush();
