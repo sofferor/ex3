@@ -23,7 +23,6 @@ namespace Client {
                 string commandLine = Console.ReadLine();
 
 
-
                 try {
                     writer.Write(commandLine);
                     writer.Flush();
