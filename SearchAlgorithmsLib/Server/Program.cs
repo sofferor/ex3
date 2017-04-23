@@ -16,7 +16,7 @@ namespace Server {
             ch.SetController(controller);
             model.SetController(controller);
 
-            Server server = new Server(int.Parse(ConfigurationManager.AppSettings["PortNum"]), ch);
+            Server server = new Server(int.Parse(ConfigurationManager.AppSettings["Port"]), ch);
             server.start();
             while (true) { }
         }
