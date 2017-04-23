@@ -4,15 +4,30 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace Server {
+    /// <summary>
+    /// Class ClientHandler.
+    /// </summary>
+    /// <seealso cref="Server.IClientHandler" />
     public class ClientHandler : IClientHandler {
 
         //members
+        /// <summary>
+        /// The controller
+        /// </summary>
         private IController controller;
 
+        /// <summary>
+        /// Sets the controller.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void SetController(IController c) {
             controller = c;
         }
 
+        /// <summary>
+        /// Handles the client.
+        /// </summary>
+        /// <param name="client">The client.</param>
         public void HandleClient(TcpClient client) {
             new Task(() => {
                 NetworkStream stream = client.GetStream();

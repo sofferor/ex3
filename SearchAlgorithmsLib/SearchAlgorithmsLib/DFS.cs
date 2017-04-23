@@ -1,9 +1,22 @@
 ﻿using System.Collections.Generic;
 
 namespace SearchAlgorithmsLib {
+    /// <summary>
+    /// Class DFS.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="SearchAlgorithmsLib.SearcherByStack{T}" />
     public class DFS<T> : SearcherByStack <T> {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DFS{T}"/> class.
+        /// </summary>
         public DFS() { }
 
+        /// <summary>
+        /// Searches the specified searchable.
+        /// </summary>
+        /// <param name="searchable">The searchable.</param>
+        /// <returns>Solution&lt;T&gt;.</returns>
         public override Solution<T> Search(ISearchable<T> searchable) {
             stack.Push(searchable.getInitialState());
             HashSet<State<T>> visited = new HashSet<State<T>>();

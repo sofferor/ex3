@@ -9,7 +9,14 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 namespace Client {
+    /// <summary>
+    /// Class Program.
+    /// </summary>
     class Program {
+        /// <summary>
+        /// Defines the entry point of the application.
+        /// </summary>
+        /// <param name="args">The arguments.</param>
         static void Main(string[] args) {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(ConfigurationManager.AppSettings["Port"]));
             bool stop = false;
@@ -22,7 +29,7 @@ namespace Client {
                 BinaryWriter writer = new BinaryWriter(stream);
                 BinaryReader reader = new BinaryReader(stream);
                 // Send data to server
-                Console.WriteLine("Please enter a command: ");
+                
                 string commandLine = Console.ReadLine();
                 
 
@@ -30,7 +37,7 @@ namespace Client {
                 writer.Flush();
 
                 string result = reader.ReadString();
-                Console.WriteLine("Result = {0}", result);
+                Console.WriteLine("{0}", result);
 
                 //if multipile command
                 if (commandLine.Contains("start") || commandLine.Contains("join") || commandLine.Contains("play")) {
@@ -39,12 +46,13 @@ namespace Client {
                     new Task(() => {
                         while (true) {
                             try {
+                                reader = new BinaryReader(stream);
                                 string flow = reader.ReadString();
                                 if (flow.Contains("wait")) {
                                     continue;
                                 }
-                                Console.WriteLine("Result = {0}", result);
-                                if (flow.Contains("close")) {
+                                Console.WriteLine("{0}", flow);
+                                if (stop || flow.Contains("close")) {
                                     stop = true;
                                     break;
                                 }
@@ -63,8 +71,10 @@ namespace Client {
                             try {
                                 string flowToServer = Console.ReadLine();
                                 writer.Write(flowToServer);
-                                Console.WriteLine("Result = {0}", result);
+                                writer.Flush();
+                                //Console.WriteLine("{0}", flowToServer);
                                 if (stop || flowToServer.Contains("close")) {
+                                    stop = true;
                                     break;
                                 }
                             } catch (Exception e) {

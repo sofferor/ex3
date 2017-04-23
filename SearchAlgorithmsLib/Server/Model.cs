@@ -12,17 +12,42 @@ using System.Net.Sockets;
 using System.IO;
 
 namespace Server {
+    /// <summary>
+    /// Class Model.
+    /// </summary>
+    /// <seealso cref="Server.IModel" />
     public class Model : IModel {
 
         //members
+        /// <summary>
+        /// The controller
+        /// </summary>
         private IController controller;
+        /// <summary>
+        /// The searchable mazes
+        /// </summary>
         private Dictionary<string, SearchableMazeAdapter> searchableMazes;
+        /// <summary>
+        /// The solutions
+        /// </summary>
         private Dictionary<string, Dictionary<Algoritem, Solution<Position>>> solutions;
+        /// <summary>
+        /// The games
+        /// </summary>
         private Dictionary<string, Game> games;
+        /// <summary>
+        /// The BFS searcher
+        /// </summary>
         ISearcher<Position> BFSSearcher;
-        ISearcher<Position> DFSSearcher;      
+        /// <summary>
+        /// The DFS searcher
+        /// </summary>
+        ISearcher<Position> DFSSearcher;
 
         //constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Model"/> class.
+        /// </summary>
         public Model() {
 
             searchableMazes = new Dictionary<string, SearchableMazeAdapter>();
@@ -33,10 +58,21 @@ namespace Server {
             DFSSearcher = new DFS<Position>();
         }
 
+        /// <summary>
+        /// Sets the controller.
+        /// </summary>
+        /// <param name="c">The c.</param>
         public void SetController(IController c) {
             controller = c;
         }
 
+        /// <summary>
+        /// Generates the maze.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="cols">The cols.</param>
+        /// <returns>SearchableMazeAdapter.</returns>
         public SearchableMazeAdapter GenerateMaze(string name, int rows, int cols) {
 
             //if the maze is allready exist we return it.
@@ -55,6 +91,12 @@ namespace Server {
             return searchableMaze;
         }
 
+        /// <summary>
+        /// Solves the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="algoritem">The algoritem.</param>
+        /// <returns>Solution&lt;Position&gt;.</returns>
         public Solution<Position> Solve(string name, Algoritem algoritem) {
 
             //first of all - checcking if this maze exist
@@ -91,6 +133,14 @@ namespace Server {
             return solution;
         }
 
+        /// <summary>
+        /// Starts the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="cols">The cols.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>SearchableMazeAdapter.</returns>
         public SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client) {
 
             //generate the maze
@@ -107,6 +157,13 @@ namespace Server {
             return searchableMaze;
         }
 
+        /// <summary>
+        /// Joins the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>SearchableMazeAdapter.</returns>
+        /// <exception cref="System.Exception"></exception>
         public SearchableMazeAdapter Join(string name, TcpClient client) {
 
             //check if really exist
@@ -119,6 +176,11 @@ namespace Server {
             return games[name].Maze;
         }
 
+        /// <summary>
+        /// Plays the specified step.
+        /// </summary>
+        /// <param name="step">The step.</param>
+        /// <param name="client">The client.</param>
         public void Play(string step, TcpClient client) {
 
             //find the other client who play with him
@@ -140,6 +202,12 @@ namespace Server {
         }
 
 
+        /// <summary>
+        /// Closes the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="client">The client.</param>
+        /// <returns>System.String.</returns>
         public string Close(string name, TcpClient client) {
 
             //find the other client who play with him
@@ -158,6 +226,10 @@ namespace Server {
             return "close";
         }
 
+        /// <summary>
+        /// Gameses the list.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string GamesList() {
             List<string> joinableGames = new List<string>();
             
