@@ -89,6 +89,27 @@ namespace Server {
             return solution;
         }
 
+        public SearchableMazeAdapter Start(string name, int rows, int cols) {
+
+            //if the maze is allready exist we return it.
+            if (searchableMazes.ContainsKey(name)) {
+                return searchableMazes[name];
+            }
+
+            DFSMazeGenerator mazeGenerator = new DFSMazeGenerator();
+            Maze maze = mazeGenerator.Generate(rows, cols);
+            maze.Name = name;
+
+            //adapt the maze.
+            SearchableMazeAdapter searchableMaze = new SearchableMazeAdapter(maze);
+            searchableMazes.Add(name, searchableMaze);
+
+            return searchableMaze;
+        }
+
+
+
+
         public string CloseGame(string name) {
             return new JObject().ToString();
         }

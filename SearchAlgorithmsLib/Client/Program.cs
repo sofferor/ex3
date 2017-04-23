@@ -10,37 +10,33 @@ using System.Threading.Tasks;
 namespace Client {
     class Program {
         static void Main(string[] args) {
+
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);
-            TcpClient client = new TcpClient();
             
+            while (true) {
+
+                TcpClient client = new TcpClient();
+
+                // Send data to server
+                Console.Write("Please enter a command: ");
+                string commandLine = Console.ReadLine();
 
 
-
-
-            Task send = new Task(() => {
-                while (true) {
-                    // Send data to server
-                    Console.Write("Please enter a command: ");
-                    string commandLine = Console.ReadLine();
-
-
-                    //connect to server
-                    while (!client.Connected) {
-                        try {
-                            client.Connect(ep);
-                        }
-                        catch {
-                        }
+                //connect to server
+                while (!client.Connected) {
+                    try {
+                        client.Connect(ep);
                     }
-
-                    NetworkStream stream = client.GetStream();
-                    BinaryWriter writer = new BinaryWriter(stream);
-
-                    writer.Write(commandLine);
-                    writer.Flush();
+                    catch { }
                 }
-            });
-            send.Start();
+
+                NetworkStream stream = client.GetStream();
+                BinaryWriter writer = new BinaryWriter(stream);
+
+                writer.Write(commandLine);
+                writer.Flush();
+            }
+            
 
             Task receive = new Task(() => {
                 while (true) {
