@@ -18,12 +18,7 @@ namespace Server {
         private Dictionary<string, Dictionary<Algoritem, Solution<Position>>> solutions;
         private Dictionary<string, Game> games;
         ISearcher<Position> BFSSearcher;
-        ISearcher<Position> DFSSearcher;
-
-        //properties
-        public IController Controller {
-            set => controller = value;
-        }
+        ISearcher<Position> DFSSearcher;      
 
         //constructor
         public Model() {
@@ -34,6 +29,10 @@ namespace Server {
 
             BFSSearcher = new BFS<Position>();
             DFSSearcher = new DFS<Position>();
+        }
+
+        public void SetController(IController c) {
+            controller = c;
         }
 
         public SearchableMazeAdapter GenerateMaze(string name, int rows, int cols) {

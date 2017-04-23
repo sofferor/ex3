@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json.Linq;
-using System.Collections.ObjectModel;
 
 namespace SearchAlgorithmsLib {
     public class Solution<T> {

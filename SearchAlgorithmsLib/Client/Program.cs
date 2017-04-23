@@ -12,27 +12,41 @@ namespace Client {
         static void Main(string[] args) {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);
             TcpClient client = new TcpClient();
-            client.Connect(ep);
-            Console.WriteLine("You are connected");
-            NetworkStream stream = client.GetStream();
-            StreamReader reader = new StreamReader(stream);
-            StreamWriter writer = new StreamWriter(stream);
+            
+            
 
             new Task(() => {
                 while (true) {
                     // Send data to server
-                    string commandLine = Console.ReadLine();
                     Console.Write("Please enter a command: ");
-                    if (!client.Connected) {
-                        client.Connect(ep);
+                    string commandLine = Console.ReadLine();
+                    
+
+                    //connect to server
+                    while (!client.Connected) {
+                        try {
+                            client.Connect(ep);
+                        } catch { }
                     }
-                    writer.Write(commandLine);
+                    NetworkStream stream = client.GetStream();
+                    StreamWriter writer = new StreamWriter(stream);
+
+                    writer.WriteLine(commandLine);
                     writer.Flush();
                 }
             }).Start();
 
             new Task(() => {
                 while (true) {
+
+                    //wait to connect
+                    while (!client.Connected) {
+                        System.Threading.Thread.Sleep(5000);
+                    }
+
+                    NetworkStream stream = client.GetStream();
+                    StreamReader reader = new StreamReader(stream);
+
                     // Get result from server
                     string result = reader.ReadLine();
                     Console.WriteLine("Result = {0}", result);
