@@ -1,7 +1,5 @@
 ﻿using MazeLib;
 using SearchAlgorithmsLib;
-using Tests;
-
 namespace Server {
 
     public enum Algoritem { BFS, DFS };

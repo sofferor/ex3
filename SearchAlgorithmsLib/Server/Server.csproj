@@ -33,10 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -76,13 +76,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{f1c3b818-5fee-46c6-a7f4-8f70bb7865ad}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SearchAlgorithmsLib\SearchAlgorithmsLib.csproj">
       <Project>{64C0EA76-E9A2-4BBD-B98A-AC5D0ADD42E6}</Project>
       <Name>SearchAlgorithmsLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Tests\Tests.csproj">
-      <Project>{6dde55d0-0158-4b6a-ab95-b6f61a8fe916}</Project>
-      <Name>Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

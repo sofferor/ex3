@@ -26,7 +26,7 @@ namespace Client {
                     if (!client.Connected) {
                         client.Connect(ep);
                     }
-                    writer.Write(commandLine);
+                    writer.WriteLine(commandLine);
                     writer.Flush();
                 }
             }).Start();
