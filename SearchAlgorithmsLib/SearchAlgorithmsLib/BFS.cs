@@ -1,9 +1,35 @@
-﻿using System.Collections.Generic;
+﻿// ***********************************************************************
+// Assembly         : SearchAlgorithmsLib
+// Author           : Haim
+// Created          : 04-20-2017
+//
+// Last Modified By : Haim
+// Last Modified On : 04-20-2017
+// ***********************************************************************
+// <copyright file="BFS.cs" company="">
+//     Copyright ©  2017
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Collections.Generic;
 
 namespace SearchAlgorithmsLib {
+    /// <summary>
+    /// Class BFS.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <seealso cref="SearchAlgorithmsLib.SearcherByPriorityQueue{T}" />
     public class BFS<T> : SearcherByPriorityQueue<T> {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BFS{T}"/> class.
+        /// </summary>
         public BFS() { }
 
+        /// <summary>
+        /// Searches the specified searchable.
+        /// </summary>
+        /// <param name="searchable">The searchable.</param>
+        /// <returns>Solution&lt;T&gt;.</returns>
         public override Solution<T> Search(ISearchable<T> searchable) {
 
             PushPQueue(searchable.getInitialState());

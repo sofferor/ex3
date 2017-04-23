@@ -33,27 +33,27 @@ namespace Client {
                 Console.WriteLine("Result = {0}", result);
 
                 //if multipile command
-                if (commandLine.Equals("start") || commandLine.Equals("join") || commandLine.Equals("play")) {
+                if (commandLine.Contains("start") || commandLine.Contains("join") || commandLine.Contains("play")) {
                     stop = false;
                     
                     new Task(() => {
                         while (true) {
                             try {
                                 string flow = reader.ReadString();
-                                if (flow.Equals("wait")) {
+                                if (flow.Contains("wait")) {
                                     continue;
                                 }
                                 Console.WriteLine("Result = {0}", result);
-                                if (flow.Equals("close")) {
+                                if (flow.Contains("close")) {
                                     stop = true;
                                     break;
                                 }
                             } catch (Exception e) {
-                                //client = new TcpClient();
-                                //client.Connect(ep);
-                                //stream = client.GetStream();
-                                //writer = new BinaryWriter(stream);
-                                //reader = new BinaryReader(stream);
+                                client = new TcpClient();
+                                client.Connect(ep);
+                                stream = client.GetStream();
+                                writer = new BinaryWriter(stream);
+                                reader = new BinaryReader(stream);
                             }
                         }
                     }).Start();
@@ -64,15 +64,15 @@ namespace Client {
                                 string flowToServer = Console.ReadLine();
                                 writer.Write(flowToServer);
                                 Console.WriteLine("Result = {0}", result);
-                                if (stop || flowToServer.Equals("close")) {
+                                if (stop || flowToServer.Contains("close")) {
                                     break;
                                 }
                             } catch (Exception e) {
-                                //client = new TcpClient();
-                                //client.Connect(ep);
-                                //stream = client.GetStream();
-                                //writer = new BinaryWriter(stream);
-                                //reader = new BinaryReader(stream);
+                                client = new TcpClient();
+                                client.Connect(ep);
+                                stream = client.GetStream();
+                                writer = new BinaryWriter(stream);
+                                reader = new BinaryReader(stream);
                             }
                         }
                     }).Start();
