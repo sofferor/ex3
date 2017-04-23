@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Net.Sockets;
 
 namespace Server {
@@ -14,8 +15,10 @@ namespace Server {
         }
 
         public string Execute(string[] args, TcpClient client = null) {
-            model.
-            return model.GamesList();
+
+            string step = args[0];
+            model.Play(step, client);
+            return new JObject().ToString();
         }
     }
 }
