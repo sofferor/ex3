@@ -67,24 +67,31 @@ namespace SearchAlgorithmsLib {
         public string ToJson() {
             string j;
             Position pos = (Position) (Object) s;
-            Position cameFromPos = (Position) (Object) cameFrom.S;
-
-            //if this state has no dad it is the initial state.
             if (cameFrom == null) {
                 j = "";
-            } else if (pos.Col < cameFromPos.Col) {
-                //go left
-                j = "0";
-            } else if (pos.Col > cameFromPos.Col) {
-                //go right
-                j = "1";
-            } else if (pos.Row > cameFromPos.Row) {
-                //go up
-                j = "2";
-            } else {
-                //go down
-                j = "3";
             }
+            else {
+
+                Position cameFromPos = (Position)(Object)cameFrom.S;
+
+                //if this state has no dad it is the initial state.
+                if (pos.Col < cameFromPos.Col) {
+                    //go left
+                    j = "0";
+                } else if (pos.Col > cameFromPos.Col) {
+                    //go right
+                    j = "1";
+                } else if (pos.Row > cameFromPos.Row) {
+                    //go up
+                    j = "2";
+                } else {
+                    //go down
+                    j = "3";
+                }
+            }
+            
+
+            
             return j;
         }
     }
