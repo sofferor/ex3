@@ -20,7 +20,7 @@ namespace Server {
 
         public List<TcpClient> Players => players;
 
-        public bool Joinable1 {
+        public bool Joinable {
             get => joinable;
             set => joinable = value;
         }
