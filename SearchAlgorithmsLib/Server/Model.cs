@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Sockets;
+using System.IO;
 
 namespace Server {
     public class Model : IModel {
@@ -116,6 +117,26 @@ namespace Server {
             games[name].AddPlayer(client);
 
             return games[name].Maze;
+        }
+
+        public void Play(string step, TcpClient client) {
+
+            //find the other client who play with him
+            foreach (Game game in games.Values) {
+                if (game.Players.Contains(client)) {
+
+                    Move move = new Move(game.Maze.MyMaze.Name, step);
+
+                    foreach (TcpClient other in game.Players) {
+                        if (other !=client) {
+                            NetworkStream stream = other.GetStream();
+                            BinaryWriter writer = new BinaryWriter(stream);
+                            writer.Write(move.ToJson());
+                            writer.Flush();
+                        }
+                    }
+                }
+            }
         }
 
 

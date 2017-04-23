@@ -18,6 +18,8 @@ namespace Server {
 
         SearchableMazeAdapter Join(string name, TcpClient client);
 
+        void Play(string step, TcpClient client);
+
         string GamesList();
     }
 }
