@@ -67,6 +67,7 @@ namespace SearchAlgorithmsLib {
         public string ToJson() {
             string j;
             Position pos = (Position) (Object) s;
+
             if (cameFrom == null) {
                 j = "";
             }

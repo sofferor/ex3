@@ -26,9 +26,8 @@ namespace Server {
                     string result = controller.ExecuteCommand(commandLine, client);
                     writer.Write(result);
                     writer.Flush();
-                } while (commandLine)
-
-
+                } while (commandLine.Equals("start") || commandLine.Equals("play") || commandLine.Equals("join"));
+                
                 client.Close();
             }).Start();
         }

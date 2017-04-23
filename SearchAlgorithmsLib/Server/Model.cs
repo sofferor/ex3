@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net.Sockets;
 
 namespace Server {
     public class Model : IModel {
@@ -89,20 +90,15 @@ namespace Server {
             return solution;
         }
 
-        public SearchableMazeAdapter Start(string name, int rows, int cols) {
+        public SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client) {
 
-            //if the maze is allready exist we return it.
-            if (searchableMazes.ContainsKey(name)) {
-                return searchableMazes[name];
-            }
+            //generate the maze
+            SearchableMazeAdapter searchableMaze = GenerateMaze(name, rows, cols);
 
-            DFSMazeGenerator mazeGenerator = new DFSMazeGenerator();
-            Maze maze = mazeGenerator.Generate(rows, cols);
-            maze.Name = name;
+            Game game = new Game(searchableMaze, client);
 
-            //adapt the maze.
-            SearchableMazeAdapter searchableMaze = new SearchableMazeAdapter(maze);
-            searchableMazes.Add(name, searchableMaze);
+            while (game.)
+
 
             return searchableMaze;
         }

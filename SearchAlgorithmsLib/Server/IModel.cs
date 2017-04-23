@@ -1,5 +1,6 @@
 ﻿using MazeLib;
 using SearchAlgorithmsLib;
+using System.Net.Sockets;
 
 namespace Server {
 
@@ -13,7 +14,7 @@ namespace Server {
 
         Solution<Position> Solve(string name, Algoritem algoritem);
 
-        SearchableMazeAdapter Start(string name, int rows, int cols);
+        SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client);
 
         string GamesList();
     }

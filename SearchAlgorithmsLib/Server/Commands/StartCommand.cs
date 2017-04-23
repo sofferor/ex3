@@ -19,7 +19,7 @@ namespace Server {
             int rows = int.Parse(args[1]);
             int cols = int.Parse(args[2]);
 
-            SearchableMazeAdapter searchableMaze = model.Start(name, rows, cols);
+            SearchableMazeAdapter searchableMaze = model.Start(name, rows, cols, client);
             return searchableMaze.MyMaze.ToJSON();
         }
     }
