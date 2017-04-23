@@ -10,10 +10,24 @@ using System.Threading.Tasks;
 namespace Client {
     class Program {
         static void Main(string[] args) {
+<<<<<<< HEAD
 
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);
             
             while (true) {
+=======
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);            
+            
+            while (true) {
+                TcpClient client = new TcpClient();
+                client.Connect(ep);
+                NetworkStream stream = client.GetStream();
+                BinaryWriter writer = new BinaryWriter(stream);
+                BinaryReader reader = new BinaryReader(stream);
+                // Send data to server
+                Console.WriteLine("Please enter a command: ");
+                string commandLine = Console.ReadLine();
+>>>>>>> cd68e5fcf0cbc991f6dd2b8fba3d49399544a726
 
                 TcpClient client = new TcpClient();
 
@@ -21,6 +35,7 @@ namespace Client {
                 Console.Write("Please enter a command: ");
                 string commandLine = Console.ReadLine();
 
+<<<<<<< HEAD
 
                 //connect to server
                 while (!client.Connected) {
@@ -52,12 +67,20 @@ namespace Client {
                     // Get result from server
                     string result = reader.ReadString();
                     Console.WriteLine("Result = {0}", result);
+=======
+                try {
+                    writer.Write(commandLine);
+                    writer.Flush();
                 }
-            });
-            receive.Start();
+                catch (Exception e) {
+                    client.Connect(ep);
+>>>>>>> cd68e5fcf0cbc991f6dd2b8fba3d49399544a726
+                }
 
-            send.Wait();
-            receive.Wait();
+                string result = reader.ReadString();
+                Console.WriteLine("Result = {0}", result);
+
+            }
         }
     }
 }
