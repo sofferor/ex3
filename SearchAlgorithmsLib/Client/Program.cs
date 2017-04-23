@@ -12,21 +12,23 @@ namespace Client {
         static void Main(string[] args) {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5555);
             TcpClient client = new TcpClient();
-            
-            
 
-            new Task(() => {
+
+
+            Task send = new Task(() => {
                 while (true) {
                     // Send data to server
                     Console.Write("Please enter a command: ");
                     string commandLine = Console.ReadLine();
-                    
+
 
                     //connect to server
                     while (!client.Connected) {
                         try {
                             client.Connect(ep);
-                        } catch { }
+                        }
+                        catch {
+                        }
                     }
 
                     NetworkStream stream = client.GetStream();
@@ -35,9 +37,10 @@ namespace Client {
                     writer.WriteLine(commandLine);
                     writer.Flush();
                 }
-            }).Start();
+            });
+            send.Start();
 
-            new Task(() => {
+            Task receive = new Task(() => {
                 while (true) {
 
                     //wait to connect
@@ -52,11 +55,11 @@ namespace Client {
                     string result = reader.ReadLine();
                     Console.WriteLine("Result = {0}", result);
                 }
-            }).Start();
+            });
+            receive.Start();
 
-            while (true) {
-                
-            }
+            send.Wait();
+            receive.Wait();
         }
     }
 }
