@@ -4,6 +4,8 @@ using System.Net.Sockets;
 
 namespace Server {
     public class Game {
+
+        //members
         private SearchableMazeAdapter maze;
         private bool joinable;
         private List<TcpClient> players;
@@ -16,6 +18,7 @@ namespace Server {
             players.Add(client);
         }
 
+        //properties
         public SearchableMazeAdapter Maze => maze;
 
         public List<TcpClient> Players => players;
@@ -23,6 +26,11 @@ namespace Server {
         public bool Joinable {
             get => joinable;
             set => joinable = value;
+        }
+
+        public void AddPlayer(TcpClient client) {
+            players.Add(client);
+            joinable = false;
         }
     }
 }

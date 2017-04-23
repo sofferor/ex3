@@ -96,14 +96,27 @@ namespace Server {
             SearchableMazeAdapter searchableMaze = GenerateMaze(name, rows, cols);
 
             Game game = new Game(searchableMaze, client);
+            games.Add(name, game);
 
-            while (game.)
-
+            //waiting for another player to connect.
+            while (game.Joinable == true) {
+                System.Threading.Thread.Sleep(50);
+            }
 
             return searchableMaze;
         }
 
+        public SearchableMazeAdapter Join(string name, TcpClient client) {
 
+            //check if really exist
+            if (!games.ContainsKey(name) || games[name].Joinable == false) {
+                throw new Exception();
+            }
+
+            games[name].AddPlayer(client);
+
+            return games[name].Maze;
+        }
 
 
         public string CloseGame(string name) {

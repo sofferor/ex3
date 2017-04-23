@@ -16,6 +16,8 @@ namespace Server {
 
         SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client);
 
+        SearchableMazeAdapter Join(string name, TcpClient client);
+
         string GamesList();
     }
 }
