@@ -42,7 +42,6 @@ namespace SearchAlgorithmsLib {
             JsonSolution["NodesEvaluated"] = evaluatedNodes;
             return JsonSolution.ToString();
         }
-
-        public ReadOnlyCollection<State<T>> Path => path.AsReadOnly();
+        
     }
 }
