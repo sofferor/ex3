@@ -145,12 +145,14 @@ namespace Server {
         }
 
         public string GamesList() {
-            JObject listOfGames = new JObject();
-            foreach (string str in games.Keys) {
-                if(games[str].Joinable) { 
-                    listOfGames[""] = str;
+            List<string> joinableGames = new List<string>();
+            
+            foreach (Game g in games.Values) {
+                if(g.Joinable) { 
+                    joinableGames.Add(g.Maze.MyMaze.Name);
                 }
             }
+            JArray listOfGames = new JArray(joinableGames.ToArray());
             return listOfGames.ToString();
         }
 
