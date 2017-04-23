@@ -14,19 +14,34 @@ namespace Client {
             TcpClient client = new TcpClient();
             client.Connect(ep);
             Console.WriteLine("You are connected");
-            using (NetworkStream stream = client.GetStream())
-            using (StreamReader reader = new StreamReader(stream))
-            using (StreamWriter writer = new StreamWriter(stream)) {
-                // Send data to server
-                Console.Write("Please enter a command: ");
-                string commandLine = Console.ReadLine();
-                writer.Write(commandLine);
-                writer.Flush();
-                // Get result from server
-                string result = reader.ReadLine();
-                Console.WriteLine("Result = {0}", result);
+            NetworkStream stream = client.GetStream();
+            StreamReader reader = new StreamReader(stream);
+            StreamWriter writer = new StreamWriter(stream);
+
+            new Task(() => {
+                while (true) {
+                    // Send data to server
+                    string commandLine = Console.ReadLine();
+                    Console.Write("Please enter a command: ");
+                    if (!client.Connected) {
+                        client.Connect(ep);
+                    }
+                    writer.Write(commandLine);
+                    writer.Flush();
+                }
+            }).Start();
+
+            new Task(() => {
+                while (true) {
+                    // Get result from server
+                    string result = reader.ReadLine();
+                    Console.WriteLine("Result = {0}", result);
+                }
+            }).Start();
+
+            while (true) {
+                
             }
-            client.Close();
         }
     }
 }

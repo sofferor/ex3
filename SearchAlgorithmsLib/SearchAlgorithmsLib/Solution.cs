@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Newtonsoft.Json.Linq;
 
 namespace SearchAlgorithmsLib {
@@ -32,5 +33,7 @@ namespace SearchAlgorithmsLib {
             solution["NodesEvaluated"] = evaluatedNodes;
             return solution.ToString();
         }
+
+        public ReadOnlyCollection<State<T>> Path => path.AsReadOnly();
     }
 }
