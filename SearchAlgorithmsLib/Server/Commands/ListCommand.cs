@@ -3,8 +3,11 @@ using System.Net.Sockets;
 
 namespace Server {
     public class ListCommand : ICommand {
+
+        //members
         private IModel model;
 
+        //constructor
         public ListCommand(IModel model) {
             if (model == null) throw new ArgumentNullException(nameof(model));
             this.model = model;

@@ -9,14 +9,14 @@ namespace Server {
         //members
         private Dictionary<string, ICommand> commands;
         private IModel model;
-        private IView view;
+        private IClientHandler clientHandler;
         
-        public Controller(IModel model, IView view) {
+        public Controller(IModel model, IClientHandler clientHandler) {
 
             if (model == null) throw new ArgumentNullException(nameof(model));
-            if (view == null) throw new ArgumentNullException(nameof(view));
+            if (clientHandler == null) throw new ArgumentNullException(nameof(clientHandler));
             this.model = model;
-            this.view = view;
+            this.clientHandler = clientHandler;
 
             commands = new Dictionary<string, ICommand>();
             commands.Add("generate", new GenerateCommand(model));
