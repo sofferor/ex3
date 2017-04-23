@@ -13,6 +13,8 @@ namespace Server {
 
         Solution<Position> Solve(string name, Algoritem algoritem);
 
+        SearchableMazeAdapter Start(string name, int rows, int cols);
+
         string GamesList();
     }
 }

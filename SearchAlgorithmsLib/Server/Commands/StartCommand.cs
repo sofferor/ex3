@@ -14,7 +14,13 @@ namespace Server {
         }
 
         public string Execute(string[] args, TcpClient client = null) {
-            return model.GamesList();
+
+            string name = args[0];
+            int rows = int.Parse(args[1]);
+            int cols = int.Parse(args[2]);
+
+            SearchableMazeAdapter searchableMaze = model.Start(name, rows, cols);
+            return searchableMaze.MyMaze.ToJSON();
         }
     }
 }
