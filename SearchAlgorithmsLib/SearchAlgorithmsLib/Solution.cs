@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace SearchAlgorithmsLib {
     public class Solution<T> {
@@ -25,7 +26,11 @@ namespace SearchAlgorithmsLib {
         }
 
         public string ToJson() {
-
+            JObject solution = new JObject();
+            solution["Name"] = name;
+            solution["Solution"] = path;
+            solution["NodesEvaluated"] = evaluatedNodes;
+            return solution.ToString();
         }
     }
 }

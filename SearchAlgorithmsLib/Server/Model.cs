@@ -1,12 +1,13 @@
 ﻿using MazeGeneratorLib;
 using MazeLib;
 using SearchAlgorithmsLib;
-using Tests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Server {
     class Model {
@@ -15,6 +16,7 @@ namespace Server {
         private IController controller;
         private Dictionary<string, SearchableMazeAdapter> searchableMazes;
         private Dictionary<string, Dictionary<Algoritem, Solution<Position>>> solutions;
+        private Dictionary<string, Game> games;
         ISearcher<Position> BFSSearcher;
         ISearcher<Position> DFSSearcher;
 
@@ -67,13 +69,25 @@ namespace Server {
 
             //check if need to add a new dictionary(if there was no solution at all(DFS and BFS)).
             if (!solutions.ContainsKey(name)) {
-                Dictionary<Algoritem, Solution<Position>> d = new Dictionary<Algoritem, Solution<Position>>;
+                Dictionary<Algoritem, Solution<Position>> d = new Dictionary<Algoritem, Solution<Position>>();
                 solutions.Add(name, d);
             }
             //add the solution
             solutions[name].Add(algoritem, solution);
             //return the solution
             return solution;
+        }
+
+        public string CloseGame(string name) {
+            return new JObject().ToString();
+        }
+
+        public string GamesList() {
+            JObject listOfGames = new JObject();
+            foreach (string str in games.Keys) {
+                listOfGames[""] = str;
+            }
+            return listOfGames.ToString();
         }
 
     }

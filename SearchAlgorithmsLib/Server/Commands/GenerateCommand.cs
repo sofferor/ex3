@@ -1,6 +1,5 @@
 ﻿using MazeLib;
 using System.Net.Sockets;
-using Tests;
 
 namespace Server {
     public class GenerateCommand : ICommand {

@@ -11,5 +11,7 @@ namespace Server {
         SearchableMazeAdapter GenerateMaze(string name, int rows, int cols);
 
         Solution<Position> Solve(string name, Algoritem algoritem);
+
+        string GamesList();
     }
 }

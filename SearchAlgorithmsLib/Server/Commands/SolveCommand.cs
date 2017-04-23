@@ -25,7 +25,7 @@ namespace Server {
             }
 
             Solution<Position> solution = model.Solve(name, algoritem);
-            return solution.ToJSON();
+            return solution.ToJson();
         }
     }
 }
