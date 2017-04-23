@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Server {
-    class Model {
+    public class Model : IModel {
 
         //members
         private IController controller;
@@ -20,8 +20,18 @@ namespace Server {
         ISearcher<Position> BFSSearcher;
         ISearcher<Position> DFSSearcher;
 
+        //properties
+        public IController Controller {
+            set => controller = value;
+        }
+
         //constructor
         public Model() {
+
+            searchableMazes = new Dictionary<string, SearchableMazeAdapter>();
+            solutions = new Dictionary<string, Dictionary<Algoritem, Solution<Position>>>();
+            games = new Dictionary<string, Game>();
+
             BFSSearcher = new BFS<Position>();
             DFSSearcher = new DFS<Position>();
         }
@@ -44,7 +54,7 @@ namespace Server {
             return searchableMaze;
         }
 
-        Solution<Position> Solve(string name, Algoritem algoritem) {
+        public Solution<Position> Solve(string name, Algoritem algoritem) {
 
             //first of all - checcking if this maze exist
             if (!searchableMazes.ContainsKey(name)) {
@@ -63,8 +73,10 @@ namespace Server {
             Solution<Position> solution;
             if (algoritem == Algoritem.BFS) {
                 solution = BFSSearcher.Search(searchableMazes[name]);
+                solution.Name = searchableMazes[name].MyMaze.Name;
             } else {
                 solution = DFSSearcher.Search(searchableMazes[name]);
+                solution.Name = searchableMazes[name].MyMaze.Name;
             }
 
             //check if need to add a new dictionary(if there was no solution at all(DFS and BFS)).

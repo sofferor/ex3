@@ -4,8 +4,16 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 
 namespace Server {
-    public class ClientHandler {
+    public class ClientHandler : IClientHandler {
+
+        //members
         private IController controller;
+
+        //properties
+        public IController Controller {
+            set => controller = value;
+        }
+
         public void HandleClient(TcpClient client) {
             new Task(() => {
                 NetworkStream stream = client.GetStream();
