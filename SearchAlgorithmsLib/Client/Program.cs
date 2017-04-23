@@ -32,9 +32,9 @@ namespace Client {
                     }
 
                     NetworkStream stream = client.GetStream();
-                    StreamWriter writer = new StreamWriter(stream);
+                    BinaryWriter writer = new BinaryWriter(stream);
 
-                    writer.WriteLine(commandLine);
+                    writer.Write(commandLine);
                     writer.Flush();
                 }
             });
@@ -49,10 +49,10 @@ namespace Client {
                     }
 
                     NetworkStream stream = client.GetStream();
-                    StreamReader reader = new StreamReader(stream);
+                    BinaryReader reader = new BinaryReader(stream);
 
                     // Get result from server
-                    string result = reader.ReadLine();
+                    string result = reader.ReadString();
                     Console.WriteLine("Result = {0}", result);
                 }
             });

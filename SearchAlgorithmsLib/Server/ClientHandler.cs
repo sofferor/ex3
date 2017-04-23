@@ -16,10 +16,10 @@ namespace Server {
         public void HandleClient(TcpClient client) {
             new Task(() => {
                 NetworkStream stream = client.GetStream();
-                StreamReader reader = new StreamReader(stream);
-                StreamWriter writer = new StreamWriter(stream);
+                BinaryReader reader = new BinaryReader(stream);
+                BinaryWriter writer = new BinaryWriter(stream);
                 
-                string commandLine = reader.ReadLine();
+                string commandLine = reader.ReadString();
                 Console.WriteLine("got command: {0}", commandLine);
                 string result = controller.ExecuteCommand(commandLine, client);
                 writer.Write(result);
