@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MazeGeneratorLib">
+      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeGeneratorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MazeLib">
+      <HintPath>..\..\..\Downloads\תכנות מתקדם 2\מטלה 1-20170404\MazeLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
