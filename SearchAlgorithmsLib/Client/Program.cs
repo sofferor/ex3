@@ -11,7 +11,7 @@ using System.Configuration;
 namespace Client {
     class Program {
         static void Main(string[] args) {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(ConfigurationManager.AppSettings["PortNum"]));            
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), int.Parse(ConfigurationManager.AppSettings["Port"]));            
             
             while (true) {
                 TcpClient client = new TcpClient();
@@ -23,11 +23,16 @@ namespace Client {
                 Console.WriteLine("Please enter a command: ");
                 string commandLine = Console.ReadLine();
 
-                do {
-                    
-                    writer.Write(commandLine);
-                    writer.Flush();
-                
+
+
+                writer.Write(commandLine);
+                writer.Flush();
+
+                string result = reader.ReadString();
+                Console.WriteLine("Result = {0}", result);
+
+                //if multipile command
+                if (commandLine.Equals("start") || commandLine.Equals("join") || commandLine.Equals("play")) {
                     new Task(() => {
                         while (true) {
                             try {
@@ -42,11 +47,34 @@ namespace Client {
                             }
                         }
                     }).Start();
-
-                    
-                } while (commandLine.Equals("start") || commandLine.Equals("join") || commandLine.Equals("play"));
+                }
+                
 
             }
         }
     }
 }
+
+
+
+
+
+
+new Task(() => {
+    while (true) {
+        try {
+            string result = reader.ReadString();
+            Console.WriteLine("Result = {0}", result);
+        } catch (Exception e) {
+            client = new TcpClient();
+            client.Connect(ep);
+            stream = client.GetStream();
+            writer = new BinaryWriter(stream);
+            reader = new BinaryReader(stream);
+        }
+    }
+}).Start();
+
+
+
+

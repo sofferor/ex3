@@ -18,7 +18,7 @@ namespace Server {
 
             string step = args[0];
             model.Play(step, client);
-            return new JObject().ToString();
+            return "wait";
         }
     }
 }
