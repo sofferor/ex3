@@ -140,8 +140,22 @@ namespace Server {
         }
 
 
-        public string CloseGame(string name) {
-            return new JObject().ToString();
+        public string Close(string name, TcpClient client) {
+
+            //find the other client who play with him
+            foreach (Game game in games.Values) {
+                if (game.Players.Contains(client)) {
+                    foreach (TcpClient other in game.Players) {
+                        if (other != client) {
+                            NetworkStream stream = other.GetStream();
+                            BinaryWriter writer = new BinaryWriter(stream);
+                            writer.Write("close");
+                            writer.Flush();
+                        }
+                    }
+                }
+            }
+            return "close";
         }
 
         public string GamesList() {

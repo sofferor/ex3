@@ -10,7 +10,10 @@ namespace Server {
         }
 
         public string Execute(string[] args, TcpClient client = null) {
-            throw new System.NotImplementedException();
+
+            string name = args[0];
+            
+            return model.Close(name, client);
         }
     }
 }

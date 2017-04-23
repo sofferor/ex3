@@ -21,5 +21,7 @@ namespace Server {
         void Play(string step, TcpClient client);
 
         string GamesList();
+
+        string Close(string name, TcpClient client);
     }
 }
