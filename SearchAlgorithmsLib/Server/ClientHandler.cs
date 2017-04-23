@@ -9,9 +9,8 @@ namespace Server {
         //members
         private IController controller;
 
-        //properties
-        public IController Controller {
-            set => controller = value;
+        public void SetController(IController c) {
+            controller = c;
         }
 
         public void HandleClient(TcpClient client) {
@@ -29,5 +28,6 @@ namespace Server {
                 client.Close();
             }).Start();
         }
+
     }
 }
