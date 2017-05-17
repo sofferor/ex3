@@ -1,0 +1,17 @@
+﻿<Window x:Class="GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="490" Width="793.135">
+    <StackPanel HorizontalAlignment="Center">
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="173" RenderTransformOrigin="0.304,0.118" FontStyle="Italic" FontWeight="ExtraBlack" FontStretch="UltraExpanded" FontSize="30" Foreground="#FFE36000"><Run Text="THE"/><LineBreak/><Run Text="BEST"/><LineBreak/><Run Text="MAZE"/></TextBlock>
+        <Button Content="Single player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20"/>
+        <Button Content="Multi player" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_1"/>
+        <Button Content="Settings" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click"/>
+
+
+    </StackPanel>
+</Window>
