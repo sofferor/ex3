@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="490" Width="793.135">
+        Title="MainWindow" Height="346" Width="793.135">
     <StackPanel HorizontalAlignment="Center">
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="173" RenderTransformOrigin="0.304,0.118" FontStyle="Italic" FontWeight="ExtraBlack" FontStretch="UltraExpanded" FontSize="30" Foreground="#FFE36000"><Run Text="THE"/><LineBreak/><Run Text="BEST"/><LineBreak/><Run Text="MAZE"/></TextBlock>
-        <Button Content="Single player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20"/>
+        <Button Content="Single player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_2"/>
         <Button Content="Multi player" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_1"/>
         <Button Content="Settings" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click"/>
 

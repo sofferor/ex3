@@ -10,18 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI
-{
+namespace GUI.Controls {
     /// <summary>
-    /// Interaction logic for SettingWindow.xaml
+    /// Interaction logic for DefinePlay.xaml
     /// </summary>
-    public partial class SettingWindow : Window
-    {
-        public SettingWindow()
-        {
+    public partial class DefinePlay : UserControl {
+        public DefinePlay() {
             InitializeComponent();
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }

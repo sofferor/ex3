@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,13 +28,22 @@ namespace GUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new SettingWindow().Show();
+            SettingsWindow w = new SettingsWindow();
+            w.Show();
             this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            MultiPlayerMenu w = new MultiPlayerMenu();
+            w.Show();
+            this.Close();
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e) {
+            SinglePlayerMenu w = new SinglePlayerMenu();
+            w.Show();
+            this.Close();
         }
     }
 }
