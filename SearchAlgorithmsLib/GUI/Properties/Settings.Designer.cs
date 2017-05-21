@@ -85,13 +85,13 @@ namespace GUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int GameList {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MazeName {
             get {
-                return ((int)(this["GameList"]));
+                return ((string)(this["MazeName"]));
             }
             set {
-                this["GameList"] = value;
+                this["MazeName"] = value;
             }
         }
     }
