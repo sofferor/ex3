@@ -21,7 +21,7 @@ namespace GUI.View {
             InitializeComponent();
         }
 
-        private void definePlay_Loaded(object sender, RoutedEventArgs e) {
+        private void btnStart_Click(object sender, RoutedEventArgs e) {
             SinglePlayerView sp = new SinglePlayerView();
             //sp = (SinglePlayerView)Application.Current.MainWindow;
             sp.Show();

@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="SinglePlayerMenu" Height="180" Width="350">
     <Grid>
-        <controls:DefinePlay />
-
+        <controls:DefinePlay Margin="0,0,0,45" />
+        <Button x:Name="btnStart" HorizontalAlignment="Center" Click="btnStart_Click" Margin="136,110,123.333,9.667" Padding="5" Width="84">Start Game</Button>
 
     </Grid>
 </Window>
