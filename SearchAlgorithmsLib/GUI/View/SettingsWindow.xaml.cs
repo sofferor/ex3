@@ -26,6 +26,7 @@ namespace GUI.View
             vm = new SettingsViewModel();
             this.DataContext = vm;
         }
+
         private void btnOK_Click(object sender, RoutedEventArgs e) {
             vm.SaveSettings();
             MainWindow win = new MainWindow();
@@ -33,6 +34,7 @@ namespace GUI.View
             win.Show();
             this.Close();
         }
+
         private void btnCancel_Click(object sender, RoutedEventArgs e) {
             MainWindow win = new MainWindow();
             win = (MainWindow)Application.Current.MainWindow;

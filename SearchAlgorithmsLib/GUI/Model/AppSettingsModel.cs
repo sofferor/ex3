@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GUI.Model
 {
-    class AppModel : IModel {
+    class AppSettingsModel : ISettingsModel {
 
-        public AppModel() { }
+        public AppSettingsModel() { }
 
         public string ServerIP {
             get { return Properties.Settings.Default.ServerIP; }

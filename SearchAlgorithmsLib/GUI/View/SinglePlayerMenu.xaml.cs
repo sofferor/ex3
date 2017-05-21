@@ -20,5 +20,12 @@ namespace GUI.View {
         public SinglePlayerMenu() {
             InitializeComponent();
         }
+
+        private void definePlay_Loaded(object sender, RoutedEventArgs e) {
+            SinglePlayerView sp = new SinglePlayerView();
+            //sp = (SinglePlayerView)Application.Current.MainWindow;
+            sp.Show();
+            this.Close();
+        }
     }
 }

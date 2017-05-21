@@ -9,10 +9,12 @@ namespace GUI.ViewModel
 
 {
     class SettingsViewModel : ViewModel {
-        private IModel model;
+
+        private ISettingsModel model;
+
         public SettingsViewModel()
         {
-            this.model = new AppModel();
+            this.model = new AppSettingsModel();
         }
         public string ServerIP
         {
@@ -31,6 +33,36 @@ namespace GUI.ViewModel
             set {
                 model.ServerPort = value;
                 NotifyPropertyChanged("ServerPort");
+            }
+        }
+
+        public int MazeRows {
+            get {
+                return model.MazeRows;
+            }
+            set {
+                model.MazeRows = value;
+                NotifyPropertyChanged("MazeRows");
+            }
+        }
+
+        public int MazeCols {
+            get {
+                return model.MazeCols;
+            }
+            set {
+                model.MazeCols = value;
+                NotifyPropertyChanged("MazeCols");
+            }
+        }
+
+        public int SearchAlgorithm {
+            get {
+                return model.SearchAlgorithm;
+            }
+            set {
+                model.SearchAlgorithm = value;
+                NotifyPropertyChanged("SearchAlgorithm");
             }
         }
 

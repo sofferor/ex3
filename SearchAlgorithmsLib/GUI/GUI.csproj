@@ -60,9 +60,11 @@
     <Compile Include="Controls\DefinePlay.xaml.cs">
       <DependentUpon>DefinePlay.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\IModel.cs" />
-    <Compile Include="Model\AppModel.cs" />
+    <Compile Include="Model\ISettingsModel.cs" />
+    <Compile Include="Model\AppSettingsModel.cs" />
+    <Compile Include="Model\SinglePlayerModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
+    <Compile Include="ViewModel\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\MultiPlayerMenu.xaml.cs">
       <DependentUpon>MultiPlayerMenu.xaml</DependentUpon>
@@ -72,6 +74,9 @@
     </Compile>
     <Compile Include="View\SinglePlayerMenu.xaml.cs">
       <DependentUpon>SinglePlayerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SinglePlayerView.xaml.cs">
+      <DependentUpon>SinglePlayerView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\DefinePlay.xaml">
       <SubType>Designer</SubType>
@@ -98,6 +103,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SinglePlayerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SinglePlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +137,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{f1c3b818-5fee-46c6-a7f4-8f70bb7865ad}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:controls="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerWindow"  Height="260" Width="350">
+        Title="MultiPlayerWindow"  Height="270" Width="360">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,9 +18,11 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Padding="3" Margin="3,3,3,3.333">List of games:</TextBlock>
-        <ComboBox x:Name="gameList" HorizontalAlignment="Left" SelectedIndex="{Binding GameList}" IsEditable="False" Margin="105,0,0,0" Width="238" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="gameList" HorizontalAlignment="Left" SelectedIndex="{Binding GameList}" IsEditable="False" Margin="105,0,0,0.333" Width="236" Grid.ColumnSpan="2"/>
         <Button x:Name="btnStart" Grid.Row="1" HorizontalAlignment="Center" Margin="30.667,4.667,136.333,77" Padding="5" Grid.Column="1">Join Game</Button>
+        <controls:DefinePlay HorizontalAlignment="Left" Height="150" Margin="3,60.667,0,-79.667" Grid.Row="1" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="2"/>
 
-        <controls:DefinePlay x:Name="definePlay" Margin="0,48.667,0.333,-90.333" Grid.ColumnSpan="2" Grid.Row="1" Loaded="definePlay_Loaded"/>
+        <!--<controls:DefinePlay x:Name="definePlay" Margin="0,48.667,0.333,-90.333" Grid.ColumnSpan="2" Grid.Row="1" Loaded="definePlay_Loaded"/>-->
+
     </Grid>
 </Window>
