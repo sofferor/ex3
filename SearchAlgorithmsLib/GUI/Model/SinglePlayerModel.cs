@@ -13,7 +13,6 @@ namespace GUI.Model {
 
         public SinglePlayerModel() {
             connecter = new Connecter();
-            string s = Properties.Settings.Default.ServerIP;
             connecter.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
 
