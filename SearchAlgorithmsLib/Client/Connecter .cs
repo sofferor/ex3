@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +13,7 @@ namespace Client {
         }
 
         public void Initialize(string IP) {
-
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), int.Parse(ConfigurationManager.AppSettings["Port"]));
         }
 
         public void Send(string message) {
@@ -19,7 +21,7 @@ namespace Client {
         }
 
         public string Recieve() {
-            
+            return "S";
         }
     }
 }
