@@ -23,19 +23,19 @@ namespace GUI.Controls {
             InitializeComponent();
         }
 
-        public TextBox TxtCols {
-            get => txtCols;
-            set => txtCols = value;
+        public int TxtCols {
+            get => int.Parse(txtCols.Text);
+            set => txtCols.Text = value.ToString();
         }
 
-        public TextBox TxtMazeName {
-            get => txtMazeName;
-            set => txtMazeName = value;
+        public string TxtMazeName {
+            get => txtMazeName.Text;
+            set => txtMazeName.Text = value;
         }
 
-        public TextBox TxtRows {
-            get => txtRows;
-            set => txtRows = value;
+        public int TxtRows {
+            get => int.Parse(txtRows.Text);
+            set => txtRows.Text = value.ToString();
         }
     }
 }
