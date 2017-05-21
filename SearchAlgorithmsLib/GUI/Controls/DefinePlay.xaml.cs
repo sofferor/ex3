@@ -23,46 +23,19 @@ namespace GUI.Controls {
             InitializeComponent();
         }
 
-        public int Rows {
-            get { return (int)GetValue(RowsProperty); }
-            set { SetValue(RowsProperty, value); }
+        public TextBox TxtCols {
+            get => txtCols;
+            set => txtCols = value;
         }
 
-        // Using a DependencyProperty as the backing store for Rows.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty RowsProperty =
-            DependencyProperty.Register("Rows", typeof(int), typeof(DefinePlay), new PropertyMetadata(0));
-
-
-        public int Cols {
-            get { return (int)GetValue(ColsProperty); }
-            set { SetValue(ColsProperty, value); }
+        public TextBox TxtMazeName {
+            get => txtMazeName;
+            set => txtMazeName = value;
         }
 
-        // Using a DependencyProperty as the backing store for Cols.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty ColsProperty =
-            DependencyProperty.Register("Cols", typeof(int), typeof(DefinePlay), new PropertyMetadata(0));
-
-
-
-        public string MazeName {
-            get { return (string)GetValue(MazeNameProperty); }
-            set { SetValue(MazeNameProperty, value); }
+        public TextBox TxtRows {
+            get => txtRows;
+            set => txtRows = value;
         }
-
-        // Using a DependencyProperty as the backing store for MazeName.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MazeNameProperty =
-            DependencyProperty.Register("MazeName", typeof(string), typeof(DefinePlay));
-
-
-
-
-
-
-
-        /*private void btnStart_Click(object sender, RoutedEventArgs e) {
-            SinglePlayerView sp = new SinglePlayerView();
-            sp.Show();
-            this.Close();
-        }*/
     }
 }
