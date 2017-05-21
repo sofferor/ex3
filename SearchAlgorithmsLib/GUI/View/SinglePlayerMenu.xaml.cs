@@ -23,6 +23,7 @@ namespace GUI.View {
 
         public SinglePlayerMenu() {
             InitializeComponent();
+            vm = new SinglePlayerViewModel();
             this.DataContext = vm;
             UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtRows = Properties.Settings.Default.MazeRows;
