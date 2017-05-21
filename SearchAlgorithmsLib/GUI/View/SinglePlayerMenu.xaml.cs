@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,12 @@ namespace GUI.View {
     /// Interaction logic for SinglePlayerMenu.xaml
     /// </summary>
     public partial class SinglePlayerMenu : Window {
+
+        private SinglePlayerViewModel vm;
+
         public SinglePlayerMenu() {
             InitializeComponent();
+            this.DataContext = vm;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {

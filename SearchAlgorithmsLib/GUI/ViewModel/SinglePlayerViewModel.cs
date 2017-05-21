@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GUI.ViewModel {
-    class SinglePlayerViewModel {
+    public class SinglePlayerViewModel : ViewModel {
 
         SinglePlayerModel model;
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GUI.ViewModel
 
 {
-    class SettingsViewModel : ViewModel {
+    public class SettingsViewModel : ViewModel {
 
         private ISettingsModel model;
 
