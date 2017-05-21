@@ -24,6 +24,7 @@ namespace GUI.View {
         public SinglePlayerMenu() {
             InitializeComponent();
             this.DataContext = vm;
+            userControl.TxtMazeName = Properties.Settings.Default.MazeName;
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {

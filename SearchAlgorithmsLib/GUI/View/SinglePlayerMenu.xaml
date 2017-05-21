@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:controls="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="SinglePlayerMenu" Height="180" Width="350">
+        Title="SinglePlayerMenu" Height="191" Width="350">
     <Grid>
-        <controls:DefinePlay Margin="0,0,0,45" MazeName="{Binding MazeName}"/>
+        <controls:DefinePlay x:Name="userControl" Margin="0,0,0,45"/>
         <Button x:Name="btnStart" HorizontalAlignment="Center" Click="btnStart_Click" Margin="136,110,123.333,9.667" Padding="5" Width="84">Start Game</Button>
 
     </Grid>
