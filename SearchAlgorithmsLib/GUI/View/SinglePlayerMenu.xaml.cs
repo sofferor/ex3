@@ -30,8 +30,11 @@ namespace GUI.View {
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {
+            vm.MazeName = UserControl.TxtMazeName;
+            vm.Rows = UserControl.TxtRows;
+            vm.Cols = UserControl.TxtCols;
+
             SinglePlayerView sp = new SinglePlayerView();
-            //sp = (SinglePlayerView)Application.Current.MainWindow;
             sp.Show();
             this.Close();
         }
