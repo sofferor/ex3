@@ -13,5 +13,31 @@ namespace GUI.ViewModel {
         public SinglePlayerViewModel() {
             model = new SinglePlayerModel();
         }
+
+        public string MazeName {
+            get { return model.MazeName; }
+            set {
+                model.MazeName = value;
+                NotifyPropertyChanged("MazeName");
+            }
+        }
+        public int Rows {
+            get {
+                return model.Rows;
+            }
+            set {
+                model.Rows = value;
+                NotifyPropertyChanged("Rows");
+            }
+        }
+        public int Cols {
+            get {
+                return model.Cols;
+            }
+            set {
+                model.Cols = value;
+                NotifyPropertyChanged("Cols");
+            }
+        }
     }
 }

@@ -45,14 +45,18 @@ namespace GUI.Controls {
 
 
 
-        public string MazeNameString {
-            get { return (string)GetValue(MazeNameStringProperty); }
-            set { SetValue(MazeNameStringProperty, value); }
+
+
+        public string MazeName {
+            get { return (string)GetValue(MazeNameProperty); }
+            set { SetValue(MazeNameProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for MazeNameString.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MazeNameStringProperty =
-            DependencyProperty.Register("MazeNameString", typeof(string), typeof(DefinePlay));
+        // Using a DependencyProperty as the backing store for MazeName.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MazeNameProperty =
+            DependencyProperty.Register("MazeName", typeof(string), typeof(DefinePlay));
+
+
 
 
 
