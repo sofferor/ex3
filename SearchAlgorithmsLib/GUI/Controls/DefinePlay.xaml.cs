@@ -44,9 +44,6 @@ namespace GUI.Controls {
 
 
 
-
-
-
         public string MazeName {
             get { return (string)GetValue(MazeNameProperty); }
             set { SetValue(MazeNameProperty, value); }
