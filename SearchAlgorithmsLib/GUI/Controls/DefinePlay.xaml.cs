@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,45 @@ namespace GUI.Controls {
             InitializeComponent();
         }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e) {
-
+        public int Rows {
+            get { return (int)GetValue(RowsProperty); }
+            set { SetValue(RowsProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for Rows.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty RowsProperty =
+            DependencyProperty.Register("Rows", typeof(int), typeof(DefinePlay), new PropertyMetadata(0));
+
+
+        public int Cols {
+            get { return (int)GetValue(ColsProperty); }
+            set { SetValue(ColsProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Cols.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColsProperty =
+            DependencyProperty.Register("Cols", typeof(int), typeof(DefinePlay), new PropertyMetadata(0));
+
+
+
+
+        public string MazeNameString {
+            get { return (string)GetValue(MazeNameStringProperty); }
+            set { SetValue(MazeNameStringProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MazeNameString.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MazeNameStringProperty =
+            DependencyProperty.Register("MazeNameString", typeof(string), typeof(DefinePlay));
+
+
+
+
+
+        /*private void btnStart_Click(object sender, RoutedEventArgs e) {
+            SinglePlayerView sp = new SinglePlayerView();
+            sp.Show();
+            this.Close();
+        }*/
     }
 }

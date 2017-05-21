@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.Controls"
              mc:Ignorable="d" Height="150" Width="350">
-    <Grid TextBlock.FontSize="14">
+    <Grid TextBlock.FontSize="14" Margin="0,0,0,40">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -22,6 +22,6 @@
         <TextBox x:Name="txtRows" Grid.Row="1" Grid.Column="2" Text="{Binding MazeRows}" Padding="3" Margin="3"></TextBox>
         <TextBlock Grid.Row="2" Padding="3" Margin="3">Maze columns:</TextBlock>
         <TextBox x:Name="txtCols" Grid.Row="2" Grid.Column="2" Text="{Binding MazeCols}" Padding="3" Margin="3"></TextBox>
-        <Button x:Name="btnStart" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="2" Click="btnStart_Click" Margin="5" Padding="5">Start Game</Button>
+        <!--<Button x:Name="btnStart" Grid.Row="3" HorizontalAlignment="Center" Grid.ColumnSpan="2" Click="btnStart_Click" Margin="5" Padding="5">Start Game</Button>-->
     </Grid>
 </UserControl>

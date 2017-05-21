@@ -8,6 +8,7 @@
         mc:Ignorable="d"
         Title="SinglePlayerMenu" Height="180" Width="350">
     <Grid>
-        <controls:DefinePlay x:Name="definePlay" Loaded="definePlay_Loaded"/>
+        <controls:DefinePlay x:Name="definePlay" Loaded="definePlay_Loaded" MazeNameString="{Binding MazeName}"/>
+        
     </Grid>
 </Window>

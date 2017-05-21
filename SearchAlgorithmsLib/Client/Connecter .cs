@@ -12,8 +12,8 @@ namespace Client {
 
         }
 
-        public void Initialize(string IP) {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), int.Parse(ConfigurationManager.AppSettings["Port"]));
+        public void Initialize(string IP, int port) {
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
         }
 
         public void Send(string message) {
