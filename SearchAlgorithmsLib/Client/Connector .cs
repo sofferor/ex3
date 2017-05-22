@@ -36,6 +36,7 @@ namespace Client {
 
         public void Send(string message) {
             writer.Write(message);
+            writer.Flush();
         }
 
         public string Receive() {
