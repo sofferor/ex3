@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Model\ISettingsModel.cs" />
     <Compile Include="Model\AppSettingsModel.cs" />
+    <Compile Include="Model\PlayerModel.cs" />
     <Compile Include="Model\SinglePlayerModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\SinglePlayerViewModel.cs" />
