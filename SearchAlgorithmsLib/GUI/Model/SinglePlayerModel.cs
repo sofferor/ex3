@@ -35,7 +35,7 @@ namespace GUI.Model {
             connecter.Send(message);
         }
 
-        public string Recieve() {
+        public string Receive() {
             return connecter.Receive();
         }
     }
