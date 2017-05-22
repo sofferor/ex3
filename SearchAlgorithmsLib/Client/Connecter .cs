@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Client {
-    public class Connecter {
+    public class Connector {
         private BinaryWriter writer;
         private BinaryReader reader;
-        public Connecter() { }
+        public Connector() { }
 
         public BinaryReader Reader {
             get => reader;

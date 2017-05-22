@@ -9,11 +9,11 @@ using Client;
 namespace GUI.Model {
     class SinglePlayerModel {
 
-        private Connecter connecter;
+        private Connector connector;
 
         public SinglePlayerModel() {
-            connecter = new Connecter();
-            connecter.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
+            connector = new Connector();
+            connector.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
 
         public string MazeName {
@@ -32,11 +32,11 @@ namespace GUI.Model {
         }
 
         public void Send(string message) {
-            connecter.Send(message);
+            connector.Send(message);
         }
 
         public string Receive() {
-            return connecter.Receive();
+            return connector.Receive();
         }
     }
 }
