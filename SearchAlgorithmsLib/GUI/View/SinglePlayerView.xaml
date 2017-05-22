@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI.View"
+        xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
         Title="SinglePlayerView" Height="700" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Name="Solve" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Solve Maze"/>
+            <Button Name="Main" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Main Menu"/>
+            <Button Name="Restart" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Restart Game"/>
+        </StackPanel>
+
+        <control:MazeControl Grid.Row="1"></control:MazeControl>
+
     </Grid>
 </Window>
+

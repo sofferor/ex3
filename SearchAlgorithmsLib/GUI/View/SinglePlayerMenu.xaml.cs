@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GUI.Model;
 
 namespace GUI.View {
     /// <summary>
@@ -23,7 +24,7 @@ namespace GUI.View {
 
         public SinglePlayerMenu() {
             InitializeComponent();
-            vm = new SinglePlayerViewModel();
+            vm = new SinglePlayerViewModel(new SinglePlayerModel());
             this.DataContext = vm;
             UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtRows = Properties.Settings.Default.MazeRows;
