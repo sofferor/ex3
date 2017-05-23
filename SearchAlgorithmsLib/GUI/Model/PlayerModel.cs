@@ -1,30 +1,44 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Client;
+using MazeLib;
 
 namespace GUI.Model {
     public abstract class PlayerModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
         private Connector connector;
+        protected Maze maze;
 
         protected PlayerModel() {
             connector = new Connector();
-            connector.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
+            maze = null;
+        }
+
+        public void Initialize(string IP, int port) {
+            connector.Initialize(IP, port);
         }
 
         public string MazeName {
-            get { return Properties.Settings.Default.MazeName; }
-            set { Properties.Settings.Default.MazeName = value; }
+            get { return maze?.Name; }
         }
 
         public int Rows {
-            get { return Properties.Settings.Default.MazeRows; }
-            set { Properties.Settings.Default.MazeRows = value; }
+            get {
+                if (maze != null) {
+                    return maze.Rows;
+                }
+                return -1;
+            }
+
         }
 
         public int Cols {
-            get { return Properties.Settings.Default.MazeCols; }
-            set { Properties.Settings.Default.MazeCols = value; }
+            get {
+                if (maze != null) {
+                    return maze.Cols;
+                }
+                return -1;
+            }
         }
 
         public void Send(string message) {

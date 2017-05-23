@@ -10,7 +10,7 @@
         <ImageBrush x:Key="End" ImageSource="../Images/toilet.jpg"></ImageBrush>
         <ImageBrush x:Key="Poo" ImageSource="../Images/poo.jpeg"></ImageBrush>
     </UserControl.Resources>
-    <Canvas Name="MazeBoard" Loaded="MazeBoardLoaded" KeyDown="MazeBoardKeyDown">
+    <Canvas Name="MazeBoard" KeyDown="MazeBoardKeyDown">
             
     </Canvas>
 </UserControl>

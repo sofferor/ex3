@@ -29,9 +29,11 @@ namespace GUI.View {
             MazeControl.DataContext = vm;
             vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName == "mazeGenerated") {
-                    //MazeControl.DrawMazeBoared();
+                    MazeControl.DrawMazeBoard(vm);
                 }
             };
+            vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
+            vm.GenerateMaze(vm.MazeName, vm.Rows, vm.Cols);
         }
     }
 }

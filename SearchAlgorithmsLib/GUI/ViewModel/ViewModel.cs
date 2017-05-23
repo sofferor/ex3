@@ -10,34 +10,37 @@ namespace GUI.ViewModel
 {
     public abstract class ViewModel : INotifyPropertyChanged {
         private PlayerModel model;
+        private string mazeName;
+        private int rows;
+        private int cols;
 
         protected ViewModel(PlayerModel model) {
-            if (model == null) throw new ArgumentNullException(nameof(model));
-            this.model = model;
+            if (model != null) {
+                this.model = model;
+            }
+            mazeName = "";
+            rows = -2;
+            cols = -2;
         }
 
         public string MazeName {
-            get { return model.MazeName; }
+            get { return mazeName; }
             set {
-                model.MazeName = value;
+                mazeName = value;
                 NotifyPropertyChanged("MazeName");
             }
         }
         public int Rows {
-            get {
-                return model.Rows;
-            }
+            get { return rows; }
             set {
-                model.Rows = value;
+                rows = value;
                 NotifyPropertyChanged("Rows");
             }
         }
         public int Cols {
-            get {
-                return model.Cols;
-            }
+            get { return cols; }
             set {
-                model.Cols = value;
+                cols = value;
                 NotifyPropertyChanged("Cols");
             }
         }
@@ -46,6 +49,10 @@ namespace GUI.ViewModel
 
         public void NotifyPropertyChanged(string propName) {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
+        public void Initialize(string IP, int port) {
+            model.Initialize(IP, port);
         }
     }
 }

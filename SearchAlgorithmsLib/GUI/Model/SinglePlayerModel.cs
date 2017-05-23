@@ -10,20 +10,21 @@ using MazeLib;
 namespace GUI.Model {
     class SinglePlayerModel : PlayerModel {
         public event EventHandler<Maze> MazeGenerated;   
-        private Maze maze;
+        
 
         public SinglePlayerModel() : base() {
         }
 
         public void GenerateMaze(string name, int rows, int cols) {
-            Send(name+" "+rows.ToString()+" "+ cols.ToString());
-            maze = Maze.FromJSON(Receive());
+            Send("generate " + name+" "+rows.ToString()+" "+ cols.ToString());
+            string mazeString = Receive();
+            maze = Maze.FromJSON(mazeString);
             OnMazeGenerated(maze);
 
         }
 
-        protected virtual void OnMazeGenerated(Maze e) {
-            MazeGenerated?.Invoke(this, e);
+        protected virtual void OnMazeGenerated(Maze m) {
+            MazeGenerated?.Invoke(this, m);
         }
     }
 }

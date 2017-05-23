@@ -12,7 +12,7 @@ namespace GUI.ViewModel {
         public SinglePlayerViewModel(PlayerModel model) : base(model) {
             this.model = model as SinglePlayerModel;
             this.model.MazeGenerated += delegate(Object sender, Maze maze) {
-                mazeString = maze.ToString();
+                MazeString = maze.ToString();
                 NotifyPropertyChanged("mazeGenerated");
             };
         }
@@ -26,9 +26,7 @@ namespace GUI.ViewModel {
         }
 
         public void GenerateMaze(string name, int rows, int cols) {
-            new Task(() => {
-                model.GenerateMaze(name, rows, cols);
-            }).Start();
+            model.GenerateMaze(name, rows, cols);
         }
     }
 }
