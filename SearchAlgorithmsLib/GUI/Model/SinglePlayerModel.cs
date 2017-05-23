@@ -9,7 +9,6 @@ using MazeLib;
 
 namespace GUI.Model {
     class SinglePlayerModel : PlayerModel {
-        public event EventHandler<Maze> NewMaze; 
         private Maze maze;
 
         public SinglePlayerModel() : base() {
@@ -18,12 +17,7 @@ namespace GUI.Model {
         public void generateMaze(string name, int rows, int cols) {
             Send(name+" "+rows.ToString()+" "+ cols.ToString());
             maze = Maze.FromJSON(Receive());
-            OnNewMaze(maze);
 
-        }
-
-        protected virtual void OnNewMaze(Maze e) {
-            NewMaze?.Invoke(this, e);
         }
     }
 }

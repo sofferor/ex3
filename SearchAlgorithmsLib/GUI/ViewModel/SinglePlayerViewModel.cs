@@ -9,12 +9,10 @@ using MazeLib;
 
 namespace GUI.ViewModel {
     public class SinglePlayerViewModel : ViewModel {
-
-        private SinglePlayerModel model;
+        
         private string mazeString;
 
         public SinglePlayerViewModel(PlayerModel model) : base(model) {
-            this.model = base.model as SinglePlayerModel;
             this.model.NewMaze += delegate(Object sender, Maze maze) {
                 maze.ToString();
             };
