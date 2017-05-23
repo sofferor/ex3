@@ -18,7 +18,7 @@
             <Button Name="Restart" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Restart Game"/>
         </StackPanel>
 
-        <control:MazeControl Grid.Row="1"></control:MazeControl>
+        <control:MazeControl x:Name="MazeControl"  Grid.Row="1" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
 
     </Grid>
 </Window>

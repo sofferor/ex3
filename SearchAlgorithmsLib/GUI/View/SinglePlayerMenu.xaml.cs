@@ -36,7 +36,7 @@ namespace GUI.View {
             vm.Rows = UserControl.TxtRows;
             vm.Cols = UserControl.TxtCols;
 
-            SinglePlayerView sp = new SinglePlayerView();
+            SinglePlayerView sp = new SinglePlayerView(vm);
             sp.Show();
             this.Close();
         }

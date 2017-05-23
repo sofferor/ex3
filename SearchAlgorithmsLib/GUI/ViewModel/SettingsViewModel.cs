@@ -12,8 +12,7 @@ namespace GUI.ViewModel
 
         private ISettingsModel model;
 
-        public SettingsViewModel()
-        {
+        public SettingsViewModel(PlayerModel p = null) : base(null) {
             this.model = new AppSettingsModel();
         }
         public string ServerIP
