@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GUI.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Canvas>
+    <Canvas Name="MazeBoard" Loaded="MazeBoardLoaded" KeyDown="MazeBoardKeyDown">
             
     </Canvas>
 </UserControl>
