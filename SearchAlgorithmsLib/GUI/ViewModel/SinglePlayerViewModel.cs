@@ -19,7 +19,10 @@ namespace GUI.ViewModel {
 
         public string MazeString {
             get => mazeString;
-            set => mazeString = value;
+            set {
+                mazeString = value;
+                NotifyPropertyChanged("MazeString");
+            }
         }
 
         public void GenerateMaze(string name, int rows, int cols) {

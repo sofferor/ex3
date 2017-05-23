@@ -1,6 +1,7 @@
 ﻿using GUI.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,18 @@ namespace GUI.View {
     /// </summary>
     public partial class SinglePlayerView : Window {
 
-        private SinglePlayerViewModel vm;
+        public SinglePlayerViewModel vm;
 
-        public SinglePlayerView() {
+        public SinglePlayerView(SinglePlayerViewModel spvm) {
             InitializeComponent();
-            vm = new SinglePlayerViewModel();
+            vm = spvm;
+            DataContext = vm;
+            MazeControl.DataContext = vm;
+            vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
+                if (e.PropertyName == "mazeGenerated") {
+                    //MazeControl.DrawMazeBoared();
+                }
+            };
         }
     }
 }
