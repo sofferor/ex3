@@ -9,7 +9,7 @@ using GUI.Model;
 namespace GUI.ViewModel
 {
     public abstract class ViewModel : INotifyPropertyChanged {
-        protected PlayerModel model;
+        private PlayerModel model;
 
         protected ViewModel(PlayerModel model) {
             if (model == null) throw new ArgumentNullException(nameof(model));
