@@ -58,8 +58,6 @@ namespace GUI.Controls {
 
 
 
-
-
         public string InitialPos {
             get { return (string)GetValue(InitialPosProperty); }
             set { SetValue(InitialPosProperty, value); }
@@ -106,7 +104,37 @@ namespace GUI.Controls {
 
 
         private void MazeBoardLoaded(object sender, RoutedEventArgs e) {
+            DrawMazeBourd();
+        }
 
+        private void DrawMazeBourd() {
+            string mazeString = MazeString;
+            int rows = Rows;
+            int cols = Cols;
+            System.Windows.Shapes.Rectangle rect = new System.Windows.Shapes.Rectangle();
+            //calculating hight and width of rectangle
+            rect.Height = (int)MazeBoard.Height / rows;
+            rect.Width = (int)MazeBoard.Width / cols;
+            int x = 0, y = 0;
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    char c = mazeString[i * cols + cols];
+                    if (c == '1') {
+                        rect.Stroke = new SolidColorBrush(Colors.Black);
+                        rect.Fill = new SolidColorBrush(Colors.Black);
+                    } else if (c == '0') {
+                        rect.Stroke = new SolidColorBrush(Colors.White);
+                        rect.Fill = new SolidColorBrush(Colors.White);
+                    } else if (c == '*') {
+                        rect.Fill = new ImageBrush()
+                    }
+
+                    Canvas.SetLeft(rect, x);
+                    Canvas.SetTop(rect, y);
+                    MazeBoard.Children.Add(rect);
+                }
+            }
         }
 
         private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
