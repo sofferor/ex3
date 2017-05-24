@@ -64,6 +64,7 @@ namespace GUI.Model {
 
             if (maze.GoalPos.Equals(maze.InitialPos)) {
                 OnNewPos(new Position(-2,-2));
+                return;
             }
             OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
         }
