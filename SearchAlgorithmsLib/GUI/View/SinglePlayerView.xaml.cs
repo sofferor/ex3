@@ -36,16 +36,9 @@ namespace GUI.View {
             vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName != "wonMaze") return;
                 MessageBox.Show(this, "YOU WON !!!", "Win Window", MessageBoxButton.OK);
-                /*
                 MainWindow win = new MainWindow();
                 win = (MainWindow) Application.Current.MainWindow;
                 win.Show();
-                */
-                foreach (Window window in Application.Current.Windows) {
-                    if (!window.IsActive) {
-                        window.Show();
-                    }
-                }
                 this.Close();
             };
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
