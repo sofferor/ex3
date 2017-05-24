@@ -29,11 +29,27 @@ namespace GUI.View {
             MazeControl.DataContext = vm;
             vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName == "mazeGenerated") {
-                    MazeControl.DrawMazeBoard(vm);
+                    MazeControl.DrawMazeBoard();
                 }
             };
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
-            vm.GenerateMaze(vm.MazeName, vm.Rows, vm.Cols);
+        }
+
+        private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
+            switch (e.Key) {
+                case Key.Down: {
+                    break;
+                }
+                case Key.Up: {
+                    break;
+                }
+                case Key.Left: {
+                    break;
+                }
+                case Key.Right: {
+                    break;
+                }
+            }
         }
     }
 }

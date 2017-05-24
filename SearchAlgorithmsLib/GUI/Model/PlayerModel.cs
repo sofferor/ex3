@@ -8,6 +8,7 @@ namespace GUI.Model {
         public event PropertyChangedEventHandler PropertyChanged;
         private Connector connector;
         protected Maze maze;
+        protected Position curPos;
 
         protected PlayerModel() {
             connector = new Connector();

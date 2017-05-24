@@ -39,6 +39,7 @@ namespace GUI.View {
             SinglePlayerView sp = new SinglePlayerView(vm);
             sp.Show();
             this.Close();
+            vm.GenerateMaze(vm.MazeName, vm.Rows, vm.Cols);
         }
     }
 }
