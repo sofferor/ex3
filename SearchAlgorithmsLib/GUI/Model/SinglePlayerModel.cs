@@ -8,8 +8,9 @@ using MazeLib;
 
 
 namespace GUI.Model {
-    class SinglePlayerModel : PlayerModel {
-        public event EventHandler<Maze> MazeGenerated;   
+    public class SinglePlayerModel : PlayerModel {
+        public event EventHandler<Maze> MazeGenerated;
+        public event EventHandler<Position> NewPos; 
         
 
         public SinglePlayerModel() : base() {
@@ -28,7 +29,8 @@ namespace GUI.Model {
             MazeGenerated?.Invoke(this, m);
         }
 
-        public Position Move(Direction direction) {
+        public void Move(Direction direction) {
+            Position tempPosition = new Position(curPos.Row, curPos.Col);
             switch (direction) {
                 case Direction.Down: {
                     if (curPos.Row + 1 < maze.Rows && maze[curPos.Row + 1, curPos.Col] != CellType.Wall) {
@@ -59,7 +61,15 @@ namespace GUI.Model {
                 default:
                     throw new ArgumentOutOfRangeException(nameof(direction), direction, null);
             }
-            return curPos;
+
+            if (maze.GoalPos.Equals(maze.InitialPos)) {
+                OnNewPos(new Position(-2,-2));
+            }
+            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
+        }
+
+        protected virtual void OnNewPos(Position e) {
+            NewPos?.Invoke(this, e);
         }
     }
 }

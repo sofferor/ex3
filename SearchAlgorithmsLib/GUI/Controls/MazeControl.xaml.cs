@@ -19,11 +19,16 @@ namespace GUI.Controls {
     /// Interaction logic for MazeControl.xaml
     /// </summary>
     public partial class MazeControl : UserControl {
+
+        private Rectangle currRectangle;
         public MazeControl() {
             InitializeComponent();
         }
 
-
+        public Rectangle CurrRectangle {
+            get => currRectangle;
+            set => currRectangle = value;
+        }
 
         public string MazeString {
             get { return (string)GetValue(MazeStringProperty); }
@@ -32,8 +37,11 @@ namespace GUI.Controls {
 
         // Using a DependencyProperty as the backing store for MazeString.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MazeStringProperty =
-            DependencyProperty.Register("MazeString", typeof(string), typeof(MazeControl));
+            DependencyProperty.Register("MazeString", typeof(string), typeof(MazeControl), new PropertyMetadata(OnDrawMove));
 
+        private static void OnDrawMove(DependencyObject d, DependencyPropertyChangedEventArgs e) {
+            ((MazeControl) d).DrawMove();
+        }
 
 
         public int Rows {
@@ -124,12 +132,13 @@ namespace GUI.Controls {
                         break;
                     }
                     case '*': {
-                        rect.Fill = (ImageBrush)Resources["End"];
+                        rect.Fill = (ImageBrush)Resources["Poo"];
                         Panel.SetZIndex(rect, 1);
+                        currRectangle = rect;
                         break;
                     }
                     case '#': {
-                        rect.Fill = (ImageBrush)Resources["Poo"];
+                        rect.Fill = (ImageBrush)Resources["End"];
                         Panel.SetZIndex(rect, 1);
                         break;
                     }
@@ -150,7 +159,48 @@ namespace GUI.Controls {
         }
 
         private void DrawMove() {
-            
+            string mazeString = MazeString;
+            mazeString = mazeString.Replace("\r\n", "\n");
+
+            double rectHight = MazeBoard.ActualHeight / Rows;
+            double rectWidth = MazeBoard.ActualWidth / Cols;
+
+            double width = 0, hight = 0;
+            MazeBoard.Children.Remove(currRectangle);
+
+            foreach (char c in mazeString) {
+                switch (c) {
+                    case 'w': {
+                        Rectangle rect = new Rectangle();
+                        rect.Width = rectWidth;
+                        rect.Height = rectHight;
+                        rect.Stroke = new SolidColorBrush(Colors.White);
+                        rect.Fill = new SolidColorBrush(Colors.White);
+                        Canvas.SetLeft(rect, width);
+                        Canvas.SetTop(rect, hight);
+                        MazeBoard.Children.Add(rect);
+                        break;
+                    }
+                    case 'n': {
+                        Rectangle rect = new Rectangle();
+                        rect.Width = rectWidth;
+                        rect.Height = rectHight;
+                        rect.Fill = (ImageBrush)Resources["Poo"];
+                        Panel.SetZIndex(rect, 1);
+                        currRectangle = rect;
+                        Canvas.SetLeft(rect, width);
+                        Canvas.SetTop(rect, hight);
+                        MazeBoard.Children.Add(rect);
+                        break;
+                        }
+                    case '\n': {
+                        width = 0;
+                        hight += rectHight;
+                        continue;
+                    }
+                }
+                width += rectWidth;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="SinglePlayerView" Height="700" Width="800">
+        Title="SinglePlayerView" Height="700" Width="800" KeyDown="MazeBoardKeyDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -18,7 +18,7 @@
             <Button Name="Restart" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Restart Game"/>
         </StackPanel>
 
-        <control:MazeControl x:Name="MazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="1" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
+        <control:MazeControl x:Name="MazeControl" Grid.Row="1" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
 
     </Grid>
 </Window>
