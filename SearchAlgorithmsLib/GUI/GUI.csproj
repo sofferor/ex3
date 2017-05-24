@@ -72,13 +72,18 @@
     </Compile>
     <Compile Include="Model\ISettingsModel.cs" />
     <Compile Include="Model\AppSettingsModel.cs" />
+    <Compile Include="Model\MultiPlayerModel.cs" />
     <Compile Include="Model\PlayerModel.cs" />
     <Compile Include="Model\SinglePlayerModel.cs" />
+    <Compile Include="ViewModel\MultiPlayerViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="ViewModel\SinglePlayerViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\MultiPlayerMenu.xaml.cs">
       <DependentUpon>MultiPlayerMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MultiPlayerView.xaml.cs">
+      <DependentUpon>MultiPlayerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -110,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\MultiPlayerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MultiPlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

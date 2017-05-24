@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GUI.Model;
+using GUI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,8 +19,31 @@ namespace GUI.View {
     /// Interaction logic for MultiPlayerMenu.xaml
     /// </summary>
     public partial class MultiPlayerMenu : Window {
+
+        private MultiPlayerViewModel vm;
+
         public MultiPlayerMenu() {
             InitializeComponent();
+            vm = new MultiPlayerViewModel(new MultiPlayerModel());
+            this.DataContext = vm;
+            UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
+            UserControl.TxtRows = Properties.Settings.Default.MazeRows;
+            UserControl.TxtCols = Properties.Settings.Default.MazeCols;
+        }
+
+        private void btnJoin_Click(object sender, RoutedEventArgs e) {
+            vm.GameSelected = GameList.SelectedIndex;
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e) {
+            vm.MazeName = UserControl.TxtMazeName;
+            vm.Rows = UserControl.TxtRows;
+            vm.Cols = UserControl.TxtCols;
+
+            MultiPlayerView sp = new MultiPlayerView(vm);
+            sp.Show();
+            this.Close();
+            vm.Start(vm.MazeName, vm.Rows, vm.Cols);
         }
     }
 }
