@@ -26,24 +26,24 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Settings(object sender, RoutedEventArgs e)
         {
             SettingsWindow w = new SettingsWindow();
             w.Show();
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_Multi_Player(object sender, RoutedEventArgs e)
         {
             MultiPlayerMenu w = new MultiPlayerMenu();
             w.Show();
             this.Close();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e) {
+        private void Button_Click_Single_Player(object sender, RoutedEventArgs e) {
             SinglePlayerMenu w = new SinglePlayerMenu();
             w.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
