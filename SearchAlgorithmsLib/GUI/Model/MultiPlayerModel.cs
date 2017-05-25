@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace GUI.Model {
     public class MultiPlayerModel : PlayerModel {
         public event EventHandler<Maze> MazeGenerated;
+        public event EventHandler<string> ListOfGames;
         private Position otherPos;
         private string games;
 
@@ -37,6 +38,16 @@ namespace GUI.Model {
             curPos = maze.InitialPos;
             otherPos = curPos;
             OnMazeGenerated(maze);
+        }
+
+        public void AskListOfGames() {
+            Send("list");
+            string listOfGames = Receive();
+
+        }
+
+        protected virtual void OnListOfGames(string g) {
+            ListOfGames?.Invoke(this, g);
         }
 
         protected virtual void OnMazeGenerated(Maze m) {

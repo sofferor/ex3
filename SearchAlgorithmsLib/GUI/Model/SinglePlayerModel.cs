@@ -13,8 +13,7 @@ namespace GUI.Model {
         public event EventHandler<Position> NewPos; 
         
 
-        public SinglePlayerModel() : base() {
-        }
+        public SinglePlayerModel() : base() { }
 
         public void GenerateMaze(string name, int rows, int cols) {
             Send("generate " + name+" "+rows.ToString()+" "+ cols.ToString());
