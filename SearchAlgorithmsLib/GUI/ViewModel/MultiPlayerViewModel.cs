@@ -18,8 +18,10 @@ namespace GUI.ViewModel {
 
         public MultiPlayerViewModel(PlayerModel model) : base(model) {
             this.model = model as MultiPlayerModel;
+            listOfGames = new ObservableCollection<string>();
             this.model.MazeGenerated += delegate (Object sender, Maze maze) {
                 MazeString = maze.ToString();
+                OtherMazeString = maze.ToString();
                 MazeName = maze.Name;
                 Rows = maze.Rows;////maybe to minus 1
                 Cols = maze.Cols;
@@ -28,7 +30,9 @@ namespace GUI.ViewModel {
             this.model.ListOfGames += delegate (Object sender, string list) {
                 string[] gameList = null;
                 if (list != null) {
-                    gameList = list.Replace("[", "").Replace("]", "").Replace("\n", "").Split(',');
+                    list = list.Replace("[", "").Replace("]", "").Replace("\n", "").Replace("\r", "").Replace("\"", "").Replace(" ", "");
+                    this.model.ListOfGamesString = list;
+                    gameList = list.Split(',');
                     for (int i = 0; i < gameList.Length; i++) {
                         listOfGames.Add(gameList[i]);
                     }
@@ -57,7 +61,7 @@ namespace GUI.ViewModel {
             get { return gameSelected; }
             set {
                 gameSelected = value;
-                MazeString = model.GameAt(gameSelected);
+                MazeName = listOfGames.ElementAt<string>(gameSelected);
             }
         }
 
@@ -83,6 +87,94 @@ namespace GUI.ViewModel {
 
         public void AskListOfGames() {
             model.AskListOfGames();
+        }
+
+
+
+        public void MovePlayer(Direction direction) {
+            this.model.NewPos += delegate (Object sender, Position pos) {
+                if (pos.Row == -1) {
+                    return;
+                } else if (pos.Row == -2) {
+                    NotifyPropertyChanged("wonMaze");
+                    return;
+                }
+                int mazeStringLen = mazeString.Length;
+                char[] mazeStringArr = mazeString.ToCharArray();
+
+
+                for (int i = 0; i < mazeStringLen; i++) {
+                    switch (mazeStringArr[i]) {
+                        case '*': {
+                                mazeStringArr[i] = 'w';
+                                break;
+                            }
+                        case 'w': {
+                                mazeStringArr[i] = '0';
+                                break;
+                            }
+                        case 'n': {
+                                mazeStringArr[i] = 'w';
+                                break;
+                            }
+                    }
+                }
+
+                int index = (pos.Row) * Cols + 2 * (pos.Row) + pos.Col;
+                char ifEnd = mazeStringArr[index];
+                mazeStringArr[index] = 'n';
+
+
+                MazeString = new string(mazeStringArr);
+
+                if (ifEnd == '#') {
+                    NotifyPropertyChanged("wonMaze");
+                }
+            };
+            model.Move(direction);
+        }
+
+        public void MoveOtherPlayer(Direction direction) {
+            this.model.OtherNewPos += delegate (Object sender, Position pos) {
+                if (pos.Row == -1) {
+                    return;
+                } else if (pos.Row == -2) {
+                    NotifyPropertyChanged("wonMaze");
+                    return;
+                }
+                int mazeStringLen = otherMazeString.Length;
+                char[] mazeStringArr = otherMazeString.ToCharArray();
+
+
+                for (int i = 0; i < mazeStringLen; i++) {
+                    switch (mazeStringArr[i]) {
+                        case '*': {
+                                mazeStringArr[i] = 'w';
+                                break;
+                            }
+                        case 'w': {
+                                mazeStringArr[i] = '0';
+                                break;
+                            }
+                        case 'n': {
+                                mazeStringArr[i] = 'w';
+                                break;
+                            }
+                    }
+                }
+
+                int index = (pos.Row) * Cols + 2 * (pos.Row) + pos.Col;
+                char ifEnd = mazeStringArr[index];
+                mazeStringArr[index] = 'n';
+
+
+                OtherMazeString = new string(mazeStringArr);
+
+                if (ifEnd == '#') {
+                    NotifyPropertyChanged("wonMaze");
+                }
+            };
+            model.MoveOtherPlayer(direction);
         }
     }
 }

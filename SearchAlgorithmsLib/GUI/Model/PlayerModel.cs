@@ -6,7 +6,7 @@ using MazeLib;
 namespace GUI.Model {
     public abstract class PlayerModel : INotifyPropertyChanged {
         public event PropertyChangedEventHandler PropertyChanged;
-        private Connector connector;
+        protected Connector connector;
         protected Maze maze;
         protected Position curPos;
 

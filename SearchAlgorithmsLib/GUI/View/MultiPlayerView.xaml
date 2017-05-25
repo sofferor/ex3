@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerView" Height="710" Width="1200">
+        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -23,7 +23,7 @@
         <TextBlock HorizontalAlignment="Right"  VerticalAlignment="Top" Width="198" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667" Margin="0,28,392,0" Grid.Column="1" Grid.RowSpan="2"><Run Text="Other player's board"/></TextBlock>
 
         <control:MazeControl x:Name="MazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="2" Grid.Column="0" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
-        <control:MazeControl x:Name="OtherMazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="2" Grid.Column="1" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
+        <control:MazeControl x:Name="OtherMazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="2" Grid.Column="1" MazeString="{Binding OtherMazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
         
     </Grid>
 </Window>

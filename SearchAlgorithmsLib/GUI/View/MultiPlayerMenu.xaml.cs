@@ -26,7 +26,7 @@ namespace GUI.View {
             InitializeComponent();
             vm = new MultiPlayerViewModel(new MultiPlayerModel());
             this.DataContext = vm;
-            UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
+            //vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort); UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtRows = Properties.Settings.Default.MazeRows;
             UserControl.TxtCols = Properties.Settings.Default.MazeCols;
             GameList.ItemsSource = vm.ListOfGames;
@@ -53,6 +53,7 @@ namespace GUI.View {
         }
 
         public void DropDown(Object sender, Object args) {
+            vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort); UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             vm.AskListOfGames();
         }
     }

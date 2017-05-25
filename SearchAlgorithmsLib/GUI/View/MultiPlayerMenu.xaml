@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Padding="3" Margin="3,3,3,3.333">List of games:</TextBlock>
-        <ComboBox x:Name="GameList" ItemsSource="{Binding ListOfGames}" DropDownOpened="DropDown" HorizontalAlignment="Left" IsEditable="False" Margin="105,0,0,0.333" Width="236" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="GameList" ItemsSource="{Binding ListOfGames}" SelectedIndex="{Binding GameSelected}" DropDownOpened="DropDown" HorizontalAlignment="Left" IsEditable="False" Margin="105,0,0,0.333" Width="236" Grid.ColumnSpan="2"/>
         <Button x:Name="btnJoin" Grid.Row="1" HorizontalAlignment="Center" Padding="5" Margin="136,10,118.333,110" Width="89" Click="btnJoin_Click">Join Game</Button>
         <controls:DefinePlay x:Name="UserControl" HorizontalAlignment="Left" Height="105" Margin="10,46,0,0" Grid.Row="1" VerticalAlignment="Top" Width="340" Grid.ColumnSpan="2"/>
 

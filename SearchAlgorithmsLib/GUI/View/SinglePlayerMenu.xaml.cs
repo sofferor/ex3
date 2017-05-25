@@ -26,6 +26,7 @@ namespace GUI.View {
             InitializeComponent();
             vm = new SinglePlayerViewModel(new SinglePlayerModel());
             this.DataContext = vm;
+            //vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort); UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtRows = Properties.Settings.Default.MazeRows;
             UserControl.TxtCols = Properties.Settings.Default.MazeCols;
