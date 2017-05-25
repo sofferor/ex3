@@ -50,6 +50,10 @@ namespace GUI.Model {
             return connector.Receive();
         }
 
+        public void Connect() {
+            connector.Connect();
+        }
+
         protected virtual void NotifyPropertyChanged(string propertyName = null) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

@@ -79,7 +79,7 @@ namespace Server {
             Position p = new Position(0, 0);
             for (int i = 0; i < maze.Rows; i++) {
                 p.Row = i;
-                for (int j = 0; i < maze.Cols; i++) {
+                for (int j = 0; j < maze.Cols; j++) {
                     p.Col = j;
                     State<Position>.StatePool.GetState(p).clean();
                 }

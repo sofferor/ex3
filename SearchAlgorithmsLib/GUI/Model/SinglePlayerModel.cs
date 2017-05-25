@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
+using System.Windows.Input;
+using System.Windows.Threading;
 using Client;
 using MazeLib;
+using Newtonsoft.Json.Linq;
 
 
 namespace GUI.Model {
     public class SinglePlayerModel : PlayerModel {
         public event EventHandler<Maze> MazeGenerated;
-        public event EventHandler<Position> NewPos; 
+        public event EventHandler<Position> NewPos;
+        public event EventHandler<Key> MovePLayer; 
         
 
         public SinglePlayerModel() : base() { }
@@ -70,6 +76,51 @@ namespace GUI.Model {
 
         protected virtual void OnNewPos(Position e) {
             NewPos?.Invoke(this, e);
+        }
+
+        public void RestartGame() {
+            curPos = maze.InitialPos;
+            OnMazeGenerated(maze);
+        }
+
+        public void SolveMaze() {
+            Connect();
+            Send("solve "+maze.Name+" "+Properties.Settings.Default.SearchAlgorithm);
+            string check = Receive();
+            JObject solveJobject = JObject.Parse(check);
+            string solutionString = (string) solveJobject["Solution"];
+            CharEnumerator solEnumerator = solutionString.GetEnumerator();
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Tick += delegate(object sender, EventArgs args) {
+                if (solEnumerator.MoveNext()) {
+                    switch (solEnumerator.Current) {
+                        case '0':
+                            OnMovePLayer(Key.Left);
+                            break;
+                        case '1':
+                            OnMovePLayer(Key.Right);
+                            break;
+                        case '2':
+                            OnMovePLayer(Key.Down);
+                            break;
+                        case '3':
+                            OnMovePLayer(Key.Up);
+                            break;
+                        default:
+                            throw new Exception("problem with solveString");
+                    }
+                } else {
+                    dt.Stop();
+                    OnMovePLayer(Key.None);
+                }
+            };
+
+            dt.Interval = TimeSpan.FromSeconds(0.1);
+            dt.Start();
+        }
+
+        protected virtual void OnMovePLayer(Key e) {
+            MovePLayer?.Invoke(this, e);
         }
     }
 }

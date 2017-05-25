@@ -111,6 +111,7 @@ namespace GUI.Controls {
 
 
         public void DrawMazeBoard() {
+            MazeBoard.Children.Clear();
             string mazeString = MazeString;///maybe to skip /n and /r at the string!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             mazeString = mazeString.Replace("\r\n", "\n");
 

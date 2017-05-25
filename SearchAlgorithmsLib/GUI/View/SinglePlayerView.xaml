@@ -13,9 +13,9 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Margin="0" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Name="Solve" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Solve Maze"/>
-            <Button Name="Main" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Main Menu"/>
-            <Button Name="Restart" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Restart Game"/>
+            <Button Name="Solve" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Solve Maze" Click="Solve_Click"/>
+            <Button Name="Main" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Main Menu" Click="Main_Click"/>
+            <Button Name="Restart" HorizontalAlignment="Right" FontSize="18" Padding="10" Margin="10" Content="Restart Game" Click="Restart_Click"/>
         </StackPanel>
 
         <control:MazeControl x:Name="MazeControl" Grid.Row="1" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>

@@ -43,7 +43,7 @@ namespace GUI
         private void Button_Click_Single_Player(object sender, RoutedEventArgs e) {
             SinglePlayerMenu w = new SinglePlayerMenu();
             w.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

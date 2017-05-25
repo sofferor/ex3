@@ -31,8 +31,14 @@ namespace Client {
             set => writer = value;
         }
 
+        public IPEndPoint Ep {
+            get => ep;
+            set => ep = value;
+        }
+
         public void Initialize(string IP, int port) {
-            ep = new IPEndPoint(IPAddress.Parse(IP), port);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
+            Ep = ep;
 
             client = new TcpClient();
             client.Connect(ep);
@@ -80,6 +86,14 @@ namespace Client {
 
         protected virtual void NotifyPropertyChanged(string propertyName = null) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Connect() {
+            TcpClient client = new TcpClient();
+            client.Connect(ep);
+            NetworkStream stream = client.GetStream();
+            writer = new BinaryWriter(stream);
+            reader = new BinaryReader(stream);
         }
     }
 }
