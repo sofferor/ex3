@@ -29,10 +29,16 @@ namespace GUI.View {
             UserControl.TxtMazeName = Properties.Settings.Default.MazeName;
             UserControl.TxtRows = Properties.Settings.Default.MazeRows;
             UserControl.TxtCols = Properties.Settings.Default.MazeCols;
+            GameList.ItemsSource = vm.ListOfGames;
         }
 
         private void btnJoin_Click(object sender, RoutedEventArgs e) {
-            vm.GameSelected = GameList.SelectedIndex;
+            vm.GameSelected = GameList.SelectedIndex;/////to check if this is the right func
+
+            MultiPlayerView sp = new MultiPlayerView(vm);
+            sp.Show();
+            this.Close();
+            vm.Join(vm.MazeName);
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e) {
@@ -44,6 +50,10 @@ namespace GUI.View {
             sp.Show();
             this.Close();
             vm.Start(vm.MazeName, vm.Rows, vm.Cols);
+        }
+
+        public void DropDown(Object sender, Object args) {
+            vm.AskListOfGames();
         }
     }
 }
