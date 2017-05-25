@@ -112,6 +112,8 @@ namespace Server {
                 }
             }
 
+            searchableMazes[name].Clean();
+
             //and if not contain, we solve the maze
             Solution<Position> solution;
             if (algoritem == Algoritem.BFS) {

@@ -22,30 +22,61 @@ namespace GUI.View {
     public partial class SinglePlayerView : Window {
 
         public SinglePlayerViewModel vm;
+        private Key key;
+
+        public Key Key {
+            get => key;
+            set => key = value;
+        }
 
         public SinglePlayerView(SinglePlayerViewModel spvm) {
             InitializeComponent();
             vm = spvm;
             DataContext = vm;
             MazeControl.DataContext = vm;
-            vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
+
+            PropertyChangedEventHandler genMaze = null;
+            PropertyChangedEventHandler wonMaze = null;
+            EventHandler<Key> autoPress = null;
+
+            genMaze = delegate (Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName == "mazeGenerated") {
                     MazeControl.DrawMazeBoard();
                 }
             };
-            vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+            vm.PropertyChanged += genMaze;
+
+            wonMaze = delegate (Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName != "wonMaze") return;
                 MessageBox.Show(this, "YOU WON !!!", "Win Window", MessageBoxButton.OK);
                 MainWindow win = new MainWindow();
-                win = (MainWindow) Application.Current.MainWindow;
                 win.Show();
                 this.Close();
+                vm.PropertyChanged -= wonMaze;
+                vm.AutoPress -= autoPress;
+                vm.PropertyChanged -= genMaze;
             };
+            vm.PropertyChanged += wonMaze;
+            
+            autoPress = delegate (Object sender, Key e) {
+                Key = e;
+                MazeBoardKeyDown(this, null);
+            };
+            vm.AutoPress += autoPress;
+
+            key = Key.None;
+
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
 
         private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
-            switch (e.Key) {
+            Key moveKey;
+            if (e == null) {
+                moveKey = Key;
+            } else {
+                moveKey = e.Key;
+            }
+            switch (moveKey) {
                 case Key.Down: {
                     vm.MovePlayer(Direction.Down);
                     break;
@@ -63,6 +94,20 @@ namespace GUI.View {
                     break;
                 }
             }
+        }
+
+        private void Restart_Click(object sender, RoutedEventArgs e) {
+            vm.Restart();
+        }
+
+        private void Main_Click(object sender, RoutedEventArgs e) {
+            MainWindow win = new MainWindow();
+            win.Show();
+            this.Close();
+        }
+
+        private void Solve_Click(object sender, RoutedEventArgs e) {
+            vm.SolveMaze();
         }
     }
 }

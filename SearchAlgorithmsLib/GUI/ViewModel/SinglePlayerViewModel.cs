@@ -1,21 +1,21 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using GUI.Model;
 using MazeLib;
 
 namespace GUI.ViewModel {
     public class SinglePlayerViewModel : ViewModel {
+        public event EventHandler<Key> AutoPress; 
         private SinglePlayerModel model;
 
         private string mazeString;
 
         public SinglePlayerViewModel(PlayerModel model) : base(model) {
             this.model = model as SinglePlayerModel;
-            this.model.MazeGenerated += delegate(Object sender, Maze maze) {
-                MazeString = maze.ToString();
-                NotifyPropertyChanged("mazeGenerated");
-            };
+            
+            this.model.MazeGenerated += GenMaze;
         }
 
         public string MazeString {
@@ -31,16 +31,19 @@ namespace GUI.ViewModel {
         }
 
         public void MovePlayer(Direction direction) {
-            this.model.NewPos += delegate(Object sender, Position pos) {
+            EventHandler<Position> move = null;
+            move = delegate (Object sender, Position pos) {
                 if (pos.Row == -1) {
                     return;
                 } else if (pos.Row == -2) {
                     NotifyPropertyChanged("wonMaze");
+                    this.model.MazeGenerated -= GenMaze;
+                    model.NewPos -= move;
                     return;
                 }
                 int mazeStringLen = mazeString.Length;
                 char[] mazeStringArr = mazeString.ToCharArray();
-                
+
 
                 for (int i = 0; i < mazeStringLen; i++) {
                     switch (mazeStringArr[i]) {
@@ -68,9 +71,41 @@ namespace GUI.ViewModel {
 
                 if (ifEnd == '#') {
                     NotifyPropertyChanged("wonMaze");
+                    this.model.MazeGenerated -= GenMaze;
+                    model.NewPos -= move;
                 }
             };
+            this.model.NewPos += move;
             model.Move(direction);
+            
+        }
+
+        public void Restart() {
+            this.model.RestartGame();
+        }
+
+        public void SolveMaze() {
+            Restart();
+            EventHandler<Key> solve = null;
+            solve = delegate (object sender, Key key) {
+                if (key == Key.None) {
+                    model.MovePLayer -= solve;
+                } else { 
+                    OnAutoPress(key);
+                }
+            };
+            model.MovePLayer += solve;
+            model.SolveMaze();
+            
+        }
+
+        protected virtual void OnAutoPress(Key e) {
+            AutoPress?.Invoke(this, e);
+        }
+
+        private void GenMaze(Object sender, Maze maze) {
+            MazeString = maze.ToString();
+            NotifyPropertyChanged("mazeGenerated");
         }
     }
 }

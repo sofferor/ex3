@@ -12,6 +12,7 @@ namespace Client {
     public class Connector {
         private BinaryWriter writer;
         private BinaryReader reader;
+        private IPEndPoint ep;
         public Connector() { }
 
         public BinaryReader Reader {
@@ -24,8 +25,14 @@ namespace Client {
             set => writer = value;
         }
 
+        public IPEndPoint Ep {
+            get => ep;
+            set => ep = value;
+        }
+
         public void Initialize(string IP, int port) {
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
+            Ep = ep;
 
             TcpClient client = new TcpClient();
             client.Connect(ep);
@@ -41,6 +48,14 @@ namespace Client {
 
         public string Receive() {
             return reader.ReadString();
+        }
+
+        public void Connect() {
+            TcpClient client = new TcpClient();
+            client.Connect(ep);
+            NetworkStream stream = client.GetStream();
+            writer = new BinaryWriter(stream);
+            reader = new BinaryReader(stream);
         }
     }
 }
