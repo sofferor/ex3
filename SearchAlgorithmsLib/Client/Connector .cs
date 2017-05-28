@@ -10,32 +10,77 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Client {
+    /// <summary>
+    /// Class Connector.
+    /// </summary>
+    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
     public class Connector : INotifyPropertyChanged {
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-        private IPEndPoint ep;///maybe public
+        /// <summary>
+        /// The ep
+        /// </summary>
+        private IPEndPoint ep;
+        /// <summary>
+        /// The writer
+        /// </summary>
         private BinaryWriter writer;
+        /// <summary>
+        /// The reader
+        /// </summary>
         private BinaryReader reader;
+        /// <summary>
+        /// The stream
+        /// </summary>
         private NetworkStream stream;
+        /// <summary>
+        /// The client
+        /// </summary>
         private TcpClient client;
+        /// <summary>
+        /// The stop
+        /// </summary>
         public bool stop = false;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Connector"/> class.
+        /// </summary>
         public Connector() { }
 
+        /// <summary>
+        /// Gets or sets the reader.
+        /// </summary>
+        /// <value>The reader.</value>
         public BinaryReader Reader {
             get => reader;
             set => reader = value;
         }
 
+        /// <summary>
+        /// Gets or sets the writer.
+        /// </summary>
+        /// <value>The writer.</value>
         public BinaryWriter Writer {
             get => writer;
             set => writer = value;
         }
 
+        /// <summary>
+        /// Gets or sets the ep.
+        /// </summary>
+        /// <value>The ep.</value>
         public IPEndPoint Ep {
             get => ep;
             set => ep = value;
         }
 
+        /// <summary>
+        /// Initializes the specified ip.
+        /// </summary>
+        /// <param name="IP">The ip.</param>
+        /// <param name="port">The port.</param>
         public void Initialize(string IP, int port) {
 
             try {
@@ -53,6 +98,10 @@ namespace Client {
             }
         }
 
+        /// <summary>
+        /// Sends the specified message.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public void Send(string message) {
             try {
                 writer.Write(message);
@@ -63,6 +112,10 @@ namespace Client {
             }
         }
 
+        /// <summary>
+        /// Receives this instance.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string Receive() {
 
             try {
@@ -74,6 +127,9 @@ namespace Client {
             }
         }
 
+        /// <summary>
+        /// Listens this instance.
+        /// </summary>
         public void Listen() {
             stop = false;
             //define task to listen to the other player moves
@@ -85,7 +141,7 @@ namespace Client {
                         if (flow.Contains("wait")) {
                             continue;
                         }
-                        //Console.WriteLine("{0}", flow);
+                        
                         NotifyPropertyChanged(flow);
                         if (stop || flow.Contains("close")) {
                             stop = true;
@@ -100,10 +156,17 @@ namespace Client {
             }).Start();
         }
 
+        /// <summary>
+        /// Notifies the property changed.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
         protected virtual void NotifyPropertyChanged(string propertyName = null) {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Connects this instance.
+        /// </summary>
         public void Connect() {
             try {
                 TcpClient client = new TcpClient();

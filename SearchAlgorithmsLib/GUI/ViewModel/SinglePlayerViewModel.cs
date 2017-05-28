@@ -6,18 +6,39 @@ using GUI.Model;
 using MazeLib;
 
 namespace GUI.ViewModel {
+    /// <summary>
+    /// Class SinglePlayerViewModel.
+    /// </summary>
+    /// <seealso cref="GUI.ViewModel.ViewModel" />
     public class SinglePlayerViewModel : ViewModel {
-        public event EventHandler<Key> AutoPress; 
+        /// <summary>
+        /// Occurs when [automatic press].
+        /// </summary>
+        public event EventHandler<Key> AutoPress;
+        /// <summary>
+        /// The model
+        /// </summary>
         private SinglePlayerModel model;
 
+        /// <summary>
+        /// The maze string
+        /// </summary>
         private string mazeString;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SinglePlayerViewModel"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public SinglePlayerViewModel(PlayerModel model) : base(model) {
             this.model = model as SinglePlayerModel;
             
             this.model.MazeGenerated += GenMaze;
         }
 
+        /// <summary>
+        /// Gets or sets the maze string.
+        /// </summary>
+        /// <value>The maze string.</value>
         public string MazeString {
             get => mazeString;
             set {
@@ -26,10 +47,20 @@ namespace GUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Generates the maze.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="cols">The cols.</param>
         public void GenerateMaze(string name, int rows, int cols) {
             model.GenerateMaze(name, rows, cols);
         }
 
+        /// <summary>
+        /// Moves the player.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
         public void MovePlayer(Direction direction) {
             EventHandler<Position> move = null;
             move = delegate (Object sender, Position pos) {
@@ -80,10 +111,16 @@ namespace GUI.ViewModel {
             
         }
 
+        /// <summary>
+        /// Restarts this instance.
+        /// </summary>
         public void Restart() {
             this.model.RestartGame();
         }
 
+        /// <summary>
+        /// Solves the maze.
+        /// </summary>
         public void SolveMaze() {
             Restart();
             EventHandler<Key> solve = null;
@@ -99,10 +136,19 @@ namespace GUI.ViewModel {
             
         }
 
+        /// <summary>
+        /// Called when [automatic press].
+        /// </summary>
+        /// <param name="e">The e.</param>
         protected virtual void OnAutoPress(Key e) {
             AutoPress?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// Gens the maze.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="maze">The maze.</param>
         private void GenMaze(Object sender, Maze maze) {
             MazeString = maze.ToString();
             NotifyPropertyChanged("mazeGenerated");

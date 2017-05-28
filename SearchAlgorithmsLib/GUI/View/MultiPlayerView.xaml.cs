@@ -19,11 +19,23 @@ namespace GUI.View {
     /// <summary>
     /// Interaction logic for MultiPlayerView.xaml
     /// </summary>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class MultiPlayerView : Window {
 
+        /// <summary>
+        /// The vm
+        /// </summary>
         public MultiPlayerViewModel vm;
+        /// <summary>
+        /// The close win
+        /// </summary>
         private bool closeWin;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultiPlayerView"/> class.
+        /// </summary>
+        /// <param name="spvm">The SPVM.</param>
         public MultiPlayerView(MultiPlayerViewModel spvm) {
             InitializeComponent();
             vm = spvm;
@@ -38,24 +50,6 @@ namespace GUI.View {
                     OtherMazeControl.DrawMazeBoard();
                 }
             };
-            /*
-            vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                if (e.PropertyName != "wonMaze") return;
-                MessageBox.Show(this, "YOU WON !!!", "Win Window", MessageBoxButton.OK);
-                MainWindow win = new MainWindow();
-                win.Show();
-                win.Show();
-                this.Close();
-            };
-            vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                if (e.PropertyName != "loseMaze") return;
-                MessageBox.Show(this, "YOU LOSER !!!", "Lose Window", MessageBoxButton.OK);
-                MainWindow win = new MainWindow();
-                win.Show();
-                win.Show();
-                this.Close();
-            };
-            */
 
             vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 if ((e.PropertyName != "otherPlayerLeaved" && e.PropertyName != "loseMaze" && e.PropertyName != "wonMaze" && e.PropertyName != "lostConnection") || closeWin == true) {
@@ -76,7 +70,6 @@ namespace GUI.View {
                     message = "YOU WON !!!";
                     windowName = "Won Window";
                 } else {
-                    //e.PropertyName == "lostConnection"
                     message = "Lost connection";
                     windowName = "Lost connection Window";
                 }
@@ -91,6 +84,11 @@ namespace GUI.View {
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
 
+        /// <summary>
+        /// Mazes the board key down.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
             switch (e.Key) {
                 case Key.Down: {
@@ -112,14 +110,24 @@ namespace GUI.View {
             }
         }
 
-        private void closeView(object sender, CancelEventArgs e) {
+        /// <summary>
+        /// Closes the view.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="CancelEventArgs"/> instance containing the event data.</param>
+        private void CloseView(object sender, CancelEventArgs e) {
             //if we are on the player the was left
             if (closeWin == true) { return; }
             //else we are on the player that want to leave.
             closeWin = true;
-            vm.close();
+            vm.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Main control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Main_Click(object sender, RoutedEventArgs e) {
             MainWindow win = new MainWindow();
             win.Show();

@@ -19,16 +19,32 @@ namespace GUI.View {
     /// <summary>
     /// Interaction logic for SinglePlayerView.xaml
     /// </summary>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class SinglePlayerView : Window {
 
+        /// <summary>
+        /// The vm
+        /// </summary>
         public SinglePlayerViewModel vm;
+        /// <summary>
+        /// The key
+        /// </summary>
         private Key key;
 
+        /// <summary>
+        /// Gets or sets the key.
+        /// </summary>
+        /// <value>The key.</value>
         public Key Key {
             get => key;
             set => key = value;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SinglePlayerView"/> class.
+        /// </summary>
+        /// <param name="spvm">The SPVM.</param>
         public SinglePlayerView(SinglePlayerViewModel spvm) {
             InitializeComponent();
             vm = spvm;
@@ -69,6 +85,11 @@ namespace GUI.View {
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
 
+        /// <summary>
+        /// Mazes the board key down.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
         private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
             Key moveKey;
             if (e == null) {
@@ -96,16 +117,31 @@ namespace GUI.View {
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the Restart control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Restart_Click(object sender, RoutedEventArgs e) {
             vm.Restart();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Main control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Main_Click(object sender, RoutedEventArgs e) {
             MainWindow win = new MainWindow();
             win.Show();
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the Solve control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Solve_Click(object sender, RoutedEventArgs e) {
             vm.SolveMaze();
         }

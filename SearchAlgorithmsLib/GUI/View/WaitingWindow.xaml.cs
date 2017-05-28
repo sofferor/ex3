@@ -16,7 +16,12 @@ namespace GUI.View {
     /// <summary>
     /// Interaction logic for WaitingWindow.xaml
     /// </summary>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class WaitingWindow : Window {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WaitingWindow"/> class.
+        /// </summary>
         public WaitingWindow() {
             InitializeComponent();
         }

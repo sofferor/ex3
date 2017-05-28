@@ -9,14 +9,37 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GUI.ViewModel {
+    /// <summary>
+    /// Class MultiPlayerViewModel.
+    /// </summary>
+    /// <seealso cref="GUI.ViewModel.ViewModel" />
     public class MultiPlayerViewModel : ViewModel {
+        /// <summary>
+        /// The model
+        /// </summary>
         private MultiPlayerModel model;
 
+        /// <summary>
+        /// The maze string
+        /// </summary>
         private string mazeString;
+        /// <summary>
+        /// The other maze string
+        /// </summary>
         private string otherMazeString;
+        /// <summary>
+        /// The game selected
+        /// </summary>
         private int gameSelected;
+        /// <summary>
+        /// The list of games
+        /// </summary>
         private ObservableCollection<string> listOfGames;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultiPlayerViewModel"/> class.
+        /// </summary>
+        /// <param name="model">The model.</param>
         public MultiPlayerViewModel(PlayerModel model) : base(model) {
             this.model = model as MultiPlayerModel;
             listOfGames = new ObservableCollection<string>();
@@ -52,6 +75,10 @@ namespace GUI.ViewModel {
             };
         }
 
+        /// <summary>
+        /// Gets or sets the maze string.
+        /// </summary>
+        /// <value>The maze string.</value>
         public string MazeString {
             get => mazeString;
             set {
@@ -60,6 +87,10 @@ namespace GUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Gets or sets the other maze string.
+        /// </summary>
+        /// <value>The other maze string.</value>
         public string OtherMazeString {
             get => otherMazeString;
             set {
@@ -68,6 +99,10 @@ namespace GUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Gets or sets the game selected.
+        /// </summary>
+        /// <value>The game selected.</value>
         public int GameSelected {
             get { return gameSelected; }
             set {
@@ -76,6 +111,10 @@ namespace GUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Gets or sets the list of games.
+        /// </summary>
+        /// <value>The list of games.</value>
         public ObservableCollection<string> ListOfGames {
             get { return listOfGames; }
             set {
@@ -84,24 +123,47 @@ namespace GUI.ViewModel {
             }
         }
 
+        /// <summary>
+        /// Generates the maze.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="cols">The cols.</param>
         public void GenerateMaze(string name, int rows, int cols) {
             model.GenerateMaze(name, rows, cols);
         }
 
+        /// <summary>
+        /// Starts the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <param name="rows">The rows.</param>
+        /// <param name="cols">The cols.</param>
         public void Start(string name, int rows, int cols) {
             model.Start(name, rows, cols);
         }
 
+        /// <summary>
+        /// Joins the specified name.
+        /// </summary>
+        /// <param name="name">The name.</param>
         public void Join(string name) {
             model.Join(name);
         }
 
+        /// <summary>
+        /// Asks the list of games.
+        /// </summary>
         public void AskListOfGames() {
             model.AskListOfGames();
         }
 
 
 
+        /// <summary>
+        /// Moves the player.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
         public void MovePlayer(Direction direction) {
             this.model.NewPos += delegate (Object sender, Position pos) {
                 if (pos.Row == -1) {
@@ -146,6 +208,10 @@ namespace GUI.ViewModel {
         }
 
 
+        /// <summary>
+        /// Moves the other player.
+        /// </summary>
+        /// <param name="direction">The direction.</param>
         public void MoveOtherPlayer(Direction direction) {
             this.model.OtherNewPos += delegate (Object sender, Position pos) {
                 if (pos.Row == -1) {
@@ -189,6 +255,12 @@ namespace GUI.ViewModel {
             model.MoveOtherPlayer(direction);
         }
 
+        /// <summary>
+        /// Gets the direction from string.
+        /// </summary>
+        /// <param name="play">The play.</param>
+        /// <returns>Direction.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException"></exception>
         private Direction getDirectionFromString(string play) {
             Direction dir;
             play = play.Substring(play.IndexOf("Direction"));
@@ -207,6 +279,9 @@ namespace GUI.ViewModel {
             return dir;
         }
 
+        /// <summary>
+        /// Checks if someone won.
+        /// </summary>
         private void checkIfSomeoneWon() {
             if (model.OtherPos.Equals(model.GoalPos)) {
                 NotifyPropertyChanged("loseMaze");
@@ -216,8 +291,11 @@ namespace GUI.ViewModel {
         }
 
 
-        public void close() {
-            model.close();
+        /// <summary>
+        /// Closes this instance.
+        /// </summary>
+        public void Close() {
+            model.Close();
         }
     }
 }

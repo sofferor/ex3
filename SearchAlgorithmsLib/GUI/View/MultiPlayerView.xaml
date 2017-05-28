@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown" Closing="closeView">
+        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown" Closing="CloseView">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
