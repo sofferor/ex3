@@ -126,6 +126,7 @@ namespace GUI.ViewModel {
             EventHandler<Key> solve = null;
             solve = delegate (object sender, Key key) {
                 if (key == Key.None) {
+                    NotifyPropertyChanged("wonMaze");
                     model.MovePLayer -= solve;
                 } else { 
                     OnAutoPress(key);
