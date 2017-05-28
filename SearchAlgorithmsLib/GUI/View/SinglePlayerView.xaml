@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="SinglePlayerView" Height="700" Width="800" KeyDown="MazeBoardKeyDown">
+        Title="SinglePlayerView" Height="700" Width="800" KeyDown="MazeBoardKeyDown" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>

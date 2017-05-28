@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown" Closing="CloseView">
+        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown" Closing="CloseView" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -18,12 +18,12 @@
             <ColumnDefinition Width="Auto" MinWidth="600" MaxWidth="600"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="Main" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" Padding="10" Margin="515,-20,510,0" Content="Back to main menu" Height="46" Width="175" Grid.ColumnSpan="2" Click="Main_Click"/>
+        <Button x:Name="Main" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" Padding="10" Margin="512,1,513,0" Content="Back to main menu" Height="46" Width="175" Click="Main_Click" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <TextBlock Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667"><Run Text="My board"/></TextBlock>
-        <TextBlock HorizontalAlignment="Right"  VerticalAlignment="Top" Width="198" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667" Margin="0,28,392,0" Grid.Column="1" Grid.RowSpan="2"><Run Text="Other player's board"/></TextBlock>
+        <TextBlock  VerticalAlignment="Top" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667" Margin="402,1,0,0" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"><Run Text="Other player's board"/></TextBlock>
 
         <control:MazeControl x:Name="MazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="2" Grid.Column="0" MazeString="{Binding MazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
         <control:MazeControl x:Name="OtherMazeControl" KeyDown="MazeBoardKeyDown"  Grid.Row="2" Grid.Column="1" MazeString="{Binding OtherMazeString}" Cols="{Binding Cols}" Rows="{Binding Rows}"/>
-        
+
     </Grid>
 </Window>

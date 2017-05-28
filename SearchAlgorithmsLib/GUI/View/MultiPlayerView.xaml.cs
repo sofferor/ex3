@@ -129,6 +129,10 @@ namespace GUI.View {
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Main_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult res = MessageBox.Show(this, "Are you sure?", "Important Question", MessageBoxButton.YesNo);
+            if (res == MessageBoxResult.No) {
+                return;
+            }
             MainWindow win = new MainWindow();
             win.Show();
             this.Close();

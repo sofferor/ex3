@@ -9,11 +9,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MazeLib;
+using KeyEventArgs = System.Windows.Input.KeyEventArgs;
+using MessageBox = System.Windows.MessageBox;
 
 namespace GUI.View {
     /// <summary>
@@ -89,7 +92,7 @@ namespace GUI.View {
         /// Mazes the board key down.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="KeyEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="System.Windows.Input.KeyEventArgs"/> instance containing the event data.</param>
         private void MazeBoardKeyDown(object sender, KeyEventArgs e) {
             Key moveKey;
             if (e == null) {
@@ -123,6 +126,10 @@ namespace GUI.View {
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Restart_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult res = MessageBox.Show(this, "Are you sure?", "Important Question", MessageBoxButton.YesNo);
+            if (res == MessageBoxResult.No) {
+                return;
+            }
             vm.Restart();
         }
 
@@ -132,6 +139,10 @@ namespace GUI.View {
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Main_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult res = MessageBox.Show(this, "Are you sure?", "Important Question", MessageBoxButton.YesNo);
+            if (res == MessageBoxResult.No) {
+                return;
+            }
             MainWindow win = new MainWindow();
             win.Show();
             this.Close();

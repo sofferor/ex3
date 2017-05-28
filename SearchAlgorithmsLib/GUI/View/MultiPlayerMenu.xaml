@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:controls="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerWindow"  Height="270" Width="360">
+        Title="MultiPlayerWindow"  Height="270" Width="360" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
