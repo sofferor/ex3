@@ -3,6 +3,7 @@ using MazeLib;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,12 @@ namespace GUI.ViewModel {
                         listOfGames.Add(gameList[i]);
                     }
                     ListOfGames = listOfGames;
+                }
+            };
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+                if (e.PropertyName.Contains("Direction")) {
+                    Direction dir = getDirectionFromString(e.PropertyName);
+                    MoveOtherPlayer(dir);
                 }
             };
         }
@@ -175,6 +182,11 @@ namespace GUI.ViewModel {
                 }
             };
             model.MoveOtherPlayer(direction);
+        }
+
+        private Direction getDirectionFromString(string play) {
+            Direction dir = Direction.Up;
+            return dir;
         }
     }
 }

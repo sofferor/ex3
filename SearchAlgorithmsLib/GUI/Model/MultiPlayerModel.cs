@@ -21,12 +21,7 @@ namespace GUI.Model {
 
         public MultiPlayerModel() : base() {
             connector.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                message = "fs";
-                if (e.PropertyName.Contains("Direction")) {
-                    Direction dir = getDirectionFromString(e.PropertyName);
-                    MoveOtherPlayer(dir);
-
-                }
+                NotifyPropertyChanged(e.PropertyName);
             };
         }
 
@@ -206,14 +201,11 @@ namespace GUI.Model {
             OnOtherNewPos(tempPosition.Equals(otherPos) ? new Position(-1, -1) : otherPos);/////NEED TO CHECK EQUAL !
 
             //if there was actual move, send the move to the other player.
-            if (!dir.Equals("")) {
-                Send("play " + dir);
-            }
+            //if (!dir.Equals("")) {
+            //    Send("play " + dir);
+            //}
         }
 
-        private Direction getDirectionFromString(string play) {
-            Direction dir = MazeLib.Direction.Down;
-            return dir;
-        }
+        
     }
 }
