@@ -142,12 +142,14 @@ namespace GUI.Model {
                 OnNewPos(new Position(-2, -2));
                 return;
             }
-            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
 
             //if there was actual move, send the move to the other player.
             if (!dir.Equals("")) {
                 Send("play " + dir);
             }
+
+            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
+            
         }
 
         protected virtual void OnNewPos(Position e) {

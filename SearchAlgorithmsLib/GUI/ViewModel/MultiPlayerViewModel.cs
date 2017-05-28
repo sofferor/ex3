@@ -150,7 +150,7 @@ namespace GUI.ViewModel {
                 if (pos.Row == -1) {
                     return;
                 } else if (pos.Row == -2) {
-                    NotifyPropertyChanged("wonMaze");
+                    NotifyPropertyChanged("loseMaze");
                     return;
                 }
                 int mazeStringLen = otherMazeString.Length;
@@ -182,7 +182,7 @@ namespace GUI.ViewModel {
                 OtherMazeString = new string(mazeStringArr);
 
                 if (ifEnd == '#') {
-                    NotifyPropertyChanged("wonMaze");
+                    NotifyPropertyChanged("loseMaze");
                 }
             };
             model.MoveOtherPlayer(direction);
