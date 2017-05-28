@@ -1,3 +1,511 @@
+commit cbe3e69ac53c4b4f3d982a1d58d1eb565e69360f
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 19:33:37 2017 +0300
+
+    fix style
+
+commit 6ed95a452addf7d2abddbf3883a6bd1f625815ce
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 19:30:40 2017 +0300
+
+    ending !!
+
+commit 39601e998c0b7481f5c0a3c1dcad13a739511d28
+Merge: 1c5b19e b15d7b1
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 19:14:24 2017 +0300
+
+    merge
+
+commit 1c5b19efa17f6913ce3b3dda589baf5f0a2c3977
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 19:12:20 2017 +0300
+
+    multi player
+
+commit b15d7b10cf7ef3f278f03f83bff9f25d5273dba3
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 19:12:09 2017 +0300
+
+    newww
+
+commit 5ad2dbf59ba8cdc5ba9d27ef18438e95c2b8b780
+Merge: 2e6e37e 15f566e
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 16:31:10 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit 2e6e37e7aec04f1b3638d1a538b438ac0f3612cf
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 16:30:59 2017 +0300
+
+    fix join game
+
+commit 15f566e4813d82719a09fd86bad4608043025bbf
+Merge: af7e834 bad0c02
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 16:18:30 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit af7e83485fe4caf909dbbc2291d1ede265d60546
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 16:18:21 2017 +0300
+
+    ew
+
+commit bad0c0263feb920f4b8e771668a6e4538432500c
+Merge: b73037f f822d67
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 16:17:48 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit b73037f06f3f6227c2b6b7351b83385d71c7add2
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 16:17:40 2017 +0300
+
+    repair direction
+
+commit f822d67c87b46af4ecda5c52a13b94b66000992c
+Merge: 38695e0 4f205ea
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 15:50:52 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit 38695e04a1bd7517867693a529f4fba58d5d251f
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 15:50:38 2017 +0300
+
+    c
+
+commit 4f205ea2da93c7ae79b56310b30c874727c2ddea
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 15:49:15 2017 +0300
+
+    try catch + directions
+
+commit 44eee21198b83982e603f7c737476876f82af3f1
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 14:16:42 2017 +0300
+
+    commi
+
+commit e3e030e662c5394ffdc960bfba8afb5b9ba4df5f
+Merge: 644cd66 01dce4c
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 13:48:40 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit 644cd661a1901ecfc8cafed22e304e5af23c5090
+Author: or <sofferor@gmail.com>
+Date:   Sun May 28 13:48:28 2017 +0300
+
+    commi
+
+commit 01dce4c0d2e06e8cfe4a8aeb640051465f9e92c6
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 28 10:46:46 2017 +0300
+
+    sp + border
+
+commit c35eab57b66aa5c4c47e2cdc427d7076eec33a76
+Merge: 2fe9782 6e70948
+Author: or <sofferor@gmail.com>
+Date:   Thu May 25 22:51:05 2017 +0300
+
+    connector
+
+commit 2fe9782c712db69dd419514b3583f8de9cea92f1
+Author: or <sofferor@gmail.com>
+Date:   Thu May 25 22:45:54 2017 +0300
+
+    all
+
+commit 6e709480da35b37eb5873046ea38d4af17a29c0d
+Merge: 38b7a0a eecca7f
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 22:45:25 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit 38b7a0a313cd408504eadcc5a04a78f0b101a8cd
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 22:44:53 2017 +0300
+
+    single player
+
+commit eecca7f03f0fe6ca9d9f48c41598b79ca6709876
+Author: or <sofferor@gmail.com>
+Date:   Thu May 25 04:22:45 2017 +0300
+
+    list combo
+
+commit dfeb5ffa53ea709502439140f0aac2187941ee89
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 02:25:55 2017 +0300
+
+    aser
+
+commit 0bea629fe1745131a7492d45c63122d4f480bebc
+Merge: e59cd6a 4ee3f69
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 02:21:00 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit e59cd6afd88f281f84ba38d4ac9d27b516ac0778
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 02:20:53 2017 +0300
+
+    fix mainWindow
+
+commit 4ee3f6983a93e9b733791743d1f8f66f0d363872
+Merge: d6857cd 887436a
+Author: or <sofferor@gmail.com>
+Date:   Thu May 25 02:16:53 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit d6857cd0d3daa4892a4fea5bf4cf399b133e6bd9
+Author: or <sofferor@gmail.com>
+Date:   Thu May 25 02:16:21 2017 +0300
+
+    multi
+
+commit 887436a5d2c02d654569e37db5e078e1c883118a
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Thu May 25 02:15:54 2017 +0300
+
+    finished single player
+
+commit 2c50e6a7885c4fceefe96cc4bfb1f3ddd5486d2e
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Wed May 24 20:37:45 2017 +0300
+
+    Drawing
+
+commit b6f1a095ebd3260bc4e7cf69748280d6c14a3f42
+Author: or <sofferor@gmail.com>
+Date:   Wed May 24 02:28:18 2017 +0300
+
+    debugggggggg
+
+commit 99c16a6dc7fe309fd0dac27d93e573fba0e977ac
+Merge: cc3d88e 35ade2c
+Author: or <sofferor@gmail.com>
+Date:   Tue May 23 19:25:38 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit cc3d88e5ef5a99133e746141381a369f9dbda192
+Author: or <sofferor@gmail.com>
+Date:   Tue May 23 19:25:06 2017 +0300
+
+    draw
+
+commit 35ade2c821976ee966a72e19fc214593cfe65d03
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Tue May 23 19:22:07 2017 +0300
+
+    VIEW
+
+commit f9a255c32b8f3ac2c5871fce981b971fa2c2bbd0
+Author: or <sofferor@gmail.com>
+Date:   Tue May 23 17:14:04 2017 +0300
+
+    poo
+
+commit d2b03444e7d7763a1acae832134e25b053374fed
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Tue May 23 16:40:34 2017 +0300
+
+    sdf
+
+commit 0e860c85f986317568a1ce7d47d7aff9859a5084
+Author: or <sofferor@gmail.com>
+Date:   Tue May 23 13:34:24 2017 +0300
+
+    a
+
+commit 510c8f44095e53e0538c2d6600d0f88178c4c605
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Tue May 23 02:47:29 2017 +0300
+
+    Disaster !
+
+commit fabd42a05ee9241ed8b1b5e0363d87b2ca562fe8
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 21:24:34 2017 +0300
+
+    player model
+
+commit 9075d9fc1d68cc98e85542dd609ef71ced60e9ce
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 13:30:26 2017 +0300
+
+    writer.Flush();
+
+commit e11801ae887e1aa638f0956e8714edb0f66f72e9
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 13:28:49 2017 +0300
+
+    typo connector
+
+commit cc194754d35118c825d50848f3b98e9c34580cc5
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 13:23:47 2017 +0300
+
+    typo
+
+commit 7253978755b4a103e88e690876da5a208620ddd1
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 13:19:59 2017 +0300
+
+    typo
+
+commit f2fede03c53a38bcc8e030127c7d67c0efc29d09
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:56:58 2017 +0300
+
+    Z
+
+commit cc6cc6f1368bfe80767c14f31c2404f91a647e5e
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:48:22 2017 +0300
+
+    a
+
+commit d3d6e4985da3fff1c16a32f8886901d9607db624
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:45:30 2017 +0300
+
+    a
+
+commit 995310cc1b1866a5507ab9c74867b8a61f3be8ff
+Merge: aa3f839 c9307a8
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:31:00 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex2
+
+commit aa3f839ff5332a30284ca577e9d56557aea24ccd
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:30:50 2017 +0300
+
+    a
+
+commit c9307a8bdd90240c9bd0334c5c5b665a506907c2
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Mon May 22 00:28:48 2017 +0300
+
+    userControl
+
+commit 4f2e6154b830eda796998b6dcc332f0bd381e8a6
+Author: or <sofferor@gmail.com>
+Date:   Mon May 22 00:09:45 2017 +0300
+
+    AS
+
+commit 08b771e5cf2ddd13403bdd042d5078237cac1f0d
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 21 23:59:34 2017 +0300
+
+    userControl
+
+commit db346b3ab7cc4dd8fd2fd316f9f466669cec6952
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 23:11:23 2017 +0300
+
+    public
+
+commit ecc385d09e81afe8f2ad661e6b4d82ea4327e5d7
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 21 22:20:58 2017 +0300
+
+    connecter
+
+commit 638e5213efab11d8eb57161200c0565dd6a3f289
+Merge: f01a05a a25b81f
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 21 22:04:32 2017 +0300
+
+    asd
+
+commit a25b81f9ebbab0779e95de9c6cb76014ced33644
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 21:55:18 2017 +0300
+
+    as
+
+commit c7438c83098cf606026c562f78a9dbd8afcb8ebc
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 21:37:25 2017 +0300
+
+    no message
+
+commit f01a05a9b2de07fbc950ffa496bb4e56ecf47194
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun May 21 21:28:48 2017 +0300
+
+    no message
+
+commit 20c40e8d7d87fbe3ed8967d4520489b6568c39ab
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 21:26:49 2017 +0300
+
+    no message
+
+commit 1e91e3320dd3a6235a566eb16a0065f40d23fb97
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 21:06:29 2017 +0300
+
+    no message
+
+commit 2b4a6e86a9ebb7284c5188da1f066eb01be1bd43
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 19:48:07 2017 +0300
+
+    CLIENT
+
+commit f8ed28afa9095fd814b4d4f3e2d447f7c7f7a5dc
+Author: or <sofferor@gmail.com>
+Date:   Sun May 21 19:30:30 2017 +0300
+
+    ALL
+
+commit 3545534bab76fcfbb57a6718121ed33d810122f5
+Author: or <sofferor@gmail.com>
+Date:   Thu May 18 23:26:56 2017 +0300
+
+    all
+
+commit 970e9612076c47c221fd0c70f4f0d5e35c34e0dc
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 20:05:33 2017 +0300
+
+    gui, don't forget to add the folder to project
+
+commit 2ffe65540ee9155f4e9eeb989e873859de84d182
+Merge: d3d264f 125dcbf
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 01:17:35 2017 +0300
+
+    no message
+
+commit d3d264f5bb23de39ee6d672e16988ab50653a2a6
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 01:14:38 2017 +0300
+
+    no message
+
+commit 125dcbff210a9e50eb1770936d54e90a3247dba9
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Wed May 17 01:13:42 2017 +0300
+
+    wefqwef
+
+commit 0e1bb3f125c91d55fb660b26e6b023f7e70f7a79
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Wed May 17 00:58:27 2017 +0300
+
+    weqwef
+
+commit d6db049e19e5e27f650b117be797703427effd5b
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 00:51:19 2017 +0300
+
+    aa
+
+commit fb9d2d110841b3ba7728a79dd79f9f0fcf85ee7a
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Wed May 17 00:38:14 2017 +0300
+
+    view1
+
+commit e71499359854d6f7e64738a9f0a701d1fa2c31f9
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 00:33:07 2017 +0300
+
+    no message
+
+commit e87e30f6d3c5ecedce9922eef0aac85767feedd4
+Author: or <sofferor@gmail.com>
+Date:   Wed May 17 00:24:51 2017 +0300
+
+    no message
+
+commit 942715932d405344ab81d79e87a2ec3dd49f22b8
+Merge: bb1c12b 7b31128
+Author: or <sofferor@gmail.com>
+Date:   Tue May 16 23:16:58 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex1
+
+commit bb1c12b1cbeba14a0f09a9a9a299bd691353df74
+Author: or <sofferor@gmail.com>
+Date:   Tue May 16 23:15:33 2017 +0300
+
+    sdaas
+
+commit 7b31128a835ac1b52915f7265dd68ae793bb8d12
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Tue May 16 22:38:57 2017 +0300
+
+    no message
+
+commit eab7004e32b67a5f5ac2cb62216be228863ce27a
+Author: or <sofferor>
+Date:   Mon Apr 24 00:09:55 2017 +0300
+
+    no message
+
+commit c60ea062f7b51320404812294739ef3650711cd5
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun Apr 23 23:45:35 2017 +0300
+
+    asdjhfgjkashdf
+
+commit cc44a369587f77a3172942337e07e43f93aaca0b
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun Apr 23 23:41:49 2017 +0300
+
+    asdfhgasjhkdf
+
+commit 84bd9cb98f71d43d66bc5cb3b67e5550d9de9cac
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun Apr 23 23:17:42 2017 +0300
+
+    uhgfukasdf
+
+commit 9b82cffae8b5b24f807b2dbb45d2eabc938a0e13
+Merge: ffd178a 3e6ea92
+Author: or <sofferor>
+Date:   Sun Apr 23 23:05:14 2017 +0300
+
+    Merge branch 'master' of https://github.com/weithaim/ex1
+
+commit ffd178a7d970d372f530d71178515c65edb97365
+Author: or <sofferor>
+Date:   Sun Apr 23 23:05:05 2017 +0300
+
+    no message
+
+commit 3e6ea924e1919ef65f155903e78b9291fd159c57
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun Apr 23 23:04:59 2017 +0300
+
+    client
+
+commit 54e39a3dad78a098f26edfc7fd8636bee69dccd7
+Author: Haim Weitman <weithaim@gmail.com>
+Date:   Sun Apr 23 22:48:51 2017 +0300
+
+    jsfjkashdfkj
+
 commit 59973e8cc92c152a0c9feadaa5e3e85670b56b7e
 Merge: bf3b22a 8b7207c
 Author: Haim Weitman <weithaim@gmail.com>
