@@ -33,7 +33,13 @@ namespace GUI.View {
         }
 
         private void btnJoin_Click(object sender, RoutedEventArgs e) {
-            vm.GameSelected = GameList.SelectedIndex;/////to check if this is the right func
+            try {
+                vm.GameSelected = GameList.SelectedIndex;/////to check if this is the right func
+            }
+            catch (Exception exception) {
+                MessageBox.Show(this, "please choose game", "choose game");
+                return;
+            }
 
             MultiPlayerView sp = new MultiPlayerView(vm);
             sp.Show();
