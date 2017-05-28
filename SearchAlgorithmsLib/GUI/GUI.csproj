@@ -170,7 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\poo.jpeg" />
-    <Resource Include="Images\toilet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\toilet.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

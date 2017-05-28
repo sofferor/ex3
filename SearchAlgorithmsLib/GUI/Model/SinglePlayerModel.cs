@@ -71,7 +71,7 @@ namespace GUI.Model {
                 OnNewPos(new Position(-2,-2));
                 return;
             }
-            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
+            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);
         }
 
         protected virtual void OnNewPos(Position e) {

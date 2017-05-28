@@ -89,16 +89,6 @@ namespace GUI.Model {
             MazeGenerated?.Invoke(this, m);
         }
 
-        /*public string GameAt(int i) {
-            string[] gameList;
-            if (listOfGamesString != null) {
-                gameList = listOfGamesString.Replace("[", "").Replace("]", "").Replace("\n", "").Split(',');
-                game = gameList[i];
-                return game;
-            }
-            return null;
-        }*/
-
 
         public void Move(Direction direction) {
             Position tempPosition = new Position(curPos.Row, curPos.Col);
@@ -148,7 +138,7 @@ namespace GUI.Model {
                 Send("play " + dir);
             }
 
-            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);/////NEED TO CHECK EQUAL !
+            OnNewPos(tempPosition.Equals(curPos) ? new Position(-1, -1) : curPos);
             
         }
 
@@ -205,14 +195,7 @@ namespace GUI.Model {
                 OnOtherNewPos(new Position(-2, -2));
                 return;
             }
-            OnOtherNewPos(tempPosition.Equals(otherPos) ? new Position(-1, -1) : otherPos);/////NEED TO CHECK EQUAL !
-
-            //if there was actual move, send the move to the other player.
-            //if (!dir.Equals("")) {
-            //    Send("play " + dir);
-            //}
+            OnOtherNewPos(tempPosition.Equals(otherPos) ? new Position(-1, -1) : otherPos);
         }
-
-        
     }
 }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <ImageBrush x:Key="End" ImageSource="../Images/toilet.jpg"></ImageBrush>
+        <ImageBrush x:Key="End" ImageSource="../Images/toilet.jpeg"></ImageBrush>
         <ImageBrush x:Key="Poo" ImageSource="../Images/poo.jpeg"></ImageBrush>
     </UserControl.Resources>
     <Border BorderThickness="5" BorderBrush="DarkMagenta">
