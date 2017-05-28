@@ -115,7 +115,7 @@ namespace GUI.Model {
                 }
             };
 
-            dt.Interval = TimeSpan.FromSeconds(0.1);
+            dt.Interval = TimeSpan.FromSeconds(0.2);
             dt.Start();
         }
 
