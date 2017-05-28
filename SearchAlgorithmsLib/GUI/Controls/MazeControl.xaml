@@ -10,7 +10,9 @@
         <ImageBrush x:Key="End" ImageSource="../Images/toilet.jpg"></ImageBrush>
         <ImageBrush x:Key="Poo" ImageSource="../Images/poo.jpeg"></ImageBrush>
     </UserControl.Resources>
-    <Canvas Name="MazeBoard">
+    <Border BorderThickness="5" BorderBrush="DarkMagenta">
+        <Canvas Name="MazeBoard">
             
-    </Canvas>
+        </Canvas>
+    </Border>
 </UserControl>
