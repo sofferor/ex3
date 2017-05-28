@@ -190,6 +190,7 @@ namespace GUI.ViewModel {
 
         private Direction getDirectionFromString(string play) {
             Direction dir;
+            play = play.Substring(play.IndexOf("Direction"));
 
             if (play.Contains("up")) {
                 dir = Direction.Up;
