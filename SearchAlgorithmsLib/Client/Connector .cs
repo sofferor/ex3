@@ -37,23 +37,41 @@ namespace Client {
         }
 
         public void Initialize(string IP, int port) {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
-            Ep = ep;
 
-            client = new TcpClient();
-            client.Connect(ep);
-            stream = client.GetStream();
-            writer = new BinaryWriter(stream);
-            reader = new BinaryReader(stream);
+            try {
+                IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
+                Ep = ep;
+
+                client = new TcpClient();
+                client.Connect(ep);
+                stream = client.GetStream();
+                writer = new BinaryWriter(stream);
+                reader = new BinaryReader(stream);
+            }
+            catch (Exception e) {
+                NotifyPropertyChanged("lostConnection");
+            }
         }
 
         public void Send(string message) {
-            writer.Write(message);
-            writer.Flush();
+            try {
+                writer.Write(message);
+                writer.Flush();
+            }
+            catch (Exception e) {
+                NotifyPropertyChanged("lostConnection");
+            }
         }
 
         public string Receive() {
-            return reader.ReadString();
+
+            try {
+                return reader.ReadString();
+            }
+            catch (Exception e) {
+                NotifyPropertyChanged("lostConnection");
+                return "lostConnection";
+            }
         }
 
         public void Listen() {
@@ -74,11 +92,9 @@ namespace Client {
                             break;
                         }
                     } catch (Exception e) {
-                        client = new TcpClient();
-                        client.Connect(ep);
-                        stream = client.GetStream();
-                        writer = new BinaryWriter(stream);
-                        reader = new BinaryReader(stream);
+                        NotifyPropertyChanged("lostConnection");
+                        stop = true;
+                        return;
                     }
                 }
             }).Start();
@@ -89,11 +105,16 @@ namespace Client {
         }
 
         public void Connect() {
-            TcpClient client = new TcpClient();
-            client.Connect(ep);
-            NetworkStream stream = client.GetStream();
-            writer = new BinaryWriter(stream);
-            reader = new BinaryReader(stream);
+            try {
+                TcpClient client = new TcpClient();
+                client.Connect(ep);
+                NetworkStream stream = client.GetStream();
+                writer = new BinaryWriter(stream);
+                reader = new BinaryReader(stream);
+            }
+            catch (Exception e) {
+                NotifyPropertyChanged("lostConnection");
+            }
         }
     }
 }

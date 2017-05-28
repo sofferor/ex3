@@ -185,7 +185,19 @@ namespace GUI.ViewModel {
         }
 
         private Direction getDirectionFromString(string play) {
-            Direction dir = Direction.Up;
+            Direction dir;
+
+            if (play.Contains("up")) {
+                dir = Direction.Up;
+            } else if (play.Contains("down")) {
+                dir = Direction.Down;
+            } else if (play.Contains("right")) {
+                dir = Direction.Right;
+            } else if (play.Contains("left")) {
+                dir = Direction.Left;
+            } else {
+                throw new ArgumentOutOfRangeException();
+            }
             return dir;
         }
     }
