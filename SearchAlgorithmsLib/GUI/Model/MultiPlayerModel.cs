@@ -15,16 +15,27 @@ namespace GUI.Model {
         private Position otherPos;
         private string listOfGamesString;
         private string game;
+        private string message;
         private Task listen;
 
 
         public MultiPlayerModel() : base() {
             connector.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+                message = "fs";
                 if (e.PropertyName.Contains("Direction")) {
                     Direction dir = getDirectionFromString(e.PropertyName);
                     MoveOtherPlayer(dir);
+
                 }
             };
+        }
+
+        public string Message {
+            get => message;
+            set {
+                message = value;
+                NotifyPropertyChanged("Message");
+            }
         }
 
         public string ListOfGamesString {
@@ -200,6 +211,9 @@ namespace GUI.Model {
             }
         }
 
-
+        private Direction getDirectionFromString(string play) {
+            Direction dir = MazeLib.Direction.Down;
+            return dir;
+        }
     }
 }

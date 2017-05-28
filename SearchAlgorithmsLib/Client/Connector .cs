@@ -59,7 +59,7 @@ namespace Client {
         public void Listen() {
             stop = false;
             //define task to listen to the other player moves
-            Task listen = new Task(() => {
+            new Task(() => {
                 while (!stop) {
                     try {
                         reader = new BinaryReader(stream);
@@ -81,7 +81,7 @@ namespace Client {
                         reader = new BinaryReader(stream);
                     }
                 }
-            });
+            }).Start();
         }
 
         protected virtual void NotifyPropertyChanged(string propertyName = null) {
