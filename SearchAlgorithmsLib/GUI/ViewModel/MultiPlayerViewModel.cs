@@ -65,7 +65,7 @@ namespace GUI.ViewModel {
             };
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName.Contains("close")) {
-                    checkIfSomeoneWon();
+                    CheckIfSomeoneWon();
                 } else if (e.PropertyName.Contains("Direction")) {
                     Direction dir = getDirectionFromString(e.PropertyName);
                     MoveOtherPlayer(dir);
@@ -282,7 +282,7 @@ namespace GUI.ViewModel {
         /// <summary>
         /// Checks if someone won.
         /// </summary>
-        private void checkIfSomeoneWon() {
+        private void CheckIfSomeoneWon() {
             if (model.OtherPos.Equals(model.GoalPos)) {
                 NotifyPropertyChanged("loseMaze");
             } else {
