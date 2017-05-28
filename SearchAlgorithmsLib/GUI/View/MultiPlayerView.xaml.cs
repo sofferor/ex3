@@ -22,6 +22,7 @@ namespace GUI.View {
     public partial class MultiPlayerView : Window {
 
         public MultiPlayerViewModel vm;
+        private bool closeWin;
 
         public MultiPlayerView(MultiPlayerViewModel spvm) {
             InitializeComponent();
@@ -29,7 +30,8 @@ namespace GUI.View {
             DataContext = vm;
             MazeControl.DataContext = vm;
             OtherMazeControl.DataContext = vm;
-            
+            closeWin = false;
+
             vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName == "mazeGenerated") {
                     MazeControl.DrawMazeBoard();
@@ -56,7 +58,7 @@ namespace GUI.View {
             */
 
             vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                if (e.PropertyName != "otherPlayerLeaved" && e.PropertyName != "loseMaze" && e.PropertyName != "wonMaze" && e.PropertyName != "lostConnection") {
+                if ((e.PropertyName != "otherPlayerLeaved" && e.PropertyName != "loseMaze" && e.PropertyName != "wonMaze" && e.PropertyName != "lostConnection") || closeWin == true) {
                     return;
                 }
 
@@ -64,6 +66,7 @@ namespace GUI.View {
                 string windowName;
 
                 if (e.PropertyName == "otherPlayerLeaved") {
+                    closeWin = true;
                     message = "Other player leaved";
                     windowName = "Other leaved window";
                 } else if (e.PropertyName == "loseMaze") {
@@ -107,6 +110,20 @@ namespace GUI.View {
                         break;
                 }
             }
+        }
+
+        private void closeView(object sender, CancelEventArgs e) {
+            //if we are on the player the was left
+            if (closeWin == true) { return; }
+            //else we are on the player that want to leave.
+            closeWin = true;
+            vm.close();
+        }
+
+        private void Main_Click(object sender, RoutedEventArgs e) {
+            MainWindow win = new MainWindow();
+            win.Show();
+            this.Close();
         }
     }
 }

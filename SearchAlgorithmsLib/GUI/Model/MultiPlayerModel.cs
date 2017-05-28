@@ -213,6 +213,9 @@ namespace GUI.Model {
             //}
         }
 
-        
+        public void close() {
+            connector.stop = true;
+            connector.Send("close " + maze.Name);
+        }
     }
 }

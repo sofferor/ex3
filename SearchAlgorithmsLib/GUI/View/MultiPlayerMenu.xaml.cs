@@ -52,10 +52,18 @@ namespace GUI.View {
             vm.Rows = UserControl.TxtRows;
             vm.Cols = UserControl.TxtCols;
 
+            //creating the waiting window.
+            WaitingWindow ww = new WaitingWindow();
+            ww.Show();
+            this.Close();
+
             MultiPlayerView sp = new MultiPlayerView(vm);
             sp.Show();
-            this.Close();
+            sp.Hide();
             vm.Start(vm.MazeName, vm.Rows, vm.Cols);
+            sp.Show();
+            ww.Close();
+            //vm.Start(vm.MazeName, vm.Rows, vm.Cols);
         }
 
         public void DropDown(Object sender, Object args) {

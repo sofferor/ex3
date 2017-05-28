@@ -36,11 +36,15 @@ namespace Server {
 
                 string commandLine;
                 do {
-                    commandLine = reader.ReadString();
-                    //Console.WriteLine("got command: {0}", commandLine);
-                    string result = controller.ExecuteCommand(commandLine, client);
-                    writer.Write(result);
-                    writer.Flush();
+                    try {
+                        commandLine = reader.ReadString();
+                        //Console.WriteLine("got command: {0}", commandLine);
+                        string result = controller.ExecuteCommand(commandLine, client);
+                        writer.Write(result);
+                        writer.Flush();
+                    } catch (Exception e) {
+                        commandLine = "exit";
+                    }
                 } while (commandLine.Contains("start") || commandLine.Contains("play") || commandLine.Contains("join"));
                 
                 client.Close();

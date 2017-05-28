@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:control="clr-namespace:GUI.Controls"
         mc:Ignorable="d"
-        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown">
+        Title="MultiPlayerView" Height="710" Width="1200" KeyDown="MazeBoardKeyDown" Closing="closeView">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -18,7 +18,7 @@
             <ColumnDefinition Width="Auto" MinWidth="600" MaxWidth="600"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="Main" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" Padding="10" Margin="515,-20,510,0" Content="Back to main menu" Height="46" Width="175" Grid.ColumnSpan="2"/>
+        <Button x:Name="Main" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="18" Padding="10" Margin="515,-20,510,0" Content="Back to main menu" Height="46" Width="175" Grid.ColumnSpan="2" Click="Main_Click"/>
         <TextBlock Grid.Row="1" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667"><Run Text="My board"/></TextBlock>
         <TextBlock HorizontalAlignment="Right"  VerticalAlignment="Top" Width="198" Height="50" FontSize="20" RenderTransformOrigin="-0.61,1.667" Margin="0,28,392,0" Grid.Column="1" Grid.RowSpan="2"><Run Text="Other player's board"/></TextBlock>
 

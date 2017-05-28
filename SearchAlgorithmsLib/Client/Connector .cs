@@ -15,9 +15,9 @@ namespace Client {
         private IPEndPoint ep;///maybe public
         private BinaryWriter writer;
         private BinaryReader reader;
-        NetworkStream stream;
-        TcpClient client;
-        bool stop = false;
+        private NetworkStream stream;
+        private TcpClient client;
+        public bool stop = false;
 
         public Connector() { }
 

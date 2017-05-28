@@ -145,6 +145,7 @@ namespace GUI.ViewModel {
             model.Move(direction);
         }
 
+
         public void MoveOtherPlayer(Direction direction) {
             this.model.OtherNewPos += delegate (Object sender, Position pos) {
                 if (pos.Row == -1) {
@@ -212,6 +213,11 @@ namespace GUI.ViewModel {
             } else {
                 NotifyPropertyChanged("otherPlayerLeaved");
             }
+        }
+
+
+        public void close() {
+            model.close();
         }
     }
 }
