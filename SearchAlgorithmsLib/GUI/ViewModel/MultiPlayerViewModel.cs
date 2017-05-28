@@ -41,9 +41,13 @@ namespace GUI.ViewModel {
                 }
             };
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
-                if (e.PropertyName.Contains("Direction")) {
+                if (e.PropertyName.Contains("close")) {
+                    checkIfSomeoneWon();
+                } else if (e.PropertyName.Contains("Direction")) {
                     Direction dir = getDirectionFromString(e.PropertyName);
                     MoveOtherPlayer(dir);
+                } else if (e.PropertyName.Contains("lostConnection")) {
+                    NotifyPropertyChanged(e.PropertyName);
                 }
             };
         }
@@ -200,6 +204,14 @@ namespace GUI.ViewModel {
                 throw new ArgumentOutOfRangeException();
             }
             return dir;
+        }
+
+        private void checkIfSomeoneWon() {
+            if (model.OtherPos.Equals(model.GoalPos)) {
+                NotifyPropertyChanged("loseMaze");
+            } else {
+                NotifyPropertyChanged("otherPlayerLeaved");
+            }
         }
     }
 }

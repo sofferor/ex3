@@ -29,17 +29,56 @@ namespace GUI.View {
             DataContext = vm;
             MazeControl.DataContext = vm;
             OtherMazeControl.DataContext = vm;
+            
             vm.PropertyChanged += delegate(Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName == "mazeGenerated") {
                     MazeControl.DrawMazeBoard();
                     OtherMazeControl.DrawMazeBoard();
                 }
             };
+            /*
             vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
                 if (e.PropertyName != "wonMaze") return;
                 MessageBox.Show(this, "YOU WON !!!", "Win Window", MessageBoxButton.OK);
                 MainWindow win = new MainWindow();
                 win.Show();
+                win.Show();
+                this.Close();
+            };
+            vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+                if (e.PropertyName != "loseMaze") return;
+                MessageBox.Show(this, "YOU LOSER !!!", "Lose Window", MessageBoxButton.OK);
+                MainWindow win = new MainWindow();
+                win.Show();
+                win.Show();
+                this.Close();
+            };
+            */
+
+            vm.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e) {
+                if (e.PropertyName != "otherPlayerLeaved" && e.PropertyName != "loseMaze" && e.PropertyName != "wonMaze" && e.PropertyName != "lostConnection") {
+                    return;
+                }
+
+                string message;
+                string windowName;
+
+                if (e.PropertyName == "otherPlayerLeaved") {
+                    message = "Other player leaved";
+                    windowName = "Other leaved window";
+                } else if (e.PropertyName == "loseMaze") {
+                    message = "YOU LOSER !!!";
+                    windowName = "Lose Window";
+                } else if (e.PropertyName == "wonMaze") {
+                    message = "YOU WON !!!";
+                    windowName = "Won Window";
+                } else {
+                    //e.PropertyName == "lostConnection"
+                    message = "Lost connection";
+                    windowName = "Lost connection Window";
+                }
+                MessageBox.Show(this, message, windowName, MessageBoxButton.OK);
+                MainWindow win = new MainWindow();
                 win.Show();
                 this.Close();
             };
