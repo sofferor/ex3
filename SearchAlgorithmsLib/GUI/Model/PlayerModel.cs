@@ -42,6 +42,10 @@ namespace GUI.Model {
             }
         }
 
+        public Position GoalPos {
+            get => maze.GoalPos;
+        }
+
         public void Send(string message) {
             connector.Send(message);
         }

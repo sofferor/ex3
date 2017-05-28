@@ -38,6 +38,11 @@ namespace GUI.Model {
             set => listOfGamesString = value;
         }
 
+        public Position OtherPos {
+            get => otherPos;
+            set => otherPos = value;
+        }
+
         public void GenerateMaze(string name, int rows, int cols) {
             Send("generate " + name + " " + rows.ToString() + " " + cols.ToString());
             string mazeString = Receive();
