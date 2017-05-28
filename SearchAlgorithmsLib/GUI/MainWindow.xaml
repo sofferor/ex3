@@ -6,12 +6,16 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="346" Width="793.135">
-    <StackPanel HorizontalAlignment="Center">
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="173" RenderTransformOrigin="0.304,0.118" FontStyle="Italic" FontWeight="ExtraBlack" FontStretch="UltraExpanded" FontSize="30" Foreground="#FFE36000"><Run Text="THE"/><LineBreak/><Run Text="BEST"/><LineBreak/><Run Text="MAZE"/></TextBlock>
-        <Button Content="Single player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Single_Player"/>
-        <Button Content="Multi player" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Multi_Player"/>
-        <Button Content="Settings" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Settings"/>
 
-
-    </StackPanel>
+    <Window.Background>
+        <ImageBrush ImageSource="Images/logo.png" Stretch="Uniform" AlignmentX="Left" AlignmentY="Top"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="173" RenderTransformOrigin="0.304,0.118" FontStyle="Italic" FontWeight="ExtraBlack" FontStretch="UltraExpanded" FontSize="30" Foreground="#FFE36000"><Run Text="THE"/><LineBreak/><Run Text="BEST"/><LineBreak/><Run Text="MAZE"/></TextBlock>
+            <Button Content="Single player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Single_Player"/>
+            <Button Content="Multi player" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Multi_Player"/>
+            <Button Content="Settings" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Height="50" FontSize="20" Click="Button_Click_Settings"/>
+        </StackPanel>
+    </Grid>
 </Window>
