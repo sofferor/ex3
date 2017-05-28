@@ -77,10 +77,13 @@ namespace GUI.View {
                     message = "Lost connection";
                     windowName = "Lost connection Window";
                 }
-                MessageBox.Show(this, message, windowName, MessageBoxButton.OK);
-                MainWindow win = new MainWindow();
-                win.Show();
-                this.Close();
+
+                this.Dispatcher.Invoke(() => {
+                    MessageBox.Show(this, message, windowName, MessageBoxButton.OK);
+                    MainWindow win = new MainWindow();
+                    win.Show();
+                    this.Close();
+                });
             };
             vm.Initialize(Properties.Settings.Default.ServerIP, Properties.Settings.Default.ServerPort);
         }
