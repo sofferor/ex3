@@ -1,36 +1,23 @@
 <html>
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="Scripts/jquery-3.1.1.min.js"></script>
+	    <link rel="stylesheet" href="Content/bootstrap.min.css">
+	    <script> 
+    	    $(function(){
+    	        $("#navbar").load("Html/NavBar.html"); 
+    	    });
+    	</script>
 	</head>
 	
 	<body>
-		
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-		  <div class="container">
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  <a class="navbar-brand" href="#">Maze</a>
-			</div>
-			<div id="navbar" class="collapse navbar-collapse">
-			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Single player</a></li>
-				<li><a href="#about">Multi Player</a></li>
-				<li><a href="#contact">Settings</a></li>
-				<li><a href="#contact">User Rankings</a></li>
-				<li><a href="#we">Register</a></li>
-				<li><a href="#contact">Login</a></li>
-			  </ul>
-			</div><!--/.nav-collapse -->
-		  </div>
-		</nav>
-	
-		
+        <div id="navbar"></div>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Play The Best Maze!</h1>
+                <p>play online against your friends</p>
+                <button type="button" class="btn btn-primary">Lets Play</button>
+            </div>
+        </div>
 	</body>
 
 </html>
