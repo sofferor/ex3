@@ -87,6 +87,7 @@
     <Content Include="Css\index.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Html\Login.html" />
     <Content Include="Html\NavBar.html" />
     <Content Include="Html\Register.html" />
     <Content Include="index.html" />
