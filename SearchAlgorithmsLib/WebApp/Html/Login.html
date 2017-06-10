@@ -4,16 +4,12 @@
     <script src="../Scripts/jquery-3.1.1.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <link rel="stylesheet" href="../Content/bootstrap.min.css" />
-    <script>
-        $(function(){
-            $("#navbar").load("NavBar.html");
-        });
-    </script>
+    <link href="../Css/NavBar.css" rel="stylesheet" />
     <meta charset="utf-8"/>
     <title>Login</title>
 </head>
-<body style="padding-top: 3%">
-<div id="navbar"></div>
+<body>
+<iframe id="INavBar" src="NavBar.html"></iframe>
 <div class="container">
     <form class="form-signin">
         <h2 class="form-signin-heading">Please Login</h2>
@@ -21,7 +17,7 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        
+
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 

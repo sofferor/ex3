@@ -9,8 +9,7 @@ namespace Server {
     /// <seealso cref="SearchAlgorithmsLib.Searchable{MazeLib.Position}" />
     public class SearchableMazeAdapter : Searchable<Position> {
 
-        //members
-        /// <summary>
+        //members/// <summary>
         /// The maze
         /// </summary>
         private Maze maze;
