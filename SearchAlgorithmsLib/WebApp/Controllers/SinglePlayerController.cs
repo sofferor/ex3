@@ -16,7 +16,7 @@ namespace WebApp.Controllers
         // GET: api/SinglePlayer
         public JObject GetMaze(string name, int rows, int cols) {
             Maze maze = model.GenerateMaze(name, rows, cols).MyMaze;
-            return JObject.Parse((maze.ToJSON())) ;
+            return JObject.Parse(maze.ToJSON());
         }
 
         // GET: api/SinglePlayer/5
