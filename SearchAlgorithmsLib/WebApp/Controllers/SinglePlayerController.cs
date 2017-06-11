@@ -4,19 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using MazeLib;
+using Newtonsoft.Json.Linq;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
     public class SinglePlayerController : ApiController
     {
+        Model model = new Model();
         // GET: api/SinglePlayer
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
+        public JObject GetMaze(string name, int rows, int cols) {
+            Maze maze = model.GenerateMaze(name, rows, cols).MyMaze;
+            return JObject.Parse((maze.ToJSON())) ;
         }
 
         // GET: api/SinglePlayer/5
-        public string Get(int id)
+        public string GetMaze(int id)
         {
             return "value";
         }
