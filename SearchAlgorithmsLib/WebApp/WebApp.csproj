@@ -97,6 +97,10 @@
     <Content Include="Html\NavBar.html" />
     <Content Include="Html\Register.html" />
     <Content Include="Html\SinglePlayer.html" />
+    <Resource Include="Images\logo.png" />
+    <Resource Include="Images\poo.jpeg" />
+    <Resource Include="Images\toilet.jpeg" />
+    <Resource Include="Images\waiting.jpg" />
     <Content Include="index.html" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
