@@ -114,6 +114,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Html\Settings.html" />
+    <Content Include="Scripts\MazeBoard.js" />
     <Content Include="Scripts\NavBar.js" />
     <Content Include="Web.config" />
   </ItemGroup>

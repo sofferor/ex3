@@ -8,6 +8,39 @@
 <body>
     <div id="navbar"></div>
     <div id="spacer"></div>
+    <br/>
+    <div class="container">
+        <div class="col-sm-4">
+            <form>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeName">Name:</label>
+                    <input type="text" class="form-control" id="mazeName">
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeRows">Rows:</label>
+                    <input type="password" class="form-control" id="mazeRows">
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeCols">Cols:</label>
+                    <input type="password" class="form-control" id="mazeCols">
+                </div>
+                <div class="form-group form-inline">
+                    <button class="col-sm-offset-3 btn btn-default">Start New Game</button>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeAlg">Search Algo:</label>
+                    <select class="form-control" id="mazeAlg">
+                        <option>BFS</option>
+                        <option>DFS</option>
+                    </select>
+                </div>
+                <div class="form-group form-inline">
+                    <button class="col-sm-offset-3 btn btn-default">Solve Game</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
     <script src="../Scripts/jquery-3.1.1.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/NavBar.js"></script>
