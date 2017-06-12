@@ -1,8 +1,10 @@
 ﻿(function($) {
-    $.fn.mazeBoard = function (mazeData, startRow, startCol,
+    $.fn.mazeBoard = function (mazeData, mazeString, startRow, startCol,
         exitRow, exitCol, playerImage, exitImage) {
+        console.log("in plugin");
         var mazeObj = {
             mazeData: mazeData,
+            mazeString: mazeString,
             startRow: startRow,
             startCol: startCol,
             exitRow: exitRow,
