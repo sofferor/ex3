@@ -8,8 +8,63 @@
 <body>
     <div id="navbar"></div>
     <div id="spacer"></div>
+    <br/>
+    <div class="container">
+        <div class="col-sm-4">
+            <form>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeName">Name:</label>
+                    <input type="text" class="form-control" id="mazeName">
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeRows">Rows:</label>
+                    <input type="text" class="form-control" id="mazeRows">
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeCols">Cols:</label>
+                    <input type="text" class="form-control" id="mazeCols">
+                </div>
+                <div class="form-group form-inline">
+                    <button onclick="StartGame()" class="col-sm-offset-3 btn btn-default">Start New Game</button>
+                </div>
+                <div class="form-group form-inline">
+                    <label class="col-sm-3" for="mazeAlg">Search Algo:</label>
+                    <select class="form-control" id="mazeAlg">
+                        <option>BFS</option>
+                        <option>DFS</option>
+                    </select>
+                </div>
+                <div class="form-group form-inline">
+                    <button class="col-sm-offset-3 btn btn-default">Solve Game</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-8">
+            <canvas style="border: 2px black solid;"></canvas>
+        </div>
+    </div>
     <script src="../Scripts/jquery-3.1.1.js"></script>
     <script src="../Scripts/bootstrap.js"></script>
     <script src="../Scripts/NavBar.js"></script>
+    <script src="../Scripts/MazeBoard.js"></script>
+<script>
+    var maze;
+    function StartGame() {
+        console.log("in StartGame()");
+        var url = "/api/SinglePlayer?" +
+            "name=" + $("#mazeName").val() +
+            "&" +
+            "rows=" + $("#mazeRows").val() +
+            "&" +
+            "cols=" + $("#mazeCols").val();
+        console.log(url);
+        $.getJSON(url).done(function (data) {
+            console.log(data);
+            maze = $.fn.mazeBoard(data, data.Maze, data.Start.Row, data.Start.Col, data.End.Row, data.End.Col);
+            console.log(maze);
+
+        });
+    }
+</script>
 </body>
 </html>

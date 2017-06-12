@@ -1,14 +1,10 @@
-﻿(function ($) {
-    $.fn.mazeBoard = function (
-        mazeData, // the matrix containing the maze cells
-        startRow, startCol, // initial position of the player
-        exitRow, exitCol, // the exit position
-        playerImage, // player's icon (of type Image)
-        exitImage // exit's icon (of type Image)
-        ) {
+﻿(function($) {
+    $.fn.mazeBoard = function (mazeData, mazeString, startRow, startCol,
+        exitRow, exitCol, playerImage, exitImage) {
+        console.log("in plugin");
         var mazeObj = {
-            
             mazeData: mazeData,
+            mazeString: mazeString,
             startRow: startRow,
             startCol: startCol,
             exitRow: exitRow,
@@ -16,15 +12,13 @@
             playerImage: playerImage,
             exitImage: exitImage,
             isEnabled: true,
-
-            //functions
-            Move : function () {
+            Draw: function() {
                 
             },
-
-            Draw : function () {
-
+            Move: function() {
+                
             }
         }
+        return mazeObj;
     }
-}) (jQuery)
+})(jQuery)
