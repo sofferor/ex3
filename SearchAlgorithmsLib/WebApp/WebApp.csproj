@@ -96,6 +96,7 @@
     <Content Include="Html\Login.html" />
     <Content Include="Html\NavBar.html" />
     <Content Include="Html\Register.html" />
+    <Content Include="Html\SinglePlayer.html" />
     <Content Include="index.html" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
