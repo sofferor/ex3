@@ -7,7 +7,7 @@ using System.Web;
 namespace WebApp.Models {
     public class User {
         [Key]
-        public int UserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         public string Password { get; set; }
         [EmailAddress]
