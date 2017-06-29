@@ -124,6 +124,8 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Html\Settings.html" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\MazeBoard.js" />
     <Content Include="Scripts\NavBar.js" />
     <Content Include="Scripts\Registration.js" />
@@ -136,6 +138,10 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706292036398_Initial.cs" />
+    <Compile Include="Migrations\201706292036398_Initial.Designer.cs">
+      <DependentUpon>201706292036398_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Game.cs" />
@@ -166,6 +172,11 @@
       <Project>{64c0ea76-e9a2-4bbd-b98a-ac5d0add42e6}</Project>
       <Name>SearchAlgorithmsLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706292036398_Initial.resx">
+      <DependentUpon>201706292036398_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
