@@ -160,7 +160,7 @@
                     i++;
                     if (i >= length) {
                         clearInterval(id);
-                        alert("You used the solve to win !!! You Won !\nYou can start a New Game.");
+                        setTimeout(function () { alert("You used the solve to win !!! You Won !\nYou can start a New Game."); }, 100);
                         return;
                     }
                 }, 500);
