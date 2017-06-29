@@ -36,3 +36,17 @@ $(this).keydown(function (e) {
             break;
     }
 });
+
+function SolveMaze() {
+    console.log("in SolveMaze()");
+    var url = "/api/SinglePlayer?" +
+        "name=" + $("#mazeName").val() +
+        "&" +
+        "algNum=" + $("#mazeAlg").val();
+    console.log(url);
+    $.getJSON(url).done(function (data) {
+        console.log(data);
+        maze.Solve(data);
+        console.log("after Solve");
+    });
+}

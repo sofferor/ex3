@@ -19,10 +19,16 @@ namespace WebApp.Controllers
             return JObject.Parse(maze.ToJSON());
         }
 
-        // GET: api/SinglePlayer/5
-        public string GetMaze(int id)
-        {
-            return "value";
+        public JObject GetSolve(string name, int algNum) {
+            switch (algNum) {
+                case 0:
+                    return JObject.Parse(model.Solve(name, Algoritem.BFS).ToJson());
+                case 1:
+                    return JObject.Parse(model.Solve(name, Algoritem.DFS).ToJson());
+                default:
+                    break;
+            }
+            return new JObject("error");
         }
 
         // POST: api/SinglePlayer

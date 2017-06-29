@@ -112,6 +112,32 @@
                 if (this.currRow == this.exitRow && this.currCol == this.exitCol) {
                     setTimeout(function () { alert("Congrats !!! You Won !\nYou can start a New Game."); }, 100);
                 }
+            },
+            Solve: function (solution) {
+                this.currCol = this.startCol;
+                this.currRow = this.startRow;
+                this.Draw();
+                var solString = solution.Solution;
+
+                for (var i = 0; i < solString.length; i++) {
+                    switch (solString[i]) {
+                    case 0:
+                        this.Move("left");
+                        break;
+                    case 1:
+                        this.Move("right");
+                        break;
+                    case 2:
+                        this.Move("up");
+                        break;
+                    case 3:
+                        this.Move("down");
+                        break;
+                    default:
+                        break;
+                    }
+                }
+
             }
         }
         return mazeObj;
