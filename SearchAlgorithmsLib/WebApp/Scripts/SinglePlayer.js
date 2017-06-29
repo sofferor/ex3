@@ -39,14 +39,19 @@ $(this).keydown(function (e) {
 
 function SolveMaze() {
     console.log("in SolveMaze()");
-    var url = "/api/SinglePlayer?" +
-        "name=" + $("#mazeName").val() +
-        "&" +
-        "algNum=" + $("#mazeAlg").val();
+    var url = "/api/SinglePlayer/" +
+       $("#mazeName").val() +
+        "/" +
+         $("#mazeAlg").val();
     console.log(url);
     $.getJSON(url).done(function (data) {
         console.log(data);
         maze.Solve(data);
+
+        maze.currCol = this.startCol;
+        maze.currRow = this.startRow;
+        maze.Draw();
+
         console.log("after Solve");
     });
 }

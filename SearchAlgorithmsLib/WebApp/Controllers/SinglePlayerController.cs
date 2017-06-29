@@ -12,18 +12,19 @@ namespace WebApp.Controllers
 {
     public class SinglePlayerController : ApiController
     {
-        Model model = new Model();
+        static Model model = new Model();
         // GET: api/SinglePlayer
         public JObject GetMaze(string name, int rows, int cols) {
             Maze maze = model.GenerateMaze(name, rows, cols).MyMaze;
             return JObject.Parse(maze.ToJSON());
         }
 
-        public JObject GetSolve(string name, int algNum) {
-            switch (algNum) {
-                case 0:
+        [Route("api/SinglePlayer/{name}/{algName}")]
+        public JObject GetSolve(string name, string algName) {
+            switch (algName) {
+                case "BFS":
                     return JObject.Parse(model.Solve(name, Algoritem.BFS).ToJson());
-                case 1:
+                case "DFS":
                     return JObject.Parse(model.Solve(name, Algoritem.DFS).ToJson());
                 default:
                     break;

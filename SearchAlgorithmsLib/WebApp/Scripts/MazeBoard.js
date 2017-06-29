@@ -1,4 +1,5 @@
-﻿(function($) {
+﻿var i = 0;
+(function ($) {
     $.fn.mazeBoard = function(mazeData,
         mazeString,
         startRow,
@@ -114,30 +115,55 @@
                 }
             },
             Solve: function (solution) {
+                var canvas = document.getElementById("boardCanvas");
+                var context = canvas.getContext("2d");
+                var p = document.getElementById("startImg");
+
                 this.currCol = this.startCol;
                 this.currRow = this.startRow;
                 this.Draw();
                 var solString = solution.Solution;
+                var length = solString.length;
 
-                for (var i = 0; i < solString.length; i++) {
+                var currColMember = this.currCol;
+                var currRowMember = this.currRow;
+                var cellWidthMember = this.cellWidth;
+                var cellHightMember = this.cellHight;
+                
+                var id = setInterval(function () {
+                    console.log(solString[i]);
+
+                    context.clearRect(currColMember * cellWidthMember, currRowMember * cellHightMember, cellWidthMember, cellHightMember);
+
                     switch (solString[i]) {
-                    case 0:
-                        this.Move("left");
-                        break;
-                    case 1:
-                        this.Move("right");
-                        break;
-                    case 2:
-                        this.Move("up");
-                        break;
-                    case 3:
-                        this.Move("down");
-                        break;
-                    default:
-                        break;
+                        case "0":
+                            //this.Move("left");
+                            currColMember = currColMember - 1;
+                            break;
+                        case "1":
+                            //this.Move("right");
+                            currColMember = currColMember + 1;
+                            break;
+                        case "2":
+                            //this.Move("down");
+                            currRowMember = currRowMember + 1;
+                            break;
+                        case "3":
+                            //this.Move("up");
+                            currRowMember = currRowMember - 1;
+                            break;
+                        default:
+                            break;
                     }
-                }
+                    context.drawImage(p, currColMember * cellWidthMember, currRowMember * cellHightMember, cellWidthMember, cellHightMember);
 
+                    i++;
+                    if (i >= length) {
+                        clearInterval(id);
+                        alert("You used the solve to win !!! You Won !\nYou can start a New Game.");
+                        return;
+                    }
+                }, 500);
             }
         }
         return mazeObj;
