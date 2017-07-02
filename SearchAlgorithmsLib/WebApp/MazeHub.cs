@@ -16,7 +16,7 @@ namespace WebApp {
 
         public void Connect(string mazeName) {
             List<string> list = new List<string>(2);
-            list.Add(Context.ConnectionId);
+            list.Insert(0, Context.ConnectionId);
             connectedUsers.GetOrAdd(mazeName, list);
         }
 
@@ -34,12 +34,12 @@ namespace WebApp {
 
         public void JoinGame(string mazeName) {
             model.Join(mazeName, Context.ConnectionId);
-            connectedUsers[mazeName][1] = Context.ConnectionId;
+            connectedUsers[mazeName].Insert(1, Context.ConnectionId);
 
             //send the maze to the two clients.
             JObject jMaze = JObject.Parse(model.GetMazeByName(mazeName).MyMaze.ToJSON());
-            Clients.Client(connectedUsers[mazeName][0]).StartGameFromJoin(jMaze);
-            Clients.Client(connectedUsers[mazeName][1]).StartGameFromJoin(jMaze);
+            Clients.Client(connectedUsers[mazeName][0]).startFromJoin(jMaze);
+            Clients.Client(connectedUsers[mazeName][1]).startFromJoin(jMaze);
         }
 
         public void play(string direction) {
