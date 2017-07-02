@@ -53,5 +53,13 @@ namespace WebApp {
         public void Close(string gameName) {
             
         }
+
+        public void GameList() {
+            List<string> games = new List<string>();
+            foreach (KeyValuePair<string, List<string>> entry in connectedUsers) {
+                games.Add(entry.Key);
+            }
+            Clients.Client(Context.ConnectionId).GameList(games);
+        }
     }
 }
