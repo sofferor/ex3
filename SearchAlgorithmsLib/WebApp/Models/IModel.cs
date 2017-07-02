@@ -46,7 +46,7 @@ namespace WebApp.Models {
         /// <param name="name">The name.</param>
         /// <param name="client">The client.</param>
         /// <returns>SearchableMazeAdapter.</returns>
-        SearchableMazeAdapter Join(string name, TcpClient client);
+        SearchableMazeAdapter Join(string name, string client);
 
         /// <summary>
         /// Plays the specified step.
@@ -67,6 +67,6 @@ namespace WebApp.Models {
         /// <param name="name">The name.</param>
         /// <param name="client">The client.</param>
         /// <returns>System.String.</returns>
-        string Close(string name, TcpClient client);
+        string Close(string name, string client);
     }
 }

@@ -10,7 +10,7 @@ function StartGame() {
     console.log(url);
     $.getJSON(url).done(function (data) {
         console.log(data);
-        maze = $.fn.mazeBoard(data, data.Maze, data.Start.Row, data.Start.Col, data.End.Row, data.End.Col, data.Cols, data.Rows);
+        maze = $.fn.mazeBoard(data, data.Maze, data.Start.Row, data.Start.Col, data.End.Row, data.End.Col, data.Cols, data.Rows, document.getElementById("boardCanvas"));
         console.log(maze);
         maze.Draw();
         console.log("after Draw");
