@@ -6,6 +6,7 @@ var mazeCols = $("#mazeCols").val();
 var myMaze, otherMaze;
 // Create a function that the hub can call to broadcast messages
 multiHub.client.GameList = function (gameList) {
+    console.log("in gameList()");
     var games = $("#gameList");
     // Add the message to the page
     for (var i = 0; i < gameList.length; i++) {
@@ -21,6 +22,10 @@ $.connection.hub.start().done(function () {
         multiHub.server.connect(mazeName);
         multiHub.server.StartGame(mazeName, mazeRows, mazeCols);
     });
+
+    $("#gameList").click(function() {
+        multiHub.server.GameList();
+    });
 });
 
 multiHub.client.StartGameFromJoin = function (data) {
@@ -31,4 +36,4 @@ multiHub.client.StartGameFromJoin = function (data) {
     myMaze.Draw();
     otherMaze.Draw();
     console.log("after Draw mazes");
-});
+};

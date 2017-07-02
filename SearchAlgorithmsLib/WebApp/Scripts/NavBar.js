@@ -50,7 +50,6 @@ function ApplyMulti() {
     var isLogin = $("#login").text();
     if (isLogin == "Login") {
         alert("You must log in before playing in multi player.");
-        location.reload();
         return false;
     } else {
         return true;
