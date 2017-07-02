@@ -31,10 +31,10 @@
 
     
     $.post(uri, user).done(function (data) {
-        console.log(user);
         console.log("uri: " + uri);
         console.log(data);
         console.log("user added succefully");
+        location.reload();
     }).fail(function (jqXHR, status, errorThrown) {
         console.log(user);
         console.log("error: " + errorThrown);
