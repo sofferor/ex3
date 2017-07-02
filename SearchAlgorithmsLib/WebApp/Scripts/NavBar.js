@@ -7,4 +7,41 @@
 
         var contentPlacement =  $(".navbar-fixed-top").height();
         $("#spacer").css("margin-top", contentPlacement);
+
+        console.log("in navbar.js: checkig if connected");
+        var isConnected = sessionStorage.on;
+        console.log("isConnected: " + isConnected);
+        if (isConnected == "true") {
+            console.log("in navbar.js: is connected");
+            $("#register").text(sessionStorage.userName);
+            $("#login").text("Logout");
+        }
     });
+
+/*
+$("#login").click(function () {
+    console.log("in onClick to check if logout.");
+    var isLogout = $("#login").text();
+    if (isLogout == "Logout") {
+        sessionStorage.on = "false";
+        $("#register").text("Register");
+        $("#login").text("Login");
+    }
+});
+*/
+
+function Logout() {
+    console.log("in onClick to check if logout.");
+    var isLogout = $("#login").text();
+    if (isLogout == "Logout") {
+        sessionStorage.on = "false";
+        $("#register").text("Register");
+        $("#login").text("Login");
+        alert("You logged out successfully.");
+        location.reload();
+        return false;
+    } else {
+        return true;
+    }
+
+};  

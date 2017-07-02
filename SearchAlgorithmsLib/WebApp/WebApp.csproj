@@ -126,6 +126,7 @@
     <Content Include="Html\Settings.html" />
     <Content Include="Scripts\knockout-3.4.2.debug.js" />
     <Content Include="Scripts\knockout-3.4.2.js" />
+    <Content Include="Scripts\Login.js" />
     <Content Include="Scripts\MazeBoard.js" />
     <Content Include="Scripts\NavBar.js" />
     <Content Include="Scripts\Registration.js" />

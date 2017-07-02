@@ -35,6 +35,7 @@
         console.log(data);
         console.log("user added succefully");
         location.reload();
+        alert("Registerd succesfully, please login.");
     }).fail(function (jqXHR, status, errorThrown) {
         console.log(user);
         console.log("error: " + errorThrown);
