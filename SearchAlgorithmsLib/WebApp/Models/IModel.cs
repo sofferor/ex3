@@ -68,5 +68,7 @@ namespace WebApp.Models {
         /// <param name="client">The client.</param>
         /// <returns>System.String.</returns>
         string Close(string name, string client);
+
+        SearchableMazeAdapter GetMazeByName(string name);
     }
 }

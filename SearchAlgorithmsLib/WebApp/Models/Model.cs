@@ -236,5 +236,13 @@ namespace WebApp.Models {
             return listOfGames.ToString();
         }
 
+        public SearchableMazeAdapter GetMazeByName(string name) {
+            //if the maze is allready exist we return it.
+            if (searchableMazes.ContainsKey(name)) {
+                return searchableMazes[name];
+            }
+            return null;
+        }
+
     }
 }
