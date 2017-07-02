@@ -43,7 +43,7 @@ namespace WebApp.Models {
             return jMove.ToString();
         }
 
-        public string getMazeName() {
+        public string GetMazeName() {
             return name;
         }
     }

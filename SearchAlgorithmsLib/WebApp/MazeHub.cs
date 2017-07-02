@@ -38,10 +38,10 @@ namespace WebApp {
         public void play(string direction) {
             Move move = model.Play(direction, Context.ConnectionId);
             string otherPlayer;
-            if (connectedUsers[move.GetMazeName][0].Equals(Context.ConnectionId)) {
-                otherPlayer = connectedUsers[move.GetMazeName][1];
+            if (connectedUsers[move.GetMazeName()][0].Equals(Context.ConnectionId)) {
+                otherPlayer = connectedUsers[move.GetMazeName()][1];
             } else {
-                otherPlayer = connectedUsers[move.GetMazeName][0];
+                otherPlayer = connectedUsers[move.GetMazeName()][0];
             }
         }
 
