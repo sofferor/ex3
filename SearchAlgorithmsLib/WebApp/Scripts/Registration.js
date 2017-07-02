@@ -41,7 +41,7 @@
         console.log("uri: " + uri);
         console.log(jqXHR);
         if (jqXHR.responseText.includes("Email field is not a valid")) {
-            alert("please enter valid email adress.");
+            alert("Please enter valid email address.");
         }
         console.log("post Failed");
     });
