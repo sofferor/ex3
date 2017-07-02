@@ -7,7 +7,8 @@
         exitRow,
         exitCol,
         cols,
-        rows) {
+        rows,
+        canvas) {
         console.log("in plugin");
         var mazeObj = {
             mazeData: mazeData,
@@ -23,9 +24,10 @@
             cellWidth: 0,
             cellHight: 0,
             isEnabled: true,
+            canvas: canvas,
             Draw: function() {
                 console.log("in draw");
-                var canvas = document.getElementById("boardCanvas");
+                //var canvas = document.getElementById("boardCanvas");
                 var context = canvas.getContext("2d");
                 context.clearRect(0, 0, canvas.width, canvas.height);
                 this.cellWidth = canvas.width / cols;

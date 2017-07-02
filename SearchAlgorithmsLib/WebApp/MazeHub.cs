@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using WebApp.Models;
+using Newtonsoft.Json.Linq;
 
 namespace WebApp {
     public class MazeHub : Hub {
@@ -33,6 +34,10 @@ namespace WebApp {
             model.Join(mazeName, Context.ConnectionId);
             connectedUsers[mazeName][1] = Context.ConnectionId;
 
+            //send the maze to the two clients.
+            JObject jMaze = JObject.Parse(model.GetMazeByName(mazeName).MyMaze.ToJSON());
+            Clients.Client(connectedUsers[mazeName][0]).StartGameFromJoin(jMaze);
+            Clients.Client(connectedUsers[mazeName][1]).StartGameFromJoin(jMaze);
         }
 
         public void play(string direction) {
