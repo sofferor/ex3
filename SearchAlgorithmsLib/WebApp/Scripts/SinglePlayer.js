@@ -55,3 +55,12 @@ function SolveMaze() {
         console.log("after Solve");
     });
 }
+
+window.onload = function () {
+    if (localStorage.getItem("Rows") != undefined) {
+        $("#mazeRows").val(localStorage.getItem("Rows"));
+    }
+    if (localStorage.getItem("Cols") != undefined) {
+        $("#mazeCols").val(localStorage.getItem("Cols"));
+    }
+}

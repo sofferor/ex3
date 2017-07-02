@@ -18,18 +18,6 @@
         }
     });
 
-/*
-$("#login").click(function () {
-    console.log("in onClick to check if logout.");
-    var isLogout = $("#login").text();
-    if (isLogout == "Logout") {
-        sessionStorage.on = "false";
-        $("#register").text("Register");
-        $("#login").text("Login");
-    }
-});
-*/
-
 function Logout() {
     console.log("in onClick to check if logout.");
     var isLogout = $("#login").text();
@@ -50,6 +38,7 @@ function ApplyMulti() {
     var isLogin = $("#login").text();
     if (isLogin == "Login") {
         alert("You must log in before playing in multi player.");
+        event.returnValue = false;
         return false;
     } else {
         return true;
