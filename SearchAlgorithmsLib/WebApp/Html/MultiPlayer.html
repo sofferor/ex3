@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<div id="navbar"></div>
+<div id="spacer"></div>
+<br/>
+<div class="container">
+    <div class="col-sm-4">
+        <form>
+            <div class="form-group form-inline">
+                <label class="col-sm-3" for="mazeAlg">Games List:</label>
+                <select class="form-control" id="gameList">
+                    <option>BFS</option>
+                    <option>DFS</option>
+                </select>
+            </div>
+            <div class="form-group form-inline">
+                <button onclick="" class="col-sm-offset-3 btn btn-default">Join Game</button>
+            </div>
+
+            <div class="form-group form-inline">
+                <label class="col-sm-3" for="mazeName">Name:</label>
+                <input type="text" class="form-control" id="mazeName">
+            </div>
+            <div class="form-group form-inline">
+                <label class="col-sm-3" for="mazeRows">Rows:</label>
+                <input type="text" class="form-control" id="mazeRows">
+            </div>
+            <div class="form-group form-inline">
+                <label class="col-sm-3" for="mazeCols">Cols:</label>
+                <input type="text" class="form-control" id="mazeCols">
+            </div>
+            <div class="form-group form-inline">
+                <button onclick="StartGame();return false;" class="col-sm-offset-3 btn btn-default">Start New Game</button>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-sm-8">
+        <canvas id="boardCanvas1" height="450" width="450" style="border: 2px black solid;"></canvas>
+        <canvas id="boardCanvas2" height="450" width="450" style="border: 2px black solid;"></canvas>
+
+    </div>
+</div>
+<script src="../Scripts/jquery-3.1.1.js"></script>
+<script src="../Scripts/bootstrap.js"></script>
+<script src="../Scripts/jquery.signalR-2.2.2.js"></script>
+<script src="signalr/hubs"></script>
+<script src="../Scripts/NavBar.js"></script>
+<script src="../Scripts/MazeBoard.js"></script>
+<script src="../Scripts/MultiPlayer.js"></script>
+<img id="startImg" src="..\Images\poo.jpeg" hidden />
+<img id="endImg" src="..\Images\toilet.jpeg" hidden />
+</body>
+</html>
