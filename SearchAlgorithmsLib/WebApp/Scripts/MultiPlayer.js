@@ -1,21 +1,23 @@
 ﻿// Declare a proxy to reference the hub
-var maze = $.connection.MazeHub;
+var multiHub = $.connection.MazeHub;
+var mazeName = $("#mazeName").val();
+var mazeRows = $("#mazeRows").val();
+var mazeCols = $("#mazeCols").val();
 // Create a function that the hub can call to broadcast messages
-maze.client.GameList = function (name, message) {
+multiHub.client.GameList = function (gameList) {
+    var games = $("#gameList");
     // Add the message to the page
-    $('#chat').append('<li><strong>' + name
-        + '</strong>:&nbsp;&nbsp;' + message + '</li>');
+    for (var i = 0; i < gameList.length; i++) {
+        var option = document.createElement("option");
+        option.text = gameList[i];
+        games.add(option);
+    }
 };
-// Get the user name and store it to prepend to messages
-var username = prompt('Enter your name:');
-// Set initial focus to message input box
-$('#message').focus();
+
 // Start the connection
 $.connection.hub.start().done(function () {
-    $('#btnSendMessage').click(function () {
-        // Call the Send method on the hub
-        chat.server.send(username, $('#message').val());
-        // Clear text box and reset focus for next comment
-        $('#message').val('').focus();
+    $("#startGame").click(function () {
+        multiHub.server.connect(mazeName);
+        multiHub.server.StartGame(mazeName, mazeRows, mazeCols);
     });
 });
