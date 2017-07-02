@@ -21,7 +21,7 @@ namespace WebApp.Models {
         /// <summary>
         /// The players
         /// </summary>
-        private List<TcpClient> players;
+        private List<string> players;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Game"/> class.
@@ -29,11 +29,11 @@ namespace WebApp.Models {
         /// <param name="maze">The maze.</param>
         /// <param name="client">The client.</param>
         /// <exception cref="System.ArgumentNullException">maze</exception>
-        public Game(SearchableMazeAdapter maze, TcpClient client) {
+        public Game(SearchableMazeAdapter maze, string client) {
             if (maze == null) throw new ArgumentNullException(nameof(maze));
             this.maze = maze;
             joinable = true;
-            players = new List<TcpClient>();
+            players = new List<string>();
             players.Add(client);
         }
 
@@ -48,7 +48,7 @@ namespace WebApp.Models {
         /// Gets the players.
         /// </summary>
         /// <value>The players.</value>
-        public List<TcpClient> Players => players;
+        public List<string> Players => players;
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Game"/> is joinable.
@@ -63,7 +63,7 @@ namespace WebApp.Models {
         /// Adds the player.
         /// </summary>
         /// <param name="client">The client.</param>
-        public void AddPlayer(TcpClient client) {
+        public void AddPlayer(string client) {
             players.Add(client);
             joinable = false;
         }

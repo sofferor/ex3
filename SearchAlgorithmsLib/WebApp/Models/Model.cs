@@ -132,7 +132,7 @@ namespace WebApp.Models {
         /// <param name="cols">The cols.</param>
         /// <param name="client">The client.</param>
         /// <returns>SearchableMazeAdapter.</returns>
-        public SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client) {
+        public SearchableMazeAdapter Start(string name, int rows, int cols, string client) {
 
             //generate the maze
             SearchableMazeAdapter searchableMaze = GenerateMaze(name, rows, cols);
@@ -155,7 +155,7 @@ namespace WebApp.Models {
         /// <param name="client">The client.</param>
         /// <returns>SearchableMazeAdapter.</returns>
         /// <exception cref="System.Exception"></exception>
-        public SearchableMazeAdapter Join(string name, TcpClient client) {
+        public SearchableMazeAdapter Join(string name, string client) {
 
             //check if really exist
             if (!games.ContainsKey(name) || games[name].Joinable == false) {
@@ -172,7 +172,7 @@ namespace WebApp.Models {
         /// </summary>
         /// <param name="step">The step.</param>
         /// <param name="client">The client.</param>
-        public void Play(string step, TcpClient client) {
+        public Move Play(string step, string client) {
 
             //find the other client who play with him
             foreach (Game game in games.Values) {
@@ -180,16 +180,18 @@ namespace WebApp.Models {
 
                     Move move = new Move(game.Maze.MyMaze.Name, step);
 
-                    foreach (TcpClient other in game.Players) {
+                    foreach (string other in game.Players) {
                         if (other != client) {
-                            NetworkStream stream = other.GetStream();
-                            BinaryWriter writer = new BinaryWriter(stream);
-                            writer.Write(move.ToJson());
-                            writer.Flush();
+                            //NetworkStream stream = other.GetStream();
+                            //BinaryWriter writer = new BinaryWriter(stream);
+                            //writer.Write(move.ToJson());
+                            //writer.Flush();
+                            return move;
                         }
                     }
                 }
             }
+            return null;
         }
 
 
@@ -199,17 +201,18 @@ namespace WebApp.Models {
         /// <param name="name">The name.</param>
         /// <param name="client">The client.</param>
         /// <returns>System.String.</returns>
-        public string Close(string name, TcpClient client) {
+        public string Close(string name, string client) {
 
             //find the other client who play with him
             foreach (Game game in games.Values) {
                 if (game.Players.Contains(client)) {
-                    foreach (TcpClient other in game.Players) {
+                    foreach (string other in game.Players) {
                         if (other != client) {
-                            NetworkStream stream = other.GetStream();
-                            BinaryWriter writer = new BinaryWriter(stream);
-                            writer.Write("close");
-                            writer.Flush();
+                            //NetworkStream stream = other.GetStream();
+                            //BinaryWriter writer = new BinaryWriter(stream);
+                            //writer.Write("close");
+                            //writer.Flush();
+
                         }
                     }
                 }

@@ -38,7 +38,7 @@ namespace WebApp.Models {
         /// <param name="cols">The cols.</param>
         /// <param name="client">The client.</param>
         /// <returns>SearchableMazeAdapter.</returns>
-        SearchableMazeAdapter Start(string name, int rows, int cols, TcpClient client);
+        SearchableMazeAdapter Start(string name, int rows, int cols, string client);
 
         /// <summary>
         /// Joins the specified name.
@@ -53,7 +53,7 @@ namespace WebApp.Models {
         /// </summary>
         /// <param name="step">The step.</param>
         /// <param name="client">The client.</param>
-        void Play(string step, TcpClient client);
+        Move Play(string step, string client);
 
         /// <summary>
         /// Gameses the list.

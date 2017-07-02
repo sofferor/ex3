@@ -10,7 +10,7 @@ namespace WebApp.Models {
     /// <summary>
     /// Class Move.
     /// </summary>
-    class Move {
+    public class Move {
 
         //members
         /// <summary>
@@ -41,6 +41,10 @@ namespace WebApp.Models {
             jMove["Name"] = name;
             jMove["Direction"] = direction;
             return jMove.ToString();
+        }
+
+        public string getMazeName() {
+            return name;
         }
     }
 }
