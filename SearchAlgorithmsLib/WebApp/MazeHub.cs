@@ -15,7 +15,9 @@ namespace WebApp {
             new ConcurrentDictionary<string, List<string>>();
 
         public void Connect(string mazeName) {
-            connectedUsers[mazeName][0] = Context.ConnectionId;
+            List<string> list = new List<string>(2);
+            list.Add(Context.ConnectionId);
+            connectedUsers.GetOrAdd(mazeName, list);
         }
 
         public void Hello() {

@@ -1,11 +1,11 @@
 ﻿// Declare a proxy to reference the hub
-var multiHub = $.connection.MazeHub;
-var mazeName = $("#mazeName").val();
-var mazeRows = $("#mazeRows").val();
-var mazeCols = $("#mazeCols").val();
+var multiHub = $.connection.mazeHub;
+var mazeName;
+var mazeRows;
+var mazeCols;
 var myMaze, otherMaze;
 // Create a function that the hub can call to broadcast messages
-multiHub.client.GameList = function (gameList) {
+multiHub.client.gameList = function (gameList) {
     console.log("in gameList()");
     var games = $("#gameList");
     // Add the message to the page
@@ -19,16 +19,21 @@ multiHub.client.GameList = function (gameList) {
 // Start the connection
 $.connection.hub.start().done(function () {
     $("#startGame").click(function () {
+        mazeName = $("#mazeName").val();
+        mazeRows = $("#mazeRows").val();
+        mazeCols = $("#mazeCols").val();
+        console.log("in startGame()");
         multiHub.server.connect(mazeName);
-        multiHub.server.StartGame(mazeName, mazeRows, mazeCols);
+        multiHub.server.startGame(mazeName, mazeRows, mazeCols);
     });
 
-    $("#gameList").click(function() {
-        multiHub.server.GameList();
+    $("#gameList").click(function () {
+        console.log("in gameList()");
+        multiHub.server.gameList();
     });
 });
 
-multiHub.client.StartGameFromJoin = function (data) {
+multiHub.client.startGameFromJoin = function (data) {
     console.log(data);
     myMaze = $.fn.mazeBoard(data, data.Maze, data.Start.Row, data.Start.Col, data.End.Row, data.End.Col, data.Cols, data.Rows, document.getElementById("boardCanvas1"));
     otherMaze = $.fn.mazeBoard(data, data.Maze, data.Start.Row, data.Start.Col, data.End.Row, data.End.Col, data.Cols, data.Rows, document.getElementById("boardCanvas2"));
