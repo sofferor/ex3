@@ -123,6 +123,7 @@
     <Content Include="Html\Login.html" />
     <Content Include="Html\MultiPlayer.html" />
     <Content Include="Html\NavBar.html" />
+    <Content Include="Html\Ranks.html" />
     <Content Include="Html\Register.html" />
     <Content Include="Html\SinglePlayer.html" />
     <Resource Include="Images\logo.png" />
@@ -155,6 +156,7 @@
     <Content Include="Scripts\MultiPlayer.js" />
     <Content Include="Scripts\NavBar.js" />
     <Content Include="Scripts\Registration.js" />
+    <Content Include="Scripts\Settings.js" />
     <Content Include="Scripts\SinglePlayer.js" />
     <Content Include="Web.config" />
   </ItemGroup>

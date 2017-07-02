@@ -7,7 +7,7 @@ namespace WebApp.Models {
     /// <summary>
     /// Class SearchableMazeAdapter.
     /// </summary>
-    /// <seealso cref="SearchAlgorithmsLib.Searchable{MazeLib.Position}" />
+    /// <seealso cref="Position" />
     public class SearchableMazeAdapter : Searchable<Position> {
 
         //members
