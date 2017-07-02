@@ -21,7 +21,13 @@ $.connection.hub.start().done(function () {
         multiHub.server.connect(mazeName);
         multiHub.server.StartGame(mazeName, mazeRows, mazeCols);
     });
+
+    function GetList() {
+        multiHub.server.GameList();
+    });
 });
+
+
 
 multiHub.client.StartGameFromJoin = function (data) {
     console.log(data);
@@ -31,4 +37,4 @@ multiHub.client.StartGameFromJoin = function (data) {
     myMaze.Draw();
     otherMaze.Draw();
     console.log("after Draw mazes");
-});
+};
